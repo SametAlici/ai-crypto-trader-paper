@@ -33,11 +33,13 @@ jobs:
       snapshot_result: ${{ steps.snapshot.outcome }}
     env:
       FREEZE_BASE_REF: HEAD
-      FREEZE_TRANSITION: ${{ runner.temp }}/universe-transition.json
     steps:
       - uses: actions/checkout@v4
         with:
           ref: main
+      # runner context is not available in job-level env; set the path at step level.
+      - name: Set freeze transition path
+        run: echo "FREEZE_TRANSITION=$RUNNER_TEMP/universe-transition.json" >> "$GITHUB_ENV"
       - name: Take pending R7/R8 snapshot after the registered window closes
         id: snapshot
         continue-on-error: true
