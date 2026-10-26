@@ -3,12 +3,16 @@ import argparse
 import csv
 import json
 import math
+import sys
 from datetime import datetime
 from html import escape
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+from scripts.tracks import REFERENCE_TRACKS, TRACKS
+
 DOMAIN = 'trade.blacktowhitestudio.com'
 
 
@@ -35,9 +39,9 @@ def timestamp(value, zone='UTC'):
     return date.astimezone(ZoneInfo(zone)).strftime('%d.%m.%Y %H:%M')
 
 
-def load_reports(results):
+def load_reports(results, tracks=None):
     reports = {}
-    for track in ('r1', 'r5'):
+    for track in (tracks if tracks is not None else TRACKS):
         summary = json.loads((results / track / 'summary.json').read_text(encoding='utf-8'))
         with (results / track / 'equity.csv').open(encoding='utf-8', newline='') as source:
             curve = list(csv.DictReader(source))
@@ -53,7 +57,8 @@ def load_reports(results):
         if [r['date'] for r in curve] != sorted({r['date'] for r in curve}):
             raise ValueError('Equity dates must be unique and ordered')
         reports[track] = (summary, curve)
-    if [r['date'] for r in reports['r1'][1]] != [r['date'] for r in reports['r5'][1]]:
+    if any([r['date'] for r in curve] != [r['date'] for r in reports['r1'][1]]
+           for summary, curve in reports.values() if not summary.get('universe_pending')):
         raise ValueError('Track dates do not match')
     return reports
 
@@ -71,111 +76,111 @@ def benchmark(reports):
             'max_drawdown_pct': drawdown if started else None}
 
 
-def chart(reports):
-    series = [('R1', 'r1', 'equity', '#65e0bf'), ('R5', 'r5', 'equity', '#a99bff'),
-              ('B&H · R5 evreni', 'r5', 'buy_hold_equity', '#ffc97a')]
-    curves = [[row[field] / reports[track][1][0][field] * 100
-               for row in reports[track][1]] for _, track, field, _ in series]
-    low = min(min(c) for c in curves)
-    high = max(max(c) for c in curves)
-    padding = max((high - low) * .12, 1)
-    low, high = low - padding, high + padding
-    svg = ['<svg viewBox="0 0 900 300" role="img" aria-labelledby="chart-title chart-desc">',
-           '<title id="chart-title">R1, R5 ve al-tut net değer eğrileri</title>',
-           '<desc id="chart-desc">Her eğri 100 ile başlar. Ayrıntılı değerler sonuç CSV dosyalarındadır.</desc>']
-    for i in range(5):
-        y = 22 + i * 59
-        svg.append(f'<path d="M65 {y}H880" stroke="#293347"/>')
-        svg.append(f'<text x="5" y="{y + 5}" fill="#aebbd0" font-size="13">'
-                   f'{number(high - i * (high-low)/4)}</text>')
-    for (_, _, _, color), values in zip(series, curves, strict=True):
-        points = ' '.join(f'{65 + i * 815 / max(len(values)-1, 1):.2f},'
-                          f'{22 + (high-v)/(high-low)*236:.2f}' for i, v in enumerate(values))
-        svg.append(f'<polyline points="{points}" fill="none" stroke="{color}" '
-                   'stroke-width="3" stroke-linejoin="round"/>')
-        if len(values) == 1:
-            svg.append(f'<circle cx="65" cy="{22+(high-values[0])/(high-low)*236:.2f}" '
-                       f'r="5" fill="{color}"/>')
-    dates = reports['r1'][1]
-    for x, anchor, date in [(65, 'start', dates[0]['date']), (880, 'end', dates[-1]['date'])]:
-        svg.append(f'<text x="{x}" y="290" text-anchor="{anchor}" fill="#aebbd0" '
-                   f'font-size="13">{timestamp(date)[:10]}</text>')
-    return ''.join(svg) + '</svg>'
+
+REFERENCE_LABEL = ('Geçmiş simülasyon (referans) — ileriye dönük test değildir; '
+                   'bu dönem strateji geliştirmede kullanıldı')
+SUMMARY_FIELDS = ('track', 'start_date', 'updated_utc', 'date', 'status', 'profit_pct',
+                  'max_drawdown_pct', 'trades', 'total_fees_usdt', 'daily_returns',
+                  'buy_hold_pairs', 'open_positions', 'closed_trades', 'fee_stress', 'universe_pending')
+TRADE_FIELDS = ('trade_id', 'pair', 'entry_date', 'entry_price', 'amount', 'profit_usdt',
+                'fees_usdt', 'profit_pct', 'holding_days', 'exit_date', 'exit_price',
+                'valuation_date', 'valuation_price')
+DAILY_FIELDS = ('date', 'return_pct', 'buy_hold_return_pct', 'fees_cumulative',
+                'per_coin_cumulative', 'per_trade_cumulative', 'buy_hold_per_coin_cumulative')
 
 
-def trade_table(reports, opened):
-    field = 'open_positions' if opened else 'closed_trades'
-    rows = []
-    for track, (summary, _) in reports.items():
-        for trade in summary[field]:
-            values = [track.upper(), escape(str(trade['pair'])),
-                      timestamp(trade['entry_date']), number(trade['entry_price'], digits=4),
-                      number(trade['amount'], digits=6),
-                      timestamp(trade['valuation_date'] if opened else trade['exit_date']),
-                      number(trade['valuation_price'] if opened else trade['exit_price'], digits=4),
-                      number(trade['profit_usdt'], signed=True, digits=2)]
-            rows.append('<tr>' + ''.join(f'<td>{v}</td>' for v in values) + '</tr>')
-    if not rows:
-        return '<p class="muted">Henüz açık pozisyon yok.</p>' if opened else (
-            '<p class="muted">Henüz kapanmış işlem yok.</p>')
-    end = 'Değerleme' if opened else 'Çıkış'
-    headers = ['İzlek', 'Parite', 'Giriş (UTC)', 'Giriş fiyatı', 'Miktar',
-               f'{end} (UTC)', f'{end} fiyatı', 'Net K/Z (USDT)']
-    return ('<div class="table-scroll" tabindex="0" role="region" aria-label="İşlemler">'
-            '<table><thead><tr>' + ''.join(f'<th scope="col">{h}</th>' for h in headers)
-            + '</tr></thead><tbody>' + ''.join(rows) + '</tbody></table></div>')
+def public_reports(reports):
+    data = {}
+    for track, (summary, curve) in reports.items():
+        safe = {k: summary[k] for k in SUMMARY_FIELDS if k in summary}
+        for name in ('closed_trades', 'open_positions'):
+            safe[name] = [{k: t[k] for k in TRADE_FIELDS if k in t} for t in safe[name]]
+        safe['daily_returns'] = [{k: d[k] for k in DAILY_FIELDS if k in d}
+                                 for d in safe.get('daily_returns', [])]
+        data[track] = {'summary': safe, 'curve': curve}
+    return data
+
+
+def public_health(results, latest):
+    from scripts.health import run_counts
+    from scripts.reporting import START_DATE
+    path = results / 'health.json'
+    ledger = json.loads(path.read_text()) if path.exists() else {'runs': []}
+    fields = ('run_date', 'success', 'data_freshness', 'pairs_ok', 'pairs_missing',
+              'duration_seconds', 'reason')
+    last_pairs = ledger['runs'][-1].get('after', {}).get('pairs', {}) if ledger['runs'] else {}
+    latest_dates = [d.get('latest_closed') for d in last_pairs.values()]
+    latest_closed = min(latest_dates) if latest_dates and all(latest_dates) else None
+    return {'counts': run_counts(ledger, latest), 'start_date': START_DATE,
+            'latest_closed': latest_closed,
+            'successful_dates': sorted({r['run_date'][:10] for r in ledger['runs']
+                                        if r['success']}),
+            'runs': [{k: r[k] for k in fields if k in r} for r in ledger['runs'][-30:]]}
+
+
+def load_research(directory=ROOT / 'research'):
+    from scripts.secret_scan import inspect_file
+    source = directory / 'research_snapshot.json'
+    if not source.exists():
+        return None
+    files = [source, *sorted((directory / 'research_equity').glob('*.csv'))]
+    if any(inspect_file(p) for p in files):
+        raise ValueError('Research secret scan failed')
+    raw = json.loads(source.read_text())
+    fields = {
+        'strategies': ('name', 'family', 'timeframe', 'description', 'status', 'elimination_reason'),
+        'evaluations': ('strategy', 'evidence_type', 'universe', 'period', 'fee', 'trades',
+                        'net_return_pct', 'max_dd_pct', 'dd_type', 'winrate_pct', 'calmar'),
+        'fee_stress': ('strategy', 'evidence_type', 'universe', 'fee', 'net_return_pct'),
+        'concentration': ('strategy', 'universe', 'fee', 'top3_share_pct',
+                          'without_best1_pct', 'without_best3_pct', 'without_best5_pct'),
+    }
+    result = {key: [{f: row.get(f) for f in allowed} for row in raw[key]]
+              for key, allowed in fields.items()}
+    ai = raw['ai_summary']
+    result['ai_summary'] = {k: ai[k] for k in ('tried', 'calibration_bug', 'verdict')}
+    result['ai_summary']['key_numbers'] = [
+        {k: r.get(k) for k in ('experiment', 'trades', 'net_return_pct', 'max_dd_pct',
+                               'training_events', 'cv_events', 'cv_auc', 'threshold')}
+        for r in ai['key_numbers']]
+    result['decision_criteria'] = raw['decision_criteria']
+    result['limitations'] = raw['meta']['limitations']
+    result['generated_at'] = raw['meta']['generated_at']
+    result['equity_series'] = []
+    for series in raw['equity_series']:
+        path = directory / 'research_equity' / Path(series['csv']).name
+        with path.open(newline='') as source_csv:
+            curve = [{'date': r['date'], 'value': float(r['value'])}
+                     for r in csv.DictReader(source_csv)]
+        if not curve or any(not math.isfinite(r['value']) or r['value'] <= 0 for r in curve):
+            raise ValueError('Invalid research equity')
+        if [r['date'] for r in curve] != sorted({r['date'] for r in curve}):
+            raise ValueError('Invalid research dates')
+        result['equity_series'].append({k: series[k] for k in
+            ('strategy', 'evidence_type', 'fee', 'dd_type', 'sampling')} | {'curve': curve})
+    return result
 
 
 def build_site(results=ROOT / 'results', output=ROOT / 'site'):
     reports = load_reports(results)
-    latest = max((s['updated_utc'] for s, _ in reports.values()),
-                 key=lambda v: datetime.fromisoformat(v))
-    cards = []
-    for track, (summary, _) in reports.items():
-        state = 'Başlamadı' if summary['status'] == 'not_started' else 'İleri dönem sürüyor'
-        cards.append(f'<article class="card {track}"><h2>{track.upper()}</h2>'
-                     f'<p class="muted">{state}</p><strong>{percent(summary["profit_pct"])}</strong>'
-                     f'<dl><dt>En büyük düşüş</dt><dd>{number(summary["max_drawdown_pct"])}%</dd>'
-                     f'<dt>Kapalı işlem</dt><dd>{summary["trades"]:d}</dd>'
-                     f'<dt>Açık pozisyon</dt><dd>{len(summary["open_positions"])}</dd></dl></article>')
-    bh = benchmark(reports)
-    cards.append('<article class="card bh"><h2>Eşit ağırlıklı al-tut</h2>'
-                 '<p class="muted">B&H · R5 evreni / 33 coin</p>'
-                 f'<strong>{percent(bh["profit_pct"])}</strong><dl><dt>En büyük düşüş</dt>'
-                 f'<dd>{number(bh["max_drawdown_pct"]) + "%" if bh["max_drawdown_pct"] is not None else "—"}</dd>'
-                 '<dt>İşlem / açık pozisyon</dt><dd>— / —</dd></dl>'
-                 '<small>Pasif sepet; motor işlem sayacı uygulanmaz.</small></article>')
-    pending = all(s['status'] == 'not_started' for s, _ in reports.values())
-    html = f'''<!doctype html>
-<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="color-scheme" content="dark"><meta name="description" content="R1 ve R5 ileriye dönük sanal test sonuçları">
-<title>Trade Lab — İleriye Dönük Sanal Test</title><link rel="stylesheet" href="style.css"></head>
-<body><main><header><p class="eyebrow">TRADE LAB / GÜNLÜK KAYIT</p>
-<h1>Trade Lab — İleriye Dönük Sanal Test</h1><p>İki sabit strateji. Her gün aynı kurallar.</p>
-<p class="muted">Son güncelleme: {timestamp(latest)} UTC · {timestamp(latest, 'Europe/Istanbul')} Türkiye saati</p>
-<p class="notice">Sanal işlem / simülasyon — yatırım tavsiyesi değildir</p></header>
-{'<section class="panel"><h2>Başlamadı</h2><p>Başlangıç: 27 Ekim 2026 UTC. İlk tam gün kapandıktan sonra sonuç oluşur.</p></section>' if pending else ''}
-<section class="cards" aria-label="Durum kartları">{''.join(cards)}</section>
-<section class="panel"><h2>Net değer · başlangıç 100</h2><p class="legend"><span>● R1</span><span>● R5</span><span>● B&amp;H (R5 evreni)</span></p>
-{chart(reports)}<p class="muted">Günlük noktalar; gün içi hareketleri göstermez.</p></section>
-<section class="panel"><h2>Açık pozisyonlar</h2>{trade_table(reports, True)}</section>
-<section class="panel"><h2>Kapanmış işlemler</h2>{trade_table(reports, False)}</section>
-<section class="panel prose"><h2>Bu kayıt ne anlatıyor?</h2>
-<p>R1, BTC / ETH / SOL üzerinde en fazla 3; R5, 33 coin üzerinde en fazla 5 sanal pozisyon tutar.
-Her izlek 1.000 USDT ile başlar. Günlük kapanmış mumdan sinyal alınır, sonraki mum açılışında giriş yapılır.
-Stratejiler sabittir; AI kullanılmaz ve gerçek emir gönderilmez.</p>
-<p>Al-tut, R5 evrenindeki coinlere eşit başlangıç ağırlığı verir ve yeniden dengelemez.
-R1’in kendi evrenine ait al-tut karşılaştırması sonuç JSON/CSV dosyalarında bulunur.
-Her yönde %0,15 maliyet varsayılır. En büyük düşüş, günlük net değerin önceki zirveden kaybıdır.</p>
-<p>Dönem sonunda motorun zorunlu çıkışları açık pozisyon değerlemesi sayılır; kapalı işlem sayısına eklenmez.
-Son nokta son mum açılışıyla, önceki noktalar kapanışla değerlenir. Son gün sonucu sonraki çalışmada değişebilir.
-Gerçek piyasanın emir gerçekleşmesi ve gecikmeleri modellenmez. Geçmiş sonuçlar gelecekteki getiriyi kanıtlamaz.</p>
-<a href="https://github.com/SametAlici/ai-crypto-trader-paper/tree/main/results">Kaynak veriler ve yöntem ↗</a></section>
-<footer>Sanal işlem / simülasyon — yatırım tavsiyesi değildir</footer></main></body></html>
-'''
+    latest = max(s['updated_utc'] for s, _ in reports.values())
+    views = {'forward': public_reports(reports)}
+    if (results / 'reference/r1/summary.json').exists():
+        views['reference'] = public_reports(load_reports(results / 'reference', REFERENCE_TRACKS))
+    payload = {'registry': TRACKS, 'research': load_research(), 'views': views, 'health': public_health(results, datetime.now(ZoneInfo('UTC')).isoformat())}
+    encoded = json.dumps(payload, ensure_ascii=False, allow_nan=False).replace(
+        '&', '\\u0026').replace('<', '\\u003c').replace('>', '\\u003e')
+    # Script JSON is escaped separately from HTML. Never interpolate input into JavaScript.
+    encoded = encoded.replace(chr(0x2028), '\\u2028').replace(chr(0x2029), '\\u2029')
+    html = (ROOT / 'scripts/site.html').read_text().replace('@@DATA@@', encoded)
+    html = html.replace('@@UPDATED@@', escape(timestamp(latest) + ' UTC · '
+                        + timestamp(latest, 'Europe/Istanbul') + ' Türkiye saati'))
+    html = html.replace('@@REFERENCE@@', REFERENCE_LABEL)
     output.mkdir(parents=True, exist_ok=True)
     (output / 'index.html').write_text(html, encoding='utf-8')
-    (output / 'style.css').write_text((ROOT / 'scripts/site.css').read_text(), encoding='utf-8')
+    for source, target in [('site.css', 'style.css'), ('site.js', 'app.js'),
+                           ('site_metrics.js', 'metrics.js')]:
+        (output / target).write_text((ROOT / 'scripts' / source).read_text(), encoding='utf-8')
     (output / 'CNAME').write_text(DOMAIN + '\n', encoding='utf-8')
     return output / 'index.html'
 

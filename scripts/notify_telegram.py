@@ -10,22 +10,51 @@ from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from scripts.build_site import benchmark, load_reports, percent
+from datetime import UTC
+
+from scripts.build_site import load_reports, number, percent
+from scripts.freeze_check import MESSAGE
+from scripts.health import run_counts
 
 SITE_URL = 'https://trade.blacktowhitestudio.com'
 
 
 def build_message(results=ROOT / 'results', failed=False, run_url=''):
+    snapshot_warning = ('Uyarı: R7/R8 evren snapshot alınamadı; sonraki gece yeniden denenecek.'
+                        if os.environ.get('SNAPSHOT_RESULT') == 'failure' else '')
     if failed:
-        return f'Trade Lab: çalışma başarısız. Ayrıntılar: {run_url}'
+        freeze = os.environ.get('FREEZE_RESULT') == 'failure'
+        health_path = results / 'health.json'
+        if health_path.exists():
+            runs = json.loads(health_path.read_text()).get('runs', [])
+            freeze = freeze or bool(runs and runs[-1].get('reason') == 'freeze')
+        return ('Trade Lab: çalışma başarısız. ' + (MESSAGE if freeze else
+                'Uyarı: çalışma tamamlanmadı; veri/sağlık kontrolü gerekli.')
+                + (f'\n{snapshot_warning}' if snapshot_warning else '')
+                + f'\nAyrıntılar: {run_url}\n{SITE_URL}')
     reports = load_reports(results)
-    r1, r5 = reports['r1'][0], reports['r5'][0]
-    pending = all(s['status'] == 'not_started' for s in (r1, r5))
-    return ('Trade Lab · ' + ('Başlamadı' if pending else 'Günlük sanal test') + '\n'
-            f'R1: {percent(r1["profit_pct"])} · R5: {percent(r5["profit_pct"])}\n'
-            f'B&H (R5): {percent(benchmark(reports)["profit_pct"])}\n'
-            f'Açık pozisyon: R1 {len(r1["open_positions"])} / R5 {len(r5["open_positions"])}\n'
-            f'{SITE_URL}\nSanal işlem; yatırım tavsiyesi değildir.')
+    pending = all(s['status'] == 'not_started' for s, _ in reports.values())
+    lines = ['Trade Lab · ' + ('Başlamadı' if pending else 'Günlük sanal test')]
+    for track, (summary, _) in reports.items():
+        name = track.upper()
+        lines.append(f'{name}: {percent(summary["profit_pct"])} net · '
+                     f'B&H ({name}): {percent(summary.get("buy_hold_profit_pct"))} · '
+                     f'Komisyon: {number(summary.get("total_fees_usdt", 0), digits=2)} USDT')
+        if summary.get('universe_pending'):
+            lines.append(f'{name}: evren snapshot bekleniyor')
+    if snapshot_warning:
+        lines.append(snapshot_warning)
+    lines.append('Açık pozisyon: ' + ' / '.join(
+        f'{t.upper()} {len(s["open_positions"])}' for t, (s, _) in reports.items()))
+    path = results / 'health.json'
+    from datetime import datetime
+    ledger = json.loads(path.read_text()) if path.exists() else {'runs': []}
+    counts = run_counts(ledger, datetime.now(UTC).isoformat())
+    last = ledger['runs'][-1] if ledger['runs'] else None
+    if counts['missing'] or not last or not last['success'] or not last['data_freshness'] or last['pairs_missing']:
+        lines.append('Uyarı: sistem sağlığı / veri tazeliği / eksik çalışma kontrolü gerekli.')
+    return '\n'.join(lines + [SITE_URL, 'Sanal işlem; yatırım tavsiyesi değildir.'])
+
 
 
 def notify(results=ROOT / 'results', failed=False, run_url='', env=None):

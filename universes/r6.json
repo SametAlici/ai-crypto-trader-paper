@@ -1,0 +1,819 @@
+{
+  "snapshot_utc": "2026-10-26T16:41:52.819247+00:00",
+  "source": "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1",
+  "pairs": [
+    "BTC/USDT",
+    "ETH/USDT",
+    "BNB/USDT",
+    "XRP/USDT",
+    "SOL/USDT",
+    "TRX/USDT",
+    "ZEC/USDT",
+    "DOGE/USDT",
+    "LINK/USDT",
+    "ADA/USDT"
+  ],
+  "candidates": [
+    {
+      "symbol": "BTC",
+      "id": "bitcoin",
+      "market_cap_rank": 1,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 1000
+    },
+    {
+      "symbol": "ETH",
+      "id": "ethereum",
+      "market_cap_rank": 2,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 1000
+    },
+    {
+      "symbol": "USDT",
+      "id": "tether",
+      "market_cap_rank": 3,
+      "excluded": true,
+      "active_spot": false,
+      "daily_candles": 0
+    },
+    {
+      "symbol": "BNB",
+      "id": "binancecoin",
+      "market_cap_rank": 4,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 1000
+    },
+    {
+      "symbol": "XRP",
+      "id": "ripple",
+      "market_cap_rank": 5,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 1000
+    },
+    {
+      "symbol": "USDC",
+      "id": "usd-coin",
+      "market_cap_rank": 6,
+      "excluded": true,
+      "active_spot": true,
+      "daily_candles": 0
+    },
+    {
+      "symbol": "SOL",
+      "id": "solana",
+      "market_cap_rank": 7,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 1000
+    },
+    {
+      "symbol": "TRX",
+      "id": "tron",
+      "market_cap_rank": 8,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 1000
+    },
+    {
+      "symbol": "FIGR_HELOC",
+      "id": "figure-heloc",
+      "market_cap_rank": 9,
+      "excluded": false,
+      "active_spot": false,
+      "daily_candles": 0
+    },
+    {
+      "symbol": "ZEC",
+      "id": "zcash",
+      "market_cap_rank": 10,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 1000
+    },
+    {
+      "symbol": "HYPE",
+      "id": "hyperliquid",
+      "market_cap_rank": 11,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 33
+    },
+    {
+      "symbol": "DOGE",
+      "id": "dogecoin",
+      "market_cap_rank": 12,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 1000
+    },
+    {
+      "symbol": "XMR",
+      "id": "monero",
+      "market_cap_rank": 13,
+      "excluded": false,
+      "active_spot": false,
+      "daily_candles": 0
+    },
+    {
+      "symbol": "USDS",
+      "id": "usds",
+      "market_cap_rank": 14,
+      "excluded": true,
+      "active_spot": true,
+      "daily_candles": 0
+    },
+    {
+      "symbol": "WBT",
+      "id": "whitebit",
+      "market_cap_rank": 15,
+      "excluded": true,
+      "active_spot": false,
+      "daily_candles": 0
+    },
+    {
+      "symbol": "LINK",
+      "id": "chainlink",
+      "market_cap_rank": 16,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 1000
+    },
+    {
+      "symbol": "LEO",
+      "id": "leo-token",
+      "market_cap_rank": 17,
+      "excluded": false,
+      "active_spot": false,
+      "daily_candles": 0
+    },
+    {
+      "symbol": "ADA",
+      "id": "cardano",
+      "market_cap_rank": 18,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 1000
+    },
+    {
+      "symbol": "XLM",
+      "id": "stellar",
+      "market_cap_rank": 19,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 1000
+    },
+    {
+      "symbol": "NEAR",
+      "id": "near",
+      "market_cap_rank": 20,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 1000
+    },
+    {
+      "symbol": "RAIN",
+      "id": "rain",
+      "market_cap_rank": 21,
+      "excluded": false,
+      "active_spot": false,
+      "daily_candles": 0
+    },
+    {
+      "symbol": "BCH",
+      "id": "bitcoin-cash",
+      "market_cap_rank": 22,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 1000
+    },
+    {
+      "symbol": "USDE",
+      "id": "ethena-usde",
+      "market_cap_rank": 23,
+      "excluded": true,
+      "active_spot": true,
+      "daily_candles": 0
+    },
+    {
+      "symbol": "DAI",
+      "id": "dai",
+      "market_cap_rank": 24,
+      "excluded": true,
+      "active_spot": false,
+      "daily_candles": 0
+    },
+    {
+      "symbol": "UNI",
+      "id": "uniswap",
+      "market_cap_rank": 25,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 1000
+    },
+    {
+      "symbol": "LTC",
+      "id": "litecoin",
+      "market_cap_rank": 26,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 1000
+    },
+    {
+      "symbol": "CC",
+      "id": "canton-network",
+      "market_cap_rank": 27,
+      "excluded": false,
+      "active_spot": false,
+      "daily_candles": 0
+    },
+    {
+      "symbol": "AVAX",
+      "id": "avalanche-2",
+      "market_cap_rank": 28,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 1000
+    },
+    {
+      "symbol": "USD1",
+      "id": "usd1-wlfi",
+      "market_cap_rank": 29,
+      "excluded": true,
+      "active_spot": true,
+      "daily_candles": 0
+    },
+    {
+      "symbol": "SUI",
+      "id": "sui",
+      "market_cap_rank": 30,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 1000
+    },
+    {
+      "symbol": "GRAM",
+      "id": "the-open-network",
+      "market_cap_rank": 31,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 117
+    },
+    {
+      "symbol": "HBAR",
+      "id": "hedera-hashgraph",
+      "market_cap_rank": 32,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 1000
+    },
+    {
+      "symbol": "XAUT",
+      "id": "tether-gold",
+      "market_cap_rank": 33,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 215
+    },
+    {
+      "symbol": "USDG",
+      "id": "global-dollar",
+      "market_cap_rank": 34,
+      "excluded": true,
+      "active_spot": false,
+      "daily_candles": 0
+    },
+    {
+      "symbol": "QNT",
+      "id": "quant-network",
+      "market_cap_rank": 35,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 1000
+    },
+    {
+      "symbol": "PYUSD",
+      "id": "paypal-usd",
+      "market_cap_rank": 36,
+      "excluded": true,
+      "active_spot": false,
+      "daily_candles": 0
+    },
+    {
+      "symbol": "SHIB",
+      "id": "shiba-inu",
+      "market_cap_rank": 37,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 1000
+    },
+    {
+      "symbol": "TAO",
+      "id": "bittensor",
+      "market_cap_rank": 38,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 929
+    },
+    {
+      "symbol": "ENA",
+      "id": "ethena",
+      "market_cap_rank": 39,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 938
+    },
+    {
+      "symbol": "CRO",
+      "id": "crypto-com-chain",
+      "market_cap_rank": 40,
+      "excluded": false,
+      "active_spot": false,
+      "daily_candles": 0
+    },
+    {
+      "symbol": "RLUSD",
+      "id": "ripple-usd",
+      "market_cap_rank": 41,
+      "excluded": true,
+      "active_spot": true,
+      "daily_candles": 0
+    },
+    {
+      "symbol": "USYC",
+      "id": "hashnote-usyc",
+      "market_cap_rank": 42,
+      "excluded": false,
+      "active_spot": false,
+      "daily_candles": 0
+    },
+    {
+      "symbol": "USDY",
+      "id": "ondo-us-dollar-yield",
+      "market_cap_rank": 43,
+      "excluded": false,
+      "active_spot": false,
+      "daily_candles": 0
+    },
+    {
+      "symbol": "OKB",
+      "id": "okb",
+      "market_cap_rank": 44,
+      "excluded": false,
+      "active_spot": false,
+      "daily_candles": 0
+    },
+    {
+      "symbol": "M",
+      "id": "memecore",
+      "market_cap_rank": 45,
+      "excluded": false,
+      "active_spot": false,
+      "daily_candles": 0
+    },
+    {
+      "symbol": "BUIDL",
+      "id": "blackrock-usd-institutional-digital-liquidity-fund",
+      "market_cap_rank": 46,
+      "excluded": false,
+      "active_spot": false,
+      "daily_candles": 0
+    },
+    {
+      "symbol": "AAVE",
+      "id": "aave",
+      "market_cap_rank": 47,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 1000
+    },
+    {
+      "symbol": "ONDO",
+      "id": "ondo-finance",
+      "market_cap_rank": 48,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 564
+    },
+    {
+      "symbol": "PUMP",
+      "id": "pump-fun",
+      "market_cap_rank": 49,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 411
+    },
+    {
+      "symbol": "USDF",
+      "id": "falcon-finance",
+      "market_cap_rank": 50,
+      "excluded": true,
+      "active_spot": false,
+      "daily_candles": 0
+    },
+    {
+      "symbol": "PEPE",
+      "id": "pepe",
+      "market_cap_rank": 51,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 1000
+    },
+    {
+      "symbol": "PAXG",
+      "id": "pax-gold",
+      "market_cap_rank": 52,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 1000
+    },
+    {
+      "symbol": "EURSAFO",
+      "id": "spiko-amundi-overnight-swap-fund-eur",
+      "market_cap_rank": 53,
+      "excluded": false,
+      "active_spot": false,
+      "daily_candles": 0
+    },
+    {
+      "symbol": "ASTER",
+      "id": "aster-2",
+      "market_cap_rank": 54,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 386
+    },
+    {
+      "symbol": "USDD",
+      "id": "usdd",
+      "market_cap_rank": 55,
+      "excluded": true,
+      "active_spot": false,
+      "daily_candles": 0
+    },
+    {
+      "symbol": "DOT",
+      "id": "polkadot",
+      "market_cap_rank": 56,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 1000
+    },
+    {
+      "symbol": "MNT",
+      "id": "mantle",
+      "market_cap_rank": 57,
+      "excluded": false,
+      "active_spot": false,
+      "daily_candles": 0
+    },
+    {
+      "symbol": "WLFI",
+      "id": "world-liberty-financial",
+      "market_cap_rank": 58,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 421
+    },
+    {
+      "symbol": "WLD",
+      "id": "worldcoin-wld",
+      "market_cap_rank": 59,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 1000
+    },
+    {
+      "symbol": "U",
+      "id": "united-stables",
+      "market_cap_rank": 60,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 287
+    },
+    {
+      "symbol": "SKY",
+      "id": "sky",
+      "market_cap_rank": 61,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 405
+    },
+    {
+      "symbol": "ICP",
+      "id": "internet-computer",
+      "market_cap_rank": 62,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 1000
+    },
+    {
+      "symbol": "HTX",
+      "id": "htx-dao",
+      "market_cap_rank": 63,
+      "excluded": false,
+      "active_spot": false,
+      "daily_candles": 0
+    },
+    {
+      "symbol": "MORPHO",
+      "id": "morpho",
+      "market_cap_rank": 64,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 389
+    },
+    {
+      "symbol": "BTW",
+      "id": "bitway",
+      "market_cap_rank": 65,
+      "excluded": false,
+      "active_spot": false,
+      "daily_candles": 0
+    },
+    {
+      "symbol": "BFUSD",
+      "id": "bfusd",
+      "market_cap_rank": 66,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 440
+    },
+    {
+      "symbol": "BGB",
+      "id": "bitget-token",
+      "market_cap_rank": 67,
+      "excluded": false,
+      "active_spot": false,
+      "daily_candles": 0
+    },
+    {
+      "symbol": "USDGO",
+      "id": "usdgo",
+      "market_cap_rank": 68,
+      "excluded": false,
+      "active_spot": false,
+      "daily_candles": 0
+    },
+    {
+      "symbol": "VVV",
+      "id": "venice-token",
+      "market_cap_rank": 69,
+      "excluded": false,
+      "active_spot": false,
+      "daily_candles": 0
+    },
+    {
+      "symbol": "ETC",
+      "id": "ethereum-classic",
+      "market_cap_rank": 70,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 1000
+    },
+    {
+      "symbol": "ARB",
+      "id": "arbitrum",
+      "market_cap_rank": 71,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 1000
+    },
+    {
+      "symbol": "JST",
+      "id": "just",
+      "market_cap_rank": 72,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 1000
+    },
+    {
+      "symbol": "KCS",
+      "id": "kucoin-shares",
+      "market_cap_rank": 73,
+      "excluded": false,
+      "active_spot": false,
+      "daily_candles": 0
+    },
+    {
+      "symbol": "GT",
+      "id": "gatechain-token",
+      "market_cap_rank": 74,
+      "excluded": false,
+      "active_spot": false,
+      "daily_candles": 0
+    },
+    {
+      "symbol": "KAS",
+      "id": "kaspa",
+      "market_cap_rank": 75,
+      "excluded": false,
+      "active_spot": false,
+      "daily_candles": 0
+    },
+    {
+      "symbol": "POL",
+      "id": "polygon-ecosystem-token",
+      "market_cap_rank": 76,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 774
+    },
+    {
+      "symbol": "ALGO",
+      "id": "algorand",
+      "market_cap_rank": 77,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 1000
+    },
+    {
+      "symbol": "JUP",
+      "id": "jupiter-exchange-solana",
+      "market_cap_rank": 78,
+      "excluded": true,
+      "active_spot": true,
+      "daily_candles": 0
+    },
+    {
+      "symbol": "RENDER",
+      "id": "render-token",
+      "market_cap_rank": 79,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 823
+    },
+    {
+      "symbol": "ATOM",
+      "id": "cosmos",
+      "market_cap_rank": 80,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 1000
+    },
+    {
+      "symbol": "PI",
+      "id": "pi-network",
+      "market_cap_rank": 81,
+      "excluded": false,
+      "active_spot": false,
+      "daily_candles": 0
+    },
+    {
+      "symbol": "OUSD",
+      "id": "open-usd",
+      "market_cap_rank": 82,
+      "excluded": false,
+      "active_spot": false,
+      "daily_candles": 0
+    },
+    {
+      "symbol": "NEXO",
+      "id": "nexo",
+      "market_cap_rank": 83,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 1000
+    },
+    {
+      "symbol": "INJ",
+      "id": "injective-protocol",
+      "market_cap_rank": 84,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 1000
+    },
+    {
+      "symbol": "LIT",
+      "id": "lighter",
+      "market_cap_rank": 85,
+      "excluded": false,
+      "active_spot": false,
+      "daily_candles": 0
+    },
+    {
+      "symbol": "FIL",
+      "id": "filecoin",
+      "market_cap_rank": 86,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 1000
+    },
+    {
+      "symbol": "USTB",
+      "id": "superstate-short-duration-us-government-securities-fund-ustb",
+      "market_cap_rank": 87,
+      "excluded": false,
+      "active_spot": false,
+      "daily_candles": 0
+    },
+    {
+      "symbol": "AKE",
+      "id": "akedo",
+      "market_cap_rank": 88,
+      "excluded": false,
+      "active_spot": false,
+      "daily_candles": 0
+    },
+    {
+      "symbol": "GHO",
+      "id": "gho",
+      "market_cap_rank": 89,
+      "excluded": false,
+      "active_spot": false,
+      "daily_candles": 0
+    },
+    {
+      "symbol": "DASH",
+      "id": "dash",
+      "market_cap_rank": 90,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 1000
+    },
+    {
+      "symbol": "CAKE",
+      "id": "pancakeswap-token",
+      "market_cap_rank": 91,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 1000
+    },
+    {
+      "symbol": "XDC",
+      "id": "xdce-crowd-sale",
+      "market_cap_rank": 92,
+      "excluded": false,
+      "active_spot": false,
+      "daily_candles": 0
+    },
+    {
+      "symbol": "NIGHT",
+      "id": "midnight-3",
+      "market_cap_rank": 93,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 230
+    },
+    {
+      "symbol": "ZRO",
+      "id": "layerzero",
+      "market_cap_rank": 94,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 859
+    },
+    {
+      "symbol": "PEARL",
+      "id": "pearl-2",
+      "market_cap_rank": 95,
+      "excluded": false,
+      "active_spot": false,
+      "daily_candles": 0
+    },
+    {
+      "symbol": "ETHFI",
+      "id": "ether-fi",
+      "market_cap_rank": 96,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 953
+    },
+    {
+      "symbol": "APT",
+      "id": "aptos",
+      "market_cap_rank": 97,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 1000
+    },
+    {
+      "symbol": "PYTH",
+      "id": "pyth-network",
+      "market_cap_rank": 98,
+      "excluded": false,
+      "active_spot": true,
+      "daily_candles": 998
+    },
+    {
+      "symbol": "BDX",
+      "id": "beldex",
+      "market_cap_rank": 99,
+      "excluded": false,
+      "active_spot": false,
+      "daily_candles": 0
+    },
+    {
+      "symbol": "JAAA",
+      "id": "janus-henderson-anemoy-aaa-clo-fund",
+      "market_cap_rank": 100,
+      "excluded": false,
+      "active_spot": false,
+      "daily_candles": 0
+    }
+  ],
+  "status": "ready"
+}

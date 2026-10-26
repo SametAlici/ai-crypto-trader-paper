@@ -7,8 +7,13 @@ on:
     branches: [main]
     paths:
       - 'results/**'
+      - 'research/**'
+      - 'scripts/tracks.py'
       - 'scripts/build_site.py'
       - 'scripts/site.css'
+      - 'scripts/site.html'
+      - 'scripts/site.js'
+      - 'scripts/site_metrics.js'
       - '.github/workflows/nightly.yml'
 permissions:
   contents: read
@@ -19,14 +24,50 @@ jobs:
   forward:
     if: github.ref == 'refs/heads/main' && github.event_name != 'push'
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 20
     permissions:
       contents: write
       actions: write
+    outputs:
+      freeze_result: ${{ steps.freeze.outcome }}
+      snapshot_result: ${{ steps.snapshot.outcome }}
+    env:
+      FREEZE_BASE_REF: HEAD
+      FREEZE_TRANSITION: ${{ runner.temp }}/universe-transition.json
     steps:
       - uses: actions/checkout@v4
         with:
           ref: main
+      - name: Take pending R7/R8 snapshot after the registered window closes
+        id: snapshot
+        continue-on-error: true
+        run: |
+          python3 - <<'PY'
+          import json
+          import subprocess
+          from datetime import datetime, timezone
+          from pathlib import Path
+          pending = json.loads(Path('universes/r7.json').read_text())['status'] == 'pending'
+          if pending and datetime.now(timezone.utc) >= datetime(2026, 10, 27, tzinfo=timezone.utc):
+              subprocess.run(['python3', 'scripts/build_universes.py', '--only', 'r7'], check=True)
+          PY
+      - name: Verify frozen strategies before installing or running
+        id: freeze
+        run: |
+          if ! python3 scripts/freeze_check.py; then
+            python3 - <<'PYCODE'
+          import json
+          from datetime import datetime, timezone
+          from pathlib import Path
+          path = Path('results/health.json')
+          ledger = json.loads(path.read_text()) if path.exists() else {'runs': []}
+          ledger['runs'].append({'run_date': datetime.now(timezone.utc).isoformat(),
+              'success': False, 'data_freshness': False, 'pairs_ok': [], 'pairs_missing': [],
+              'duration_seconds': 0, 'before': {}, 'after': {}, 'reason': 'freeze'})
+          path.write_text(json.dumps(ledger, ensure_ascii=False, indent=2) + '\n')
+          PYCODE
+            exit 1
+          fi
       - name: Scan public source before installing or publishing
         run: python3 scripts/secret_scan.py
       - name: Monthly workflow keepalive (also on manual runs)
@@ -48,15 +89,43 @@ jobs:
         run: |
           python -m pytest -q
           ruff check .
+      - name: UTC date for daily data cache
+        id: cache-date
+        run: echo "day=$(date -u +%F)" >> "$GITHUB_OUTPUT"
+      - uses: actions/cache@v4
+        with:
+          path: data/binance
+          key: daily-ohlcv-${{ runner.os }}-${{ hashFiles('universes/*.json', 'user_data/config_*.json') }}-${{ steps.cache-date.outputs.day }}-${{ github.run_id }}
+          restore-keys: |
+            daily-ohlcv-${{ runner.os }}-${{ hashFiles('universes/*.json', 'user_data/config_*.json') }}-${{ steps.cache-date.outputs.day }}-
+            daily-ohlcv-${{ runner.os }}-${{ hashFiles('universes/*.json', 'user_data/config_*.json') }}-
       - name: Update closed daily data and forward record
+        id: update
         run: python scripts/run_forward.py
+      - name: Record preflight failure when engine was never started
+        if: always() && steps.freeze.outcome == 'success' && steps.update.outcome == 'skipped'
+        run: |
+          python3 - <<'PYCODE'
+          import json
+          from datetime import datetime, timezone
+          from pathlib import Path
+          path = Path('results/health.json')
+          ledger = json.loads(path.read_text()) if path.exists() else {'runs': []}
+          ledger['runs'].append({'run_date': datetime.now(timezone.utc).isoformat(),
+              'success': False, 'data_freshness': False, 'pairs_ok': [], 'pairs_missing': [],
+              'duration_seconds': 0, 'before': {}, 'after': {}, 'reason': 'preflight_failed'})
+          path.write_text(json.dumps(ledger, ensure_ascii=False, indent=2) + '\n')
+          PYCODE
       - name: Scan generated results before committing
-        run: python scripts/secret_scan.py
+        if: always()
+        id: result_scan
+        run: python3 scripts/secret_scan.py
       - name: Commit results if changed
+        if: always() && steps.result_scan.outcome == 'success' && steps.freeze.outcome == 'success'
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -- results/
+          git add -- results/ universes/ frozen.json listing_dates.json user_data/config_r7.json user_data/config_r8.json
           if ! git diff --cached --quiet; then
             git commit -m 'Update forward paper record [skip ci]'
             git push origin HEAD:main
@@ -102,6 +171,8 @@ jobs:
     steps:
       - name: Write success or failure summary
         env:
+          SNAPSHOT_RESULT: ${{ needs.forward.outputs.snapshot_result }}
+          FREEZE_RESULT: ${{ needs.forward.outputs.freeze_result }}
           FORWARD_RESULT: ${{ needs.forward.result }}
           PAGES_RESULT: ${{ needs.pages.result }}
           EVENT_NAME: ${{ github.event_name }}
@@ -134,6 +205,8 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          SNAPSHOT_RESULT: ${{ needs.forward.outputs.snapshot_result }}
+          FREEZE_RESULT: ${{ needs.forward.outputs.freeze_result }}
           FORWARD_RESULT: ${{ needs.forward.result }}
           PAGES_RESULT: ${{ needs.pages.result }}
         run: |

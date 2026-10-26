@@ -1,0 +1,14 @@
+{
+  "status": "pending",
+  "protocol": "PROTOCOL.md",
+  "universe_ref": null,
+  "pairs": [],
+  "slots": 5,
+  "selection": "top 70 by summed daily quoteAssetVolume",
+  "source": "https://data-api.binance.vision/api/v3/",
+  "window_start_inclusive": "2026-09-27",
+  "window_end_exclusive": "2026-10-27",
+  "required_close_utc": "2026-10-27T00:00:00Z",
+  "reason": "The 2026-10-26 UTC daily candle has not closed at the real snapshot attempt",
+  "attempt_utc": "2026-10-26T16:41:52.819247+00:00"
+}

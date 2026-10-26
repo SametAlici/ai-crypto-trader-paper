@@ -1,0 +1,8 @@
+{
+  "status": "pending",
+  "protocol": "PROTOCOL.md",
+  "universe_ref": "r7.json",
+  "pairs": [],
+  "slots": 10,
+  "reason": "R7 closing window pending"
+}

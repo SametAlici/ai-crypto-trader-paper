@@ -1,0 +1,17 @@
+{
+  "algorithm": "SHA256; strategies: bytes; configs: canonical full JSON",
+  "sha256": {
+    "user_data/strategies/R1_TSMomentum.py": "4409843fe32c2de31f8b6b4a4e6b8d1549b09c363213b1f2b0b3fb81ccc4353c",
+    "user_data/strategies/R5_TSMomentum.py": "eaaa81b89f115c26598c3607dbbeb77bbe23383fc42a8f28355a885d8718805d",
+    "user_data/config_r1.json": "beb8b2730bda34b4a55aa7281a4134ad463703c48794a3f67ce02d66bf6450b7",
+    "user_data/config_r5.json": "48a273e699f8d4be8672c9c7bd435b2589645b0cfc98bbb591a4f0e98e020269",
+    "user_data/config_r6.json": "2e806956eec68d2514dda78fa33afdf1d5f04281b73e9b602c1aa97abf90ce31",
+    "user_data/config_r7.json": "4e1df5f9e43a225961774e4aff9832f0e12af56880da055d83cdf07a56d0d79e",
+    "user_data/config_r8.json": "0803a6a1e1a21980c1db80946e903f0bf716f359e67c841766a3a7ff2f9becf2",
+    "universes/PROTOCOL.md": "e90a8e532c3457d2ba3e442360f57a9c65d4c1d74ad50c454d855e4158de158e",
+    "universes/r6.json": "c80c73ebb896da1dc8c635a318bd2eddae51279be3ded2e4df995bb114bba252",
+    "universes/r7.json": "9788c0caf2b0d3164ca302e2c4799fdc7d475c5f259abe95c1c13098ebc12fe9",
+    "universes/r8.json": "44cebcddd65d54cdafbba54f05f1b7ed1a0949e9d3ddf1e29b27b8af8397155c",
+    "scripts/tracks.py": "7915aa173fef18cde0739642fa3139e092fcf51a84958c04b7bd4023dc92f1a7"
+  }
+}

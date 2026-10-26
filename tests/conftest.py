@@ -7,7 +7,7 @@ import pytest
 def reports(tmp_path):
     """Stable reports independent of the live forward period or repository results."""
     dest = tmp_path / 'results'
-    for track in ('r1', 'r5'):
+    for track in ('r1', 'r5', 'r6', 'r7', 'r8'):
         directory = dest / track
         directory.mkdir(parents=True)
         summary = {'track': track, 'start_date': '2026-10-27',

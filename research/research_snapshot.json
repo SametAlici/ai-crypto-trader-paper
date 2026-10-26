@@ -1,0 +1,2128 @@
+{
+  "meta": {
+    "generated_at": "2026-10-26T16:33:47.619848Z",
+    "research_frozen_date": "2026-10-26",
+    "disclaimer": "Tarihsel simülasyon; geçmiş veri strateji geliştirmede kullanıldı; yatırım tavsiyesi değildir.",
+    "units": "Getiri ve düşüş yüzde; ücret tek yön ondalık oran; tarihler UTC.",
+    "missing_values": "Ölçülmeyen veya tanımsız değerler null olarak gösterilir.",
+    "limitations": [
+      "İlk R1 ve R2 testleri o tarihte bağımsızdı; bugün tüm tarihsel veri görülmüştür.",
+      "Sprint 5 seçim dönemiyle örtüşür; R5 33 coin testi tam bağımsız değildir.",
+      "Kilitli holdout açılmıştır; yeni bağımsız kanıt ileriye dönük sanal testtir.",
+      "Cüzdan düşüşü açık pozisyonları içerir; mum içi en kötü kaybı ölçmez.",
+      "Kapanan işlem düşüşü açık zararları içermez; risk düşük görünebilir.",
+      "Aktif coin seçimi ve coinler arası ilişki bağımsızlığı sınırlar.",
+      "En iyi işlemleri çıkarma hesabı sabit işlem katkısıdır; yeni portföy koşusu değildir.",
+      "Aktif aday yalnız sanal gözlem adayıdır; güvenilir kâr avantajı kanıtlanmış değildir."
+    ]
+  },
+  "strategies": [
+    {
+      "name": "EmaTrendStrategy",
+      "family": "Klasik",
+      "timeframe": "1h",
+      "description": "Hareketli ortalama kesişimleriyle trend izler.",
+      "status": "Elendi",
+      "elimination_reason": "Maliyet sonrası yüksek kayıp ve aşırı işlem nedeniyle elendi.",
+      "source": [
+        "research/reports/sprint2_backtest.md",
+        "docs/STATUS.md"
+      ]
+    },
+    {
+      "name": "TrendStrategy",
+      "family": "Klasik",
+      "timeframe": "1h",
+      "description": "Üst zaman dilimi teyidiyle güçlü trendleri izler.",
+      "status": "Elendi",
+      "elimination_reason": "Maliyet sonrası sonuç negatif kaldığı için elendi.",
+      "source": [
+        "research/reports/sprint2_backtest.md",
+        "docs/STATUS.md"
+      ]
+    },
+    {
+      "name": "MeanReversion",
+      "family": "Klasik",
+      "timeframe": "1h",
+      "description": "Uygun piyasa koşullarında aşırı satım dönüşlerini arar.",
+      "status": "Elendi",
+      "elimination_reason": "Yüksek kazanma oranı maliyet sonrası pozitif getiri sağlamadığı için elendi.",
+      "source": [
+        "research/reports/sprint2_backtest.md",
+        "docs/STATUS.md"
+      ]
+    },
+    {
+      "name": "BreakoutStrategy",
+      "family": "Klasik",
+      "timeframe": "1h",
+      "description": "Hacim desteğiyle fiyat kanalı kırılımlarını izler.",
+      "status": "Elendi",
+      "elimination_reason": "Maliyet sonrası sonuç negatif kaldığı için elendi.",
+      "source": [
+        "research/reports/sprint2_backtest.md",
+        "docs/STATUS.md"
+      ]
+    },
+    {
+      "name": "R1_TrendRegime",
+      "family": "Klasik",
+      "timeframe": "4h",
+      "description": "Yükselen trend içinde uzun fiyat kanalı kırılımını arar.",
+      "status": "Elendi",
+      "elimination_reason": "Bağımsız testte net kayıp ve yetersiz dönem tutarlılığı nedeniyle elendi.",
+      "source": [
+        "research/reports/research_round1.md",
+        "docs/STATUS.md"
+      ]
+    },
+    {
+      "name": "R1_MeanRevUptrend",
+      "family": "Klasik",
+      "timeframe": "4h",
+      "description": "Yükseliş rejiminde kısa süreli fiyat düşüşlerini alır.",
+      "status": "Elendi",
+      "elimination_reason": "Bağımsız testte yüksek kayıp ve düşüş nedeniyle elendi.",
+      "source": [
+        "research/reports/research_round1.md",
+        "docs/STATUS.md"
+      ]
+    },
+    {
+      "name": "R1_TSMomentum",
+      "family": "Klasik",
+      "timeframe": "1d",
+      "description": "Bitcoin rejimi uygunsa birkaç aylık momentumu izler.",
+      "status": "Aktif aday",
+      "elimination_reason": null,
+      "source": [
+        "research/reports/research_round1.md",
+        "docs/STATUS.md"
+      ]
+    },
+    {
+      "name": "R5_TSMomentum",
+      "family": "Klasik",
+      "timeframe": "1d",
+      "description": "Aynı momentum kurallarını geniş coin evreninde uygular.",
+      "status": "Aktif aday",
+      "elimination_reason": null,
+      "source": [
+        "research/reports/research_r5.md",
+        "docs/STATUS.md"
+      ]
+    },
+    {
+      "name": "AIHybridStrategy",
+      "family": "AI",
+      "timeframe": "1h",
+      "description": "Tahmini getiriyi maliyet ve piyasa filtreleriyle değerlendirir.",
+      "status": "Elendi",
+      "elimination_reason": "LightGBM ve XGBoost denemeleri maliyet sonrası negatif kaldığı için elendi.",
+      "source": [
+        "research/reports/sprint3_freqai.md",
+        "docs/STATUS.md"
+      ]
+    },
+    {
+      "name": "R3_TSMomentumAI",
+      "family": "AI",
+      "timeframe": "1d",
+      "description": "Momentum girişlerini kâr olasılığı tahminiyle süzer.",
+      "status": "Elendi",
+      "elimination_reason": "Doğrulanmış kalibrasyon ve eşik ölçeği hatası tüm girişleri reddettiği için elendi.",
+      "source": [
+        "research/reports/ai_failure_diagnosis.md",
+        "docs/STATUS.md"
+      ]
+    },
+    {
+      "name": "R4_RawClassifier",
+      "family": "AI",
+      "timeframe": "1d",
+      "description": "Olasılık filtresini tutarlı ham ölçekte sınar.",
+      "status": "Elendi",
+      "elimination_reason": "Ölçek düzeltmesi filtresiz momentuma güvenilir üstünlük sağlamadığı için elendi.",
+      "source": [
+        "research/reports/ai_failure_diagnosis.md",
+        "docs/STATUS.md"
+      ]
+    },
+    {
+      "name": "R4_EV",
+      "family": "AI",
+      "timeframe": "1d",
+      "description": "Beklenen net getiri tahminiyle momentum girişlerini süzer.",
+      "status": "Elendi",
+      "elimination_reason": "Kilitli testte kayıp verdiği ve güvenilir üstünlük sağlamadığı için elendi.",
+      "source": [
+        "research/reports/ai_failure_diagnosis.md",
+        "docs/STATUS.md"
+      ]
+    },
+    {
+      "name": "R4_Risk",
+      "family": "AI",
+      "timeframe": "1d",
+      "description": "Tahmini ters fiyat hareketine göre pozisyon boyutunu ayarlar.",
+      "status": "Elendi",
+      "elimination_reason": "Kilitli testte kayıp verdiği ve güvenilir üstünlük sağlamadığı için elendi.",
+      "source": [
+        "research/reports/ai_failure_diagnosis.md",
+        "docs/STATUS.md"
+      ]
+    },
+    {
+      "name": "R4_Regime",
+      "family": "AI",
+      "timeframe": "1d",
+      "description": "Tahmini piyasa rejimine göre pozisyon boyutunu ayarlar.",
+      "status": "Elendi",
+      "elimination_reason": "Filtresiz momentuma güvenilir üstünlük sağlamadığı için elendi.",
+      "source": [
+        "research/reports/ai_failure_diagnosis.md",
+        "docs/STATUS.md"
+      ]
+    }
+  ],
+  "evaluations": [
+    {
+      "strategy": "R1_MeanRevUptrend",
+      "evidence_type": "Bağımsız test 2024–26",
+      "universe": "BTC/ETH/SOL",
+      "period": "2024-01-01 / 2026-10-25 UTC",
+      "fee": 0.0015,
+      "trades": 249,
+      "net_return_pct": -45.98978363,
+      "max_dd_pct": 49.39229322,
+      "dd_type": "cüzdan",
+      "winrate_pct": 57.02811245,
+      "calmar": -0.3979762,
+      "buyhold_return_pct": 31.37542916,
+      "buyhold_dd_pct": 62.98333757,
+      "source": [
+        "research/experiments/r1_summary.csv",
+        "research/experiments/r1_benchmark.json"
+      ]
+    },
+    {
+      "strategy": "R1_MeanRevUptrend",
+      "evidence_type": "Bağımsız test 2024–26",
+      "universe": "BTC/ETH/SOL",
+      "period": "2024-01-01 / 2026-10-25 UTC",
+      "fee": 0.0025,
+      "trades": 249,
+      "net_return_pct": -54.19797459,
+      "max_dd_pct": 56.91509751,
+      "dd_type": "cüzdan",
+      "winrate_pct": 55.02008032,
+      "calmar": -0.42567735,
+      "buyhold_return_pct": 31.11293981,
+      "buyhold_dd_pct": 62.98333757,
+      "source": [
+        "research/experiments/r1_summary.csv",
+        "research/experiments/r1_benchmark.json"
+      ]
+    },
+    {
+      "strategy": "R1_TSMomentum",
+      "evidence_type": "Bağımsız test 2024–26",
+      "universe": "BTC/ETH/SOL",
+      "period": "2024-01-01 / 2026-10-25 UTC",
+      "fee": 0.0015,
+      "trades": 48,
+      "net_return_pct": 46.63406467,
+      "max_dd_pct": 28.87972219,
+      "dd_type": "cüzdan",
+      "winrate_pct": 31.25,
+      "calmar": 0.50443861,
+      "buyhold_return_pct": 31.37542916,
+      "buyhold_dd_pct": 62.98333757,
+      "source": [
+        "research/experiments/r1_summary.csv",
+        "research/experiments/r1_benchmark.json"
+      ]
+    },
+    {
+      "strategy": "R1_TSMomentum",
+      "evidence_type": "Bağımsız test 2024–26",
+      "universe": "BTC/ETH/SOL",
+      "period": "2024-01-01 / 2026-10-25 UTC",
+      "fee": 0.0025,
+      "trades": 48,
+      "net_return_pct": 43.62962732,
+      "max_dd_pct": 29.3969638,
+      "dd_type": "cüzdan",
+      "winrate_pct": 29.16666667,
+      "calmar": 0.46700168,
+      "buyhold_return_pct": 31.11293981,
+      "buyhold_dd_pct": 62.98333757,
+      "source": [
+        "research/experiments/r1_summary.csv",
+        "research/experiments/r1_benchmark.json"
+      ]
+    },
+    {
+      "strategy": "R1_TrendRegime",
+      "evidence_type": "Bağımsız test 2024–26",
+      "universe": "BTC/ETH/SOL",
+      "period": "2024-01-01 / 2026-10-25 UTC",
+      "fee": 0.0015,
+      "trades": 32,
+      "net_return_pct": -10.69709098,
+      "max_dd_pct": 26.43692587,
+      "dd_type": "cüzdan",
+      "winrate_pct": 40.625,
+      "calmar": -0.14903488,
+      "buyhold_return_pct": 31.37542916,
+      "buyhold_dd_pct": 62.98333757,
+      "source": [
+        "research/experiments/r1_summary.csv",
+        "research/experiments/r1_benchmark.json"
+      ]
+    },
+    {
+      "strategy": "R1_TrendRegime",
+      "evidence_type": "Bağımsız test 2024–26",
+      "universe": "BTC/ETH/SOL",
+      "period": "2024-01-01 / 2026-10-25 UTC",
+      "fee": 0.0025,
+      "trades": 32,
+      "net_return_pct": -12.52306203,
+      "max_dd_pct": 27.06449643,
+      "dd_type": "cüzdan",
+      "winrate_pct": 40.625,
+      "calmar": -0.17153599,
+      "buyhold_return_pct": 31.11293981,
+      "buyhold_dd_pct": 62.98333757,
+      "source": [
+        "research/experiments/r1_summary.csv",
+        "research/experiments/r1_benchmark.json"
+      ]
+    },
+    {
+      "strategy": "AIHybridStrategy",
+      "evidence_type": "AI 2024–26",
+      "universe": "BTC/ETH/SOL",
+      "period": "2024-01-01 / 2026-10-26 UTC",
+      "fee": 0.0015,
+      "trades": 51,
+      "net_return_pct": -9.28669774,
+      "max_dd_pct": 13.48793904,
+      "dd_type": "kapanan işlem",
+      "winrate_pct": 52.94117647,
+      "calmar": -0.25170134,
+      "buyhold_return_pct": 30.25273983,
+      "buyhold_dd_pct": 62.40429212,
+      "source": [
+        "research/results/summary.json",
+        "research/results/equity/AIHybridStrategy_fee_0.0015.csv",
+        "research/results/equity/AIHybridStrategy_fee_0.0015_BuyHold_EW.csv"
+      ]
+    },
+    {
+      "strategy": "AIHybridStrategy",
+      "evidence_type": "AI 2024–26",
+      "universe": "BTC/ETH/SOL",
+      "period": "2024-01-01 / 2026-10-26 UTC",
+      "fee": 0.0025,
+      "trades": 51,
+      "net_return_pct": -11.48215061,
+      "max_dd_pct": 14.55219658,
+      "dd_type": "kapanan işlem",
+      "winrate_pct": 52.94117647,
+      "calmar": -0.29067939,
+      "buyhold_return_pct": 30.25273983,
+      "buyhold_dd_pct": 62.40429212,
+      "source": [
+        "research/results/summary.json",
+        "research/results/equity/AIHybridStrategy_fee_0.0025.csv",
+        "research/results/equity/AIHybridStrategy_fee_0.0025_BuyHold_EW.csv"
+      ]
+    },
+    {
+      "strategy": "BreakoutStrategy",
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "universe": "BTC/ETH/SOL",
+      "period": "2023-01-01 / 2026-10-26 UTC",
+      "fee": 0.0015,
+      "trades": 1180,
+      "net_return_pct": -18.01534951,
+      "max_dd_pct": 21.55006859,
+      "dd_type": "kapanan işlem",
+      "winrate_pct": 46.18644068,
+      "calmar": -0.23501503,
+      "buyhold_return_pct": 466.69330339,
+      "buyhold_dd_pct": 68.55931324,
+      "source": [
+        "research/results/summary.json",
+        "research/results/equity/BreakoutStrategy_fee_0.0015.csv",
+        "research/results/equity/BreakoutStrategy_fee_0.0015_BuyHold_EW.csv"
+      ]
+    },
+    {
+      "strategy": "BreakoutStrategy",
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "universe": "BTC/ETH/SOL",
+      "period": "2023-01-01 / 2026-10-26 UTC",
+      "fee": 0.002,
+      "trades": 1175,
+      "net_return_pct": -25.7900493,
+      "max_dd_pct": 28.22383667,
+      "dd_type": "kapanan işlem",
+      "winrate_pct": 45.44680851,
+      "calmar": -0.26599808,
+      "buyhold_return_pct": 466.69330339,
+      "buyhold_dd_pct": 68.55931324,
+      "source": [
+        "research/results/summary.json",
+        "research/results/equity/BreakoutStrategy_fee_0.002.csv",
+        "research/results/equity/BreakoutStrategy_fee_0.002_BuyHold_EW.csv"
+      ]
+    },
+    {
+      "strategy": "BreakoutStrategy",
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "universe": "BTC/ETH/SOL",
+      "period": "2023-01-01 / 2026-10-26 UTC",
+      "fee": 0.0025,
+      "trades": 1165,
+      "net_return_pct": -33.74637677,
+      "max_dd_pct": 35.46328137,
+      "dd_type": "kapanan işlem",
+      "winrate_pct": 44.12017167,
+      "calmar": -0.2879515,
+      "buyhold_return_pct": 466.69330339,
+      "buyhold_dd_pct": 68.55931324,
+      "source": [
+        "research/results/summary.json",
+        "research/results/equity/BreakoutStrategy_fee_0.0025.csv",
+        "research/results/equity/BreakoutStrategy_fee_0.0025_BuyHold_EW.csv"
+      ]
+    },
+    {
+      "strategy": "EmaTrendStrategy",
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "universe": "BTC/ETH/SOL",
+      "period": "2023-01-01 / 2026-10-26 UTC",
+      "fee": 0.0015,
+      "trades": 2666,
+      "net_return_pct": -83.81839925,
+      "max_dd_pct": 88.19628314,
+      "dd_type": "kapanan işlem",
+      "winrate_pct": 44.29857464,
+      "calmar": -0.42980461,
+      "buyhold_return_pct": 466.69330339,
+      "buyhold_dd_pct": 68.55931324,
+      "source": [
+        "research/results/summary.json",
+        "research/results/equity/EmaTrendStrategy_fee_0.0015.csv",
+        "research/results/equity/EmaTrendStrategy_fee_0.0015_BuyHold_EW.csv"
+      ]
+    },
+    {
+      "strategy": "EmaTrendStrategy",
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "universe": "BTC/ETH/SOL",
+      "period": "2023-01-01 / 2026-10-26 UTC",
+      "fee": 0.002,
+      "trades": 2626,
+      "net_return_pct": -93.05295329,
+      "max_dd_pct": 94.77625152,
+      "dd_type": "kapanan işlem",
+      "winrate_pct": 43.79284082,
+      "calmar": -0.52999616,
+      "buyhold_return_pct": 466.69330339,
+      "buyhold_dd_pct": 68.55931324,
+      "source": [
+        "research/results/summary.json",
+        "research/results/equity/EmaTrendStrategy_fee_0.002.csv",
+        "research/results/equity/EmaTrendStrategy_fee_0.002_BuyHold_EW.csv"
+      ]
+    },
+    {
+      "strategy": "EmaTrendStrategy",
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "universe": "BTC/ETH/SOL",
+      "period": "2023-01-01 / 2026-10-26 UTC",
+      "fee": 0.0025,
+      "trades": 2580,
+      "net_return_pct": -96.89899445,
+      "max_dd_pct": 97.55589355,
+      "dd_type": "kapanan işlem",
+      "winrate_pct": 42.51937984,
+      "calmar": -0.61195832,
+      "buyhold_return_pct": 466.69330339,
+      "buyhold_dd_pct": 68.55931324,
+      "source": [
+        "research/results/summary.json",
+        "research/results/equity/EmaTrendStrategy_fee_0.0025.csv",
+        "research/results/equity/EmaTrendStrategy_fee_0.0025_BuyHold_EW.csv"
+      ]
+    },
+    {
+      "strategy": "MeanReversion",
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "universe": "BTC/ETH/SOL",
+      "period": "2023-01-01 / 2026-10-26 UTC",
+      "fee": 0.0015,
+      "trades": 370,
+      "net_return_pct": -9.18668346,
+      "max_dd_pct": 11.4809282,
+      "dd_type": "kapanan işlem",
+      "winrate_pct": 60.27027027,
+      "calmar": -0.21686729,
+      "buyhold_return_pct": 466.69330339,
+      "buyhold_dd_pct": 68.55931324,
+      "source": [
+        "research/results/summary.json",
+        "research/results/equity/MeanReversion_fee_0.0015.csv",
+        "research/results/equity/MeanReversion_fee_0.0015_BuyHold_EW.csv"
+      ]
+    },
+    {
+      "strategy": "MeanReversion",
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "universe": "BTC/ETH/SOL",
+      "period": "2023-01-01 / 2026-10-26 UTC",
+      "fee": 0.002,
+      "trades": 367,
+      "net_return_pct": -12.29289454,
+      "max_dd_pct": 13.27438866,
+      "dd_type": "kapanan işlem",
+      "winrate_pct": 57.22070845,
+      "calmar": -0.2541549,
+      "buyhold_return_pct": 466.69330339,
+      "buyhold_dd_pct": 68.55931324,
+      "source": [
+        "research/results/summary.json",
+        "research/results/equity/MeanReversion_fee_0.002.csv",
+        "research/results/equity/MeanReversion_fee_0.002_BuyHold_EW.csv"
+      ]
+    },
+    {
+      "strategy": "MeanReversion",
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "universe": "BTC/ETH/SOL",
+      "period": "2023-01-01 / 2026-10-26 UTC",
+      "fee": 0.0025,
+      "trades": 365,
+      "net_return_pct": -14.749987,
+      "max_dd_pct": 15.42788245,
+      "dd_type": "kapanan işlem",
+      "winrate_pct": 54.79452055,
+      "calmar": -0.26507008,
+      "buyhold_return_pct": 466.69330339,
+      "buyhold_dd_pct": 68.55931324,
+      "source": [
+        "research/results/summary.json",
+        "research/results/equity/MeanReversion_fee_0.0025.csv",
+        "research/results/equity/MeanReversion_fee_0.0025_BuyHold_EW.csv"
+      ]
+    },
+    {
+      "strategy": "R1_MeanRevUptrend",
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "universe": "BTC/ETH/SOL",
+      "period": "2023-01-01 / 2026-10-26 UTC",
+      "fee": 0.0015,
+      "trades": 348,
+      "net_return_pct": -36.768545,
+      "max_dd_pct": 46.83727893,
+      "dd_type": "kapanan işlem",
+      "winrate_pct": 60.05747126,
+      "calmar": -0.24130095,
+      "buyhold_return_pct": 464.4572111,
+      "buyhold_dd_pct": 68.55931324,
+      "source": [
+        "research/results/summary.json",
+        "research/results/equity/R1_MeanRevUptrend_fee_0.0015.csv",
+        "research/results/equity/R1_MeanRevUptrend_fee_0.0015_BuyHold_EW.csv"
+      ]
+    },
+    {
+      "strategy": "R1_MeanRevUptrend",
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "universe": "BTC/ETH/SOL",
+      "period": "2023-01-01 / 2026-10-26 UTC",
+      "fee": 0.002,
+      "trades": 348,
+      "net_return_pct": -43.65688142,
+      "max_dd_pct": 50.85924992,
+      "dd_type": "kapanan işlem",
+      "winrate_pct": 58.90804598,
+      "calmar": -0.27406449,
+      "buyhold_return_pct": 464.4572111,
+      "buyhold_dd_pct": 68.55931324,
+      "source": [
+        "research/results/summary.json",
+        "research/results/equity/R1_MeanRevUptrend_fee_0.002.csv",
+        "research/results/equity/R1_MeanRevUptrend_fee_0.002_BuyHold_EW.csv"
+      ]
+    },
+    {
+      "strategy": "R1_MeanRevUptrend",
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "universe": "BTC/ETH/SOL",
+      "period": "2023-01-01 / 2026-10-26 UTC",
+      "fee": 0.0025,
+      "trades": 348,
+      "net_return_pct": -49.79349485,
+      "max_dd_pct": 54.57514431,
+      "dd_type": "kapanan işlem",
+      "winrate_pct": 57.75862069,
+      "calmar": -0.3022729,
+      "buyhold_return_pct": 464.4572111,
+      "buyhold_dd_pct": 68.55931324,
+      "source": [
+        "research/results/summary.json",
+        "research/results/equity/R1_MeanRevUptrend_fee_0.0025.csv",
+        "research/results/equity/R1_MeanRevUptrend_fee_0.0025_BuyHold_EW.csv"
+      ]
+    },
+    {
+      "strategy": "R1_TSMomentum",
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "universe": "BTC/ETH/SOL",
+      "period": "2023-01-01 / 2026-10-25 UTC",
+      "fee": 0.0015,
+      "trades": 67,
+      "net_return_pct": 188.87983219,
+      "max_dd_pct": 13.10363522,
+      "dd_type": "kapanan işlem",
+      "winrate_pct": 32.8358209,
+      "calmar": 2.44343038,
+      "buyhold_return_pct": 470.86763981,
+      "buyhold_dd_pct": 68.55931324,
+      "source": [
+        "research/results/summary.json",
+        "research/results/equity/R1_TSMomentum_fee_0.0015.csv",
+        "research/results/equity/R1_TSMomentum_fee_0.0015_BuyHold_EW.csv"
+      ]
+    },
+    {
+      "strategy": "R1_TSMomentum",
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "universe": "BTC/ETH/SOL",
+      "period": "2023-01-01 / 2026-10-25 UTC",
+      "fee": 0.002,
+      "trades": 67,
+      "net_return_pct": 184.51111731,
+      "max_dd_pct": 13.39146143,
+      "dd_type": "kapanan işlem",
+      "winrate_pct": 31.34328358,
+      "calmar": 2.35165675,
+      "buyhold_return_pct": 470.86763981,
+      "buyhold_dd_pct": 68.55931324,
+      "source": [
+        "research/results/summary.json",
+        "research/results/equity/R1_TSMomentum_fee_0.002.csv",
+        "research/results/equity/R1_TSMomentum_fee_0.002_BuyHold_EW.csv"
+      ]
+    },
+    {
+      "strategy": "R1_TSMomentum",
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "universe": "BTC/ETH/SOL",
+      "period": "2023-01-01 / 2026-10-25 UTC",
+      "fee": 0.0025,
+      "trades": 67,
+      "net_return_pct": 180.15901782,
+      "max_dd_pct": 13.68058167,
+      "dd_type": "kapanan işlem",
+      "winrate_pct": 31.34328358,
+      "calmar": 2.26324162,
+      "buyhold_return_pct": 470.86763981,
+      "buyhold_dd_pct": 68.55931324,
+      "source": [
+        "research/results/summary.json",
+        "research/results/equity/R1_TSMomentum_fee_0.0025.csv",
+        "research/results/equity/R1_TSMomentum_fee_0.0025_BuyHold_EW.csv"
+      ]
+    },
+    {
+      "strategy": "R1_TrendRegime",
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "universe": "BTC/ETH/SOL",
+      "period": "2023-01-01 / 2026-10-26 UTC",
+      "fee": 0.0015,
+      "trades": 44,
+      "net_return_pct": 62.96606893,
+      "max_dd_pct": 19.38010767,
+      "dd_type": "kapanan işlem",
+      "winrate_pct": 43.18181818,
+      "calmar": 0.70332489,
+      "buyhold_return_pct": 464.4572111,
+      "buyhold_dd_pct": 68.55931324,
+      "source": [
+        "research/results/summary.json",
+        "research/results/equity/R1_TrendRegime_fee_0.0015.csv",
+        "research/results/equity/R1_TrendRegime_fee_0.0015_BuyHold_EW.csv"
+      ]
+    },
+    {
+      "strategy": "R1_TrendRegime",
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "universe": "BTC/ETH/SOL",
+      "period": "2023-01-01 / 2026-10-26 UTC",
+      "fee": 0.002,
+      "trades": 44,
+      "net_return_pct": 60.76245471,
+      "max_dd_pct": 19.56679001,
+      "dd_type": "kapanan işlem",
+      "winrate_pct": 43.18181818,
+      "calmar": 0.675965,
+      "buyhold_return_pct": 464.4572111,
+      "buyhold_dd_pct": 68.55931324,
+      "source": [
+        "research/results/summary.json",
+        "research/results/equity/R1_TrendRegime_fee_0.002.csv",
+        "research/results/equity/R1_TrendRegime_fee_0.002_BuyHold_EW.csv"
+      ]
+    },
+    {
+      "strategy": "R1_TrendRegime",
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "universe": "BTC/ETH/SOL",
+      "period": "2023-01-01 / 2026-10-26 UTC",
+      "fee": 0.0025,
+      "trades": 44,
+      "net_return_pct": 58.56487141,
+      "max_dd_pct": 19.75878807,
+      "dd_type": "kapanan işlem",
+      "winrate_pct": 43.18181818,
+      "calmar": 0.64879642,
+      "buyhold_return_pct": 464.4572111,
+      "buyhold_dd_pct": 68.55931324,
+      "source": [
+        "research/results/summary.json",
+        "research/results/equity/R1_TrendRegime_fee_0.0025.csv",
+        "research/results/equity/R1_TrendRegime_fee_0.0025_BuyHold_EW.csv"
+      ]
+    },
+    {
+      "strategy": "TrendStrategy",
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "universe": "BTC/ETH/SOL",
+      "period": "2023-01-01 / 2026-10-26 UTC",
+      "fee": 0.0015,
+      "trades": 1150,
+      "net_return_pct": -48.53076408,
+      "max_dd_pct": 49.49758755,
+      "dd_type": "kapanan işlem",
+      "winrate_pct": 33.2173913,
+      "calmar": -0.32228052,
+      "buyhold_return_pct": 466.69330339,
+      "buyhold_dd_pct": 68.55931324,
+      "source": [
+        "research/results/summary.json",
+        "research/results/equity/TrendStrategy_fee_0.0015.csv",
+        "research/results/equity/TrendStrategy_fee_0.0015_BuyHold_EW.csv"
+      ]
+    },
+    {
+      "strategy": "TrendStrategy",
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "universe": "BTC/ETH/SOL",
+      "period": "2023-01-01 / 2026-10-26 UTC",
+      "fee": 0.002,
+      "trades": 1139,
+      "net_return_pct": -56.2932743,
+      "max_dd_pct": 56.81329723,
+      "dd_type": "kapanan işlem",
+      "winrate_pct": 31.51887621,
+      "calmar": -0.3427269,
+      "buyhold_return_pct": 466.69330339,
+      "buyhold_dd_pct": 68.55931324,
+      "source": [
+        "research/results/summary.json",
+        "research/results/equity/TrendStrategy_fee_0.002.csv",
+        "research/results/equity/TrendStrategy_fee_0.002_BuyHold_EW.csv"
+      ]
+    },
+    {
+      "strategy": "TrendStrategy",
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "universe": "BTC/ETH/SOL",
+      "period": "2023-01-01 / 2026-10-26 UTC",
+      "fee": 0.0025,
+      "trades": 1135,
+      "net_return_pct": -62.77927222,
+      "max_dd_pct": 63.14240022,
+      "dd_type": "kapanan işlem",
+      "winrate_pct": 30.30837004,
+      "calmar": -0.36086589,
+      "buyhold_return_pct": 466.69330339,
+      "buyhold_dd_pct": 68.55931324,
+      "source": [
+        "research/results/summary.json",
+        "research/results/equity/TrendStrategy_fee_0.0025.csv",
+        "research/results/equity/TrendStrategy_fee_0.0025_BuyHold_EW.csv"
+      ]
+    },
+    {
+      "strategy": "R1_TSMomentum",
+      "evidence_type": "Görülmemiş 10 coin (R2)",
+      "universe": "BNB/XRP/ADA/AVAX/LINK/DOGE/DOT/LTC/TRX/ATOM (3 pozisyon)",
+      "period": "2024-01-01 / 2026-10-25 UTC",
+      "fee": 0.0015,
+      "trades": 81,
+      "net_return_pct": 28.73410025,
+      "max_dd_pct": 45.75713273,
+      "dd_type": "cüzdan",
+      "winrate_pct": 38.27160494,
+      "calmar": 0.20519566,
+      "buyhold_return_pct": 8.05668004,
+      "buyhold_dd_pct": 62.9556292,
+      "source": [
+        "research/experiments/r2_summary.csv",
+        "research/experiments/r2_universe_oos_m3_f0.0015.json"
+      ]
+    },
+    {
+      "strategy": "R1_TSMomentum",
+      "evidence_type": "Görülmemiş 10 coin (R2)",
+      "universe": "BNB/XRP/ADA/AVAX/LINK/DOGE/DOT/LTC/TRX/ATOM (5 pozisyon)",
+      "period": "2024-01-01 / 2026-10-25 UTC",
+      "fee": 0.0015,
+      "trades": 118,
+      "net_return_pct": 26.14314189,
+      "max_dd_pct": 35.67606045,
+      "dd_type": "cüzdan",
+      "winrate_pct": 34.74576271,
+      "calmar": 0.24110836,
+      "buyhold_return_pct": 8.05668004,
+      "buyhold_dd_pct": 62.9556292,
+      "source": [
+        "research/experiments/r2_summary.csv",
+        "research/experiments/r2_universe_oos_m5_f0.0015.json"
+      ]
+    },
+    {
+      "strategy": "R1_TSMomentum",
+      "evidence_type": "Görülmemiş 10 coin (R2)",
+      "universe": "BNB/XRP/ADA/AVAX/LINK/DOGE/DOT/LTC/TRX/ATOM (3 pozisyon)",
+      "period": "2024-01-01 / 2026-10-25 UTC",
+      "fee": 0.0025,
+      "trades": 81,
+      "net_return_pct": 24.33220472,
+      "max_dd_pct": 46.69127838,
+      "dd_type": "cüzdan",
+      "winrate_pct": 35.80246914,
+      "calmar": 0.17230752,
+      "buyhold_return_pct": 7.84078176,
+      "buyhold_dd_pct": 62.9556292,
+      "source": [
+        "research/experiments/r2_summary.csv",
+        "research/experiments/r2_universe_oos_m3_f0.0025.json"
+      ]
+    },
+    {
+      "strategy": "R1_TSMomentum",
+      "evidence_type": "Görülmemiş 10 coin (R2)",
+      "universe": "BNB/XRP/ADA/AVAX/LINK/DOGE/DOT/LTC/TRX/ATOM (5 pozisyon)",
+      "period": "2024-01-01 / 2026-10-25 UTC",
+      "fee": 0.0025,
+      "trades": 118,
+      "net_return_pct": 22.49649908,
+      "max_dd_pct": 36.52017209,
+      "dd_type": "cüzdan",
+      "winrate_pct": 33.05084746,
+      "calmar": 0.2047019,
+      "buyhold_return_pct": 7.84078176,
+      "buyhold_dd_pct": 62.9556292,
+      "source": [
+        "research/experiments/r2_summary.csv",
+        "research/experiments/r2_universe_oos_m5_f0.0025.json"
+      ]
+    },
+    {
+      "strategy": "R5_TSMomentum",
+      "evidence_type": "33 coin 2024–26 (R5)",
+      "universe": "33 coin (5 pozisyon, V1)",
+      "period": "2024-01-01 / 2026-10-25 UTC",
+      "fee": 0.0015,
+      "trades": 144,
+      "net_return_pct": 43.62946607,
+      "max_dd_pct": 40.27637323,
+      "dd_type": "cüzdan",
+      "winrate_pct": 32.63888889,
+      "calmar": 0.34085458,
+      "buyhold_return_pct": -25.76512587,
+      "buyhold_dd_pct": 73.57896372,
+      "source": [
+        "research/experiments/r5_results.json",
+        "research/experiments/r5_oos_v1_f0.0015.json"
+      ]
+    },
+    {
+      "strategy": "R5_TSMomentum",
+      "evidence_type": "33 coin 2024–26 (R5)",
+      "universe": "33 coin (8 pozisyon, V2)",
+      "period": "2024-01-01 / 2026-10-25 UTC",
+      "fee": 0.0015,
+      "trades": 203,
+      "net_return_pct": 21.74832704,
+      "max_dd_pct": 31.50389939,
+      "dd_type": "cüzdan",
+      "winrate_pct": 33.99014778,
+      "calmar": 0.22987813,
+      "buyhold_return_pct": -25.76512587,
+      "buyhold_dd_pct": 73.57896372,
+      "source": [
+        "research/experiments/r5_results.json",
+        "research/experiments/r5_oos_v2_f0.0015.json"
+      ]
+    },
+    {
+      "strategy": "R5_TSMomentum",
+      "evidence_type": "33 coin 2024–26 (R5)",
+      "universe": "33 coin (5 pozisyon, V1)",
+      "period": "2024-01-01 / 2026-10-25 UTC",
+      "fee": 0.0025,
+      "trades": 144,
+      "net_return_pct": 38.91578703,
+      "max_dd_pct": 41.2254973,
+      "dd_type": "cüzdan",
+      "winrate_pct": 31.25,
+      "calmar": 0.30049317,
+      "buyhold_return_pct": -25.91344786,
+      "buyhold_dd_pct": 73.57896372,
+      "source": [
+        "research/experiments/r5_results.json",
+        "research/experiments/r5_oos_v1_f0.0025.json"
+      ]
+    },
+    {
+      "strategy": "R5_TSMomentum",
+      "evidence_type": "33 coin 2024–26 (R5)",
+      "universe": "33 coin (8 pozisyon, V2)",
+      "period": "2024-01-01 / 2026-10-25 UTC",
+      "fee": 0.0025,
+      "trades": 203,
+      "net_return_pct": 18.27551665,
+      "max_dd_pct": 32.68085616,
+      "dd_type": "cüzdan",
+      "winrate_pct": 32.01970443,
+      "calmar": 0.18803142,
+      "buyhold_return_pct": -25.91344786,
+      "buyhold_dd_pct": 73.57896372,
+      "source": [
+        "research/experiments/r5_results.json",
+        "research/experiments/r5_oos_v2_f0.0025.json"
+      ]
+    },
+    {
+      "strategy": "R3_TSMomentumAI",
+      "evidence_type": "AI 2024–26",
+      "universe": "BTC/ETH/SOL",
+      "period": "2024-01-01 / 2026-10-25 UTC",
+      "fee": 0.0015,
+      "trades": 0,
+      "net_return_pct": 0.0,
+      "max_dd_pct": 0.0,
+      "dd_type": "cüzdan",
+      "winrate_pct": null,
+      "calmar": null,
+      "buyhold_return_pct": null,
+      "buyhold_dd_pct": null,
+      "source": [
+        "research/experiments/r3_results.json"
+      ],
+      "note": "Tarihsel veri artık görülmüştür."
+    },
+    {
+      "strategy": "R3_TSMomentumAI",
+      "evidence_type": "AI 2024–26",
+      "universe": "BTC/ETH/SOL",
+      "period": "2024-01-01 / 2026-10-25 UTC",
+      "fee": 0.0025,
+      "trades": 0,
+      "net_return_pct": 0.0,
+      "max_dd_pct": 0.0,
+      "dd_type": "cüzdan",
+      "winrate_pct": null,
+      "calmar": null,
+      "buyhold_return_pct": null,
+      "buyhold_dd_pct": null,
+      "source": [
+        "research/experiments/r3_results.json"
+      ],
+      "note": "Tarihsel veri artık görülmüştür."
+    },
+    {
+      "strategy": "R3_TSMomentumAI",
+      "evidence_type": "AI 2024–26",
+      "universe": "20 eğitim coini (yıllık güncelleme)",
+      "period": "2024-01-01 / 2026-10-25 UTC",
+      "fee": 0.0015,
+      "trades": 0,
+      "net_return_pct": 0.0,
+      "max_dd_pct": 0.0,
+      "dd_type": "cüzdan",
+      "winrate_pct": null,
+      "calmar": null,
+      "buyhold_return_pct": null,
+      "buyhold_dd_pct": null,
+      "source": [
+        "research/experiments/r3_results.json"
+      ],
+      "note": "Tarihsel veri artık görülmüştür."
+    },
+    {
+      "strategy": "R3_TSMomentumAI",
+      "evidence_type": "AI 2024–26",
+      "universe": "20 eğitim coini (yıllık güncelleme)",
+      "period": "2024-01-01 / 2026-10-25 UTC",
+      "fee": 0.0025,
+      "trades": 0,
+      "net_return_pct": 0.0,
+      "max_dd_pct": 0.0,
+      "dd_type": "cüzdan",
+      "winrate_pct": null,
+      "calmar": null,
+      "buyhold_return_pct": null,
+      "buyhold_dd_pct": null,
+      "source": [
+        "research/experiments/r3_results.json"
+      ],
+      "note": "Tarihsel veri artık görülmüştür."
+    },
+    {
+      "strategy": "R1_TSMomentum",
+      "evidence_type": "AI 2024–26",
+      "universe": "20 eğitim coini (yıllık güncelleme)",
+      "period": "2024-01-01 / 2026-10-25 UTC",
+      "fee": 0.0015,
+      "trades": 84,
+      "net_return_pct": 27.11927198,
+      "max_dd_pct": 42.3156751,
+      "dd_type": "cüzdan",
+      "winrate_pct": null,
+      "calmar": 0.21031561,
+      "buyhold_return_pct": null,
+      "buyhold_dd_pct": null,
+      "source": [
+        "research/experiments/r4_oos_results.json"
+      ],
+      "note": "Tarihsel veri artık görülmüştür."
+    },
+    {
+      "strategy": "R4_EV",
+      "evidence_type": "AI 2024–26",
+      "universe": "20 eğitim coini (yıllık güncelleme)",
+      "period": "2024-01-01 / 2026-10-25 UTC",
+      "fee": 0.0015,
+      "trades": 78,
+      "net_return_pct": 24.46734634,
+      "max_dd_pct": 39.38167073,
+      "dd_type": "cüzdan",
+      "winrate_pct": null,
+      "calmar": 0.20534858,
+      "buyhold_return_pct": null,
+      "buyhold_dd_pct": null,
+      "source": [
+        "research/experiments/r4_oos_results.json"
+      ],
+      "note": "Tarihsel veri artık görülmüştür."
+    },
+    {
+      "strategy": "R4_Risk",
+      "evidence_type": "AI 2024–26",
+      "universe": "20 eğitim coini (yıllık güncelleme)",
+      "period": "2024-01-01 / 2026-10-25 UTC",
+      "fee": 0.0015,
+      "trades": 84,
+      "net_return_pct": 26.12119648,
+      "max_dd_pct": 39.12346041,
+      "dd_type": "cüzdan",
+      "winrate_pct": null,
+      "calmar": 0.21969128,
+      "buyhold_return_pct": null,
+      "buyhold_dd_pct": null,
+      "source": [
+        "research/experiments/r4_oos_results.json"
+      ],
+      "note": "Tarihsel veri artık görülmüştür."
+    },
+    {
+      "strategy": "R4_Regime",
+      "evidence_type": "AI 2024–26",
+      "universe": "20 eğitim coini (yıllık güncelleme)",
+      "period": "2024-01-01 / 2026-10-25 UTC",
+      "fee": 0.0015,
+      "trades": 84,
+      "net_return_pct": 23.92976225,
+      "max_dd_pct": 38.77684902,
+      "dd_type": "cüzdan",
+      "winrate_pct": null,
+      "calmar": 0.20426804,
+      "buyhold_return_pct": null,
+      "buyhold_dd_pct": null,
+      "source": [
+        "research/experiments/r4_oos_results.json"
+      ],
+      "note": "Tarihsel veri artık görülmüştür."
+    },
+    {
+      "strategy": "R4_RawClassifier",
+      "evidence_type": "AI 2024–26",
+      "universe": "20 eğitim coini (yıllık güncelleme)",
+      "period": "2024-01-01 / 2026-10-25 UTC",
+      "fee": 0.0015,
+      "trades": 75,
+      "net_return_pct": 1.96107689,
+      "max_dd_pct": 36.87519153,
+      "dd_type": "cüzdan",
+      "winrate_pct": null,
+      "calmar": 0.01877728,
+      "buyhold_return_pct": null,
+      "buyhold_dd_pct": null,
+      "source": [
+        "research/experiments/r4_oos_results.json"
+      ],
+      "note": "Tarihsel veri artık görülmüştür."
+    },
+    {
+      "strategy": "R1_TSMomentum",
+      "evidence_type": "AI 2024–26",
+      "universe": "20 eğitim coini (yıllık güncelleme)",
+      "period": "2024-01-01 / 2026-10-25 UTC",
+      "fee": 0.0025,
+      "trades": 84,
+      "net_return_pct": 23.85614615,
+      "max_dd_pct": 43.02194799,
+      "dd_type": "cüzdan",
+      "winrate_pct": null,
+      "calmar": 0.18358279,
+      "buyhold_return_pct": null,
+      "buyhold_dd_pct": null,
+      "source": [
+        "research/experiments/r4_oos_results.json"
+      ],
+      "note": "Tarihsel veri artık görülmüştür."
+    },
+    {
+      "strategy": "R4_EV",
+      "evidence_type": "AI 2024–26",
+      "universe": "20 eğitim coini (yıllık güncelleme)",
+      "period": "2024-01-01 / 2026-10-25 UTC",
+      "fee": 0.0025,
+      "trades": 78,
+      "net_return_pct": 21.46394318,
+      "max_dd_pct": 40.0866731,
+      "dd_type": "cüzdan",
+      "winrate_pct": null,
+      "calmar": 0.17843804,
+      "buyhold_return_pct": null,
+      "buyhold_dd_pct": null,
+      "source": [
+        "research/experiments/r4_oos_results.json"
+      ],
+      "note": "Tarihsel veri artık görülmüştür."
+    },
+    {
+      "strategy": "R4_Risk",
+      "evidence_type": "AI 2024–26",
+      "universe": "20 eğitim coini (yıllık güncelleme)",
+      "period": "2024-01-01 / 2026-10-25 UTC",
+      "fee": 0.0025,
+      "trades": 84,
+      "net_return_pct": 23.22692576,
+      "max_dd_pct": 39.78895632,
+      "dd_type": "cüzdan",
+      "winrate_pct": null,
+      "calmar": 0.19359672,
+      "buyhold_return_pct": null,
+      "buyhold_dd_pct": null,
+      "source": [
+        "research/experiments/r4_oos_results.json"
+      ],
+      "note": "Tarihsel veri artık görülmüştür."
+    },
+    {
+      "strategy": "R4_Regime",
+      "evidence_type": "AI 2024–26",
+      "universe": "20 eğitim coini (yıllık güncelleme)",
+      "period": "2024-01-01 / 2026-10-25 UTC",
+      "fee": 0.0025,
+      "trades": 84,
+      "net_return_pct": 21.1354348,
+      "max_dd_pct": 39.42533276,
+      "dd_type": "cüzdan",
+      "winrate_pct": null,
+      "calmar": 0.17881726,
+      "buyhold_return_pct": null,
+      "buyhold_dd_pct": null,
+      "source": [
+        "research/experiments/r4_oos_results.json"
+      ],
+      "note": "Tarihsel veri artık görülmüştür."
+    },
+    {
+      "strategy": "R4_RawClassifier",
+      "evidence_type": "AI 2024–26",
+      "universe": "20 eğitim coini (yıllık güncelleme)",
+      "period": "2024-01-01 / 2026-10-25 UTC",
+      "fee": 0.0025,
+      "trades": 75,
+      "net_return_pct": -0.34842876,
+      "max_dd_pct": 37.31952634,
+      "dd_type": "cüzdan",
+      "winrate_pct": null,
+      "calmar": -0.00332096,
+      "buyhold_return_pct": null,
+      "buyhold_dd_pct": null,
+      "source": [
+        "research/experiments/r4_oos_results.json"
+      ],
+      "note": "Tarihsel veri artık görülmüştür."
+    },
+    {
+      "strategy": "R1_TSMomentum",
+      "evidence_type": "AI 2024–26",
+      "universe": "20 eğitim coini (yıllık güncelleme)",
+      "period": "2024-01-01 / 2026-10-25 UTC",
+      "fee": 0.0015,
+      "trades": 48,
+      "net_return_pct": 46.63406467,
+      "max_dd_pct": 28.87972219,
+      "dd_type": "cüzdan",
+      "winrate_pct": null,
+      "calmar": 0.50443861,
+      "buyhold_return_pct": null,
+      "buyhold_dd_pct": null,
+      "source": [
+        "research/experiments/r4_oos_results.json"
+      ],
+      "note": "Tarihsel veri artık görülmüştür."
+    },
+    {
+      "strategy": "R4_EV",
+      "evidence_type": "AI 2024–26",
+      "universe": "20 eğitim coini (yıllık güncelleme)",
+      "period": "2024-01-01 / 2026-10-25 UTC",
+      "fee": 0.0015,
+      "trades": 47,
+      "net_return_pct": 43.44800348,
+      "max_dd_pct": 28.4908736,
+      "dd_type": "cüzdan",
+      "winrate_pct": null,
+      "calmar": 0.48005947,
+      "buyhold_return_pct": null,
+      "buyhold_dd_pct": null,
+      "source": [
+        "research/experiments/r4_oos_results.json"
+      ],
+      "note": "Tarihsel veri artık görülmüştür."
+    },
+    {
+      "strategy": "R4_Risk",
+      "evidence_type": "AI 2024–26",
+      "universe": "20 eğitim coini (yıllık güncelleme)",
+      "period": "2024-01-01 / 2026-10-25 UTC",
+      "fee": 0.0015,
+      "trades": 48,
+      "net_return_pct": 35.47719915,
+      "max_dd_pct": 23.15322471,
+      "dd_type": "cüzdan",
+      "winrate_pct": null,
+      "calmar": 0.49200731,
+      "buyhold_return_pct": null,
+      "buyhold_dd_pct": null,
+      "source": [
+        "research/experiments/r4_oos_results.json"
+      ],
+      "note": "Tarihsel veri artık görülmüştür."
+    },
+    {
+      "strategy": "R4_Regime",
+      "evidence_type": "AI 2024–26",
+      "universe": "20 eğitim coini (yıllık güncelleme)",
+      "period": "2024-01-01 / 2026-10-25 UTC",
+      "fee": 0.0015,
+      "trades": 48,
+      "net_return_pct": 40.2279511,
+      "max_dd_pct": 25.6905902,
+      "dd_type": "cüzdan",
+      "winrate_pct": null,
+      "calmar": 0.49683647,
+      "buyhold_return_pct": null,
+      "buyhold_dd_pct": null,
+      "source": [
+        "research/experiments/r4_oos_results.json"
+      ],
+      "note": "Tarihsel veri artık görülmüştür."
+    },
+    {
+      "strategy": "R4_RawClassifier",
+      "evidence_type": "AI 2024–26",
+      "universe": "20 eğitim coini (yıllık güncelleme)",
+      "period": "2024-01-01 / 2026-10-25 UTC",
+      "fee": 0.0015,
+      "trades": 28,
+      "net_return_pct": 2.19927089,
+      "max_dd_pct": 21.09781741,
+      "dd_type": "cüzdan",
+      "winrate_pct": null,
+      "calmar": 0.03677777,
+      "buyhold_return_pct": null,
+      "buyhold_dd_pct": null,
+      "source": [
+        "research/experiments/r4_oos_results.json"
+      ],
+      "note": "Tarihsel veri artık görülmüştür."
+    },
+    {
+      "strategy": "R1_TSMomentum",
+      "evidence_type": "AI 2024–26",
+      "universe": "20 eğitim coini (yıllık güncelleme)",
+      "period": "2024-01-01 / 2026-10-25 UTC",
+      "fee": 0.0025,
+      "trades": 48,
+      "net_return_pct": 43.62962732,
+      "max_dd_pct": 29.3969638,
+      "dd_type": "cüzdan",
+      "winrate_pct": null,
+      "calmar": 0.46700168,
+      "buyhold_return_pct": null,
+      "buyhold_dd_pct": null,
+      "source": [
+        "research/experiments/r4_oos_results.json"
+      ],
+      "note": "Tarihsel veri artık görülmüştür."
+    },
+    {
+      "strategy": "R4_EV",
+      "evidence_type": "AI 2024–26",
+      "universe": "20 eğitim coini (yıllık güncelleme)",
+      "period": "2024-01-01 / 2026-10-25 UTC",
+      "fee": 0.0025,
+      "trades": 47,
+      "net_return_pct": 40.53945139,
+      "max_dd_pct": 28.98430426,
+      "dd_type": "cüzdan",
+      "winrate_pct": null,
+      "calmar": 0.44344548,
+      "buyhold_return_pct": null,
+      "buyhold_dd_pct": null,
+      "source": [
+        "research/experiments/r4_oos_results.json"
+      ],
+      "note": "Tarihsel veri artık görülmüştür."
+    },
+    {
+      "strategy": "R4_Risk",
+      "evidence_type": "AI 2024–26",
+      "universe": "20 eğitim coini (yıllık güncelleme)",
+      "period": "2024-01-01 / 2026-10-25 UTC",
+      "fee": 0.0025,
+      "trades": 48,
+      "net_return_pct": 32.97413445,
+      "max_dd_pct": 23.6766072,
+      "dd_type": "cüzdan",
+      "winrate_pct": null,
+      "calmar": 0.45006127,
+      "buyhold_return_pct": null,
+      "buyhold_dd_pct": null,
+      "source": [
+        "research/experiments/r4_oos_results.json"
+      ],
+      "note": "Tarihsel veri artık görülmüştür."
+    },
+    {
+      "strategy": "R4_Regime",
+      "evidence_type": "AI 2024–26",
+      "universe": "20 eğitim coini (yıllık güncelleme)",
+      "period": "2024-01-01 / 2026-10-25 UTC",
+      "fee": 0.0025,
+      "trades": 48,
+      "net_return_pct": 37.68617798,
+      "max_dd_pct": 26.16798528,
+      "dd_type": "cüzdan",
+      "winrate_pct": null,
+      "calmar": 0.45985632,
+      "buyhold_return_pct": null,
+      "buyhold_dd_pct": null,
+      "source": [
+        "research/experiments/r4_oos_results.json"
+      ],
+      "note": "Tarihsel veri artık görülmüştür."
+    },
+    {
+      "strategy": "R4_RawClassifier",
+      "evidence_type": "AI 2024–26",
+      "universe": "20 eğitim coini (yıllık güncelleme)",
+      "period": "2024-01-01 / 2026-10-25 UTC",
+      "fee": 0.0025,
+      "trades": 28,
+      "net_return_pct": 1.01313006,
+      "max_dd_pct": 21.44153512,
+      "dd_type": "cüzdan",
+      "winrate_pct": null,
+      "calmar": 0.01673376,
+      "buyhold_return_pct": null,
+      "buyhold_dd_pct": null,
+      "source": [
+        "research/experiments/r4_oos_results.json"
+      ],
+      "note": "Tarihsel veri artık görülmüştür."
+    },
+    {
+      "strategy": "R1_TSMomentum",
+      "evidence_type": "Kilitli holdout (tek sefer)",
+      "universe": "OP/ARB/APT/INJ/SUI/SHIB/PEPE/WLD/SEI/STX (10 coin)",
+      "period": "2024-01-01 / 2026-10-25 UTC",
+      "fee": 0.0015,
+      "trades": 74,
+      "net_return_pct": -8.5298369,
+      "max_dd_pct": 35.64138893,
+      "dd_type": "cüzdan",
+      "winrate_pct": null,
+      "calmar": -0.0874861,
+      "buyhold_return_pct": -40.0,
+      "buyhold_dd_pct": null,
+      "source": [
+        "research/experiments/r4_holdout_results.json",
+        "research/reports/research_r5.md"
+      ],
+      "note": "Al-tut getirisi raporda yaklaşık verilmiştir; holdout artık görülmüştür."
+    },
+    {
+      "strategy": "R4_Risk",
+      "evidence_type": "Kilitli holdout (tek sefer)",
+      "universe": "OP/ARB/APT/INJ/SUI/SHIB/PEPE/WLD/SEI/STX (10 coin)",
+      "period": "2024-01-01 / 2026-10-25 UTC",
+      "fee": 0.0015,
+      "trades": 74,
+      "net_return_pct": -6.04698566,
+      "max_dd_pct": 31.07653657,
+      "dd_type": "cüzdan",
+      "winrate_pct": null,
+      "calmar": -0.07053004,
+      "buyhold_return_pct": -40.0,
+      "buyhold_dd_pct": null,
+      "source": [
+        "research/experiments/r4_holdout_results.json",
+        "research/reports/research_r5.md"
+      ],
+      "note": "Al-tut getirisi raporda yaklaşık verilmiştir; holdout artık görülmüştür."
+    },
+    {
+      "strategy": "R4_EV",
+      "evidence_type": "Kilitli holdout (tek sefer)",
+      "universe": "OP/ARB/APT/INJ/SUI/SHIB/PEPE/WLD/SEI/STX (10 coin)",
+      "period": "2024-01-01 / 2026-10-25 UTC",
+      "fee": 0.0015,
+      "trades": 71,
+      "net_return_pct": -13.55010248,
+      "max_dd_pct": 37.81815615,
+      "dd_type": "cüzdan",
+      "winrate_pct": null,
+      "calmar": -0.13331779,
+      "buyhold_return_pct": -40.0,
+      "buyhold_dd_pct": null,
+      "source": [
+        "research/experiments/r4_holdout_results.json",
+        "research/reports/research_r5.md"
+      ],
+      "note": "Al-tut getirisi raporda yaklaşık verilmiştir; holdout artık görülmüştür."
+    },
+    {
+      "strategy": "R1_TSMomentum",
+      "evidence_type": "Kilitli holdout (tek sefer)",
+      "universe": "OP/ARB/APT/INJ/SUI/SHIB/PEPE/WLD/SEI/STX (10 coin)",
+      "period": "2024-01-01 / 2026-10-25 UTC",
+      "fee": 0.0025,
+      "trades": 74,
+      "net_return_pct": -10.22342567,
+      "max_dd_pct": 36.20846221,
+      "dd_type": "cüzdan",
+      "winrate_pct": null,
+      "calmar": -0.10382393,
+      "buyhold_return_pct": -40.0,
+      "buyhold_dd_pct": null,
+      "source": [
+        "research/experiments/r4_holdout_results.json",
+        "research/reports/research_r5.md"
+      ],
+      "note": "Al-tut getirisi raporda yaklaşık verilmiştir; holdout artık görülmüştür."
+    },
+    {
+      "strategy": "R4_Risk",
+      "evidence_type": "Kilitli holdout (tek sefer)",
+      "universe": "OP/ARB/APT/INJ/SUI/SHIB/PEPE/WLD/SEI/STX (10 coin)",
+      "period": "2024-01-01 / 2026-10-25 UTC",
+      "fee": 0.0025,
+      "trades": 74,
+      "net_return_pct": -7.56452186,
+      "max_dd_pct": 31.60438523,
+      "dd_type": "cüzdan",
+      "winrate_pct": null,
+      "calmar": -0.08720578,
+      "buyhold_return_pct": -40.0,
+      "buyhold_dd_pct": null,
+      "source": [
+        "research/experiments/r4_holdout_results.json",
+        "research/reports/research_r5.md"
+      ],
+      "note": "Al-tut getirisi raporda yaklaşık verilmiştir; holdout artık görülmüştür."
+    },
+    {
+      "strategy": "R4_EV",
+      "evidence_type": "Kilitli holdout (tek sefer)",
+      "universe": "OP/ARB/APT/INJ/SUI/SHIB/PEPE/WLD/SEI/STX (10 coin)",
+      "period": "2024-01-01 / 2026-10-25 UTC",
+      "fee": 0.0025,
+      "trades": 71,
+      "net_return_pct": -15.08997617,
+      "max_dd_pct": 38.35948219,
+      "dd_type": "cüzdan",
+      "winrate_pct": null,
+      "calmar": -0.14719396,
+      "buyhold_return_pct": -40.0,
+      "buyhold_dd_pct": null,
+      "source": [
+        "research/experiments/r4_holdout_results.json",
+        "research/reports/research_r5.md"
+      ],
+      "note": "Al-tut getirisi raporda yaklaşık verilmiştir; holdout artık görülmüştür."
+    },
+    {
+      "strategy": "R5_TSMomentum",
+      "evidence_type": "Kilitli holdout (tek sefer)",
+      "universe": "OP/ARB/APT/INJ/SUI/SHIB/PEPE/WLD/SEI/STX (10 coin) (5 pozisyon)",
+      "period": "2024-01-01 / 2026-10-25 UTC",
+      "fee": 0.0015,
+      "trades": 119,
+      "net_return_pct": 11.99586777,
+      "max_dd_pct": 34.1,
+      "dd_type": "cüzdan",
+      "winrate_pct": 26.8907563,
+      "calmar": null,
+      "buyhold_return_pct": -40.0,
+      "buyhold_dd_pct": null,
+      "source": [
+        "research/experiments/r5_holdout_once/backtest-result-2026-10-26_14-38-02.zip",
+        "research/reports/research_r5.md"
+      ],
+      "note": "Cüzdan düşüşü yuvarlanmış, al-tut getirisi yaklaşık verilmiştir; ücret stresi seçim için kullanılmadı."
+    },
+    {
+      "strategy": "R5_TSMomentum",
+      "evidence_type": "Kilitli holdout (tek sefer)",
+      "universe": "OP/ARB/APT/INJ/SUI/SHIB/PEPE/WLD/SEI/STX (10 coin) (5 pozisyon)",
+      "period": "2024-01-01 / 2026-10-25 UTC",
+      "fee": 0.0025,
+      "trades": 119,
+      "net_return_pct": 9.86990826,
+      "max_dd_pct": 35.2,
+      "dd_type": "cüzdan",
+      "winrate_pct": 26.05042017,
+      "calmar": null,
+      "buyhold_return_pct": -40.0,
+      "buyhold_dd_pct": null,
+      "source": [
+        "research/experiments/r5_holdout_once/backtest-result-2026-10-26_14-41-57.zip",
+        "research/reports/research_r5.md"
+      ],
+      "note": "Cüzdan düşüşü yuvarlanmış, al-tut getirisi yaklaşık verilmiştir; ücret stresi seçim için kullanılmadı."
+    }
+  ],
+  "fee_stress": [
+    {
+      "strategy": "R1_MeanRevUptrend",
+      "fee": 0.0015,
+      "net_return_pct": -45.98978363,
+      "source": [
+        "research/experiments/r1_summary.csv",
+        "research/experiments/r1_benchmark.json"
+      ],
+      "evidence_type": "Bağımsız test 2024–26",
+      "universe": "BTC/ETH/SOL"
+    },
+    {
+      "strategy": "R1_MeanRevUptrend",
+      "fee": 0.0025,
+      "net_return_pct": -54.19797459,
+      "source": [
+        "research/experiments/r1_summary.csv",
+        "research/experiments/r1_benchmark.json"
+      ],
+      "evidence_type": "Bağımsız test 2024–26",
+      "universe": "BTC/ETH/SOL"
+    },
+    {
+      "strategy": "R1_TSMomentum",
+      "fee": 0.0015,
+      "net_return_pct": 46.63406467,
+      "source": [
+        "research/experiments/r1_summary.csv",
+        "research/experiments/r1_benchmark.json"
+      ],
+      "evidence_type": "Bağımsız test 2024–26",
+      "universe": "BTC/ETH/SOL"
+    },
+    {
+      "strategy": "R1_TSMomentum",
+      "fee": 0.0025,
+      "net_return_pct": 43.62962732,
+      "source": [
+        "research/experiments/r1_summary.csv",
+        "research/experiments/r1_benchmark.json"
+      ],
+      "evidence_type": "Bağımsız test 2024–26",
+      "universe": "BTC/ETH/SOL"
+    },
+    {
+      "strategy": "R1_TrendRegime",
+      "fee": 0.0015,
+      "net_return_pct": -10.69709098,
+      "source": [
+        "research/experiments/r1_summary.csv",
+        "research/experiments/r1_benchmark.json"
+      ],
+      "evidence_type": "Bağımsız test 2024–26",
+      "universe": "BTC/ETH/SOL"
+    },
+    {
+      "strategy": "R1_TrendRegime",
+      "fee": 0.0025,
+      "net_return_pct": -12.52306203,
+      "source": [
+        "research/experiments/r1_summary.csv",
+        "research/experiments/r1_benchmark.json"
+      ],
+      "evidence_type": "Bağımsız test 2024–26",
+      "universe": "BTC/ETH/SOL"
+    },
+    {
+      "strategy": "AIHybridStrategy",
+      "fee": 0.0015,
+      "net_return_pct": -9.28669774,
+      "source": [
+        "research/results/summary.json",
+        "research/results/equity/AIHybridStrategy_fee_0.0015.csv",
+        "research/results/equity/AIHybridStrategy_fee_0.0015_BuyHold_EW.csv"
+      ],
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "universe": "BTC/ETH/SOL"
+    },
+    {
+      "strategy": "AIHybridStrategy",
+      "fee": 0.0025,
+      "net_return_pct": -11.48215061,
+      "source": [
+        "research/results/summary.json",
+        "research/results/equity/AIHybridStrategy_fee_0.0025.csv",
+        "research/results/equity/AIHybridStrategy_fee_0.0025_BuyHold_EW.csv"
+      ],
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "universe": "BTC/ETH/SOL"
+    },
+    {
+      "strategy": "BreakoutStrategy",
+      "fee": 0.0015,
+      "net_return_pct": -18.01534951,
+      "source": [
+        "research/results/summary.json",
+        "research/results/equity/BreakoutStrategy_fee_0.0015.csv",
+        "research/results/equity/BreakoutStrategy_fee_0.0015_BuyHold_EW.csv"
+      ],
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "universe": "BTC/ETH/SOL"
+    },
+    {
+      "strategy": "BreakoutStrategy",
+      "fee": 0.002,
+      "net_return_pct": -25.7900493,
+      "source": [
+        "research/results/summary.json",
+        "research/results/equity/BreakoutStrategy_fee_0.002.csv",
+        "research/results/equity/BreakoutStrategy_fee_0.002_BuyHold_EW.csv"
+      ],
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "universe": "BTC/ETH/SOL"
+    },
+    {
+      "strategy": "BreakoutStrategy",
+      "fee": 0.0025,
+      "net_return_pct": -33.74637677,
+      "source": [
+        "research/results/summary.json",
+        "research/results/equity/BreakoutStrategy_fee_0.0025.csv",
+        "research/results/equity/BreakoutStrategy_fee_0.0025_BuyHold_EW.csv"
+      ],
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "universe": "BTC/ETH/SOL"
+    },
+    {
+      "strategy": "EmaTrendStrategy",
+      "fee": 0.0015,
+      "net_return_pct": -83.81839925,
+      "source": [
+        "research/results/summary.json",
+        "research/results/equity/EmaTrendStrategy_fee_0.0015.csv",
+        "research/results/equity/EmaTrendStrategy_fee_0.0015_BuyHold_EW.csv"
+      ],
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "universe": "BTC/ETH/SOL"
+    },
+    {
+      "strategy": "EmaTrendStrategy",
+      "fee": 0.002,
+      "net_return_pct": -93.05295329,
+      "source": [
+        "research/results/summary.json",
+        "research/results/equity/EmaTrendStrategy_fee_0.002.csv",
+        "research/results/equity/EmaTrendStrategy_fee_0.002_BuyHold_EW.csv"
+      ],
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "universe": "BTC/ETH/SOL"
+    },
+    {
+      "strategy": "EmaTrendStrategy",
+      "fee": 0.0025,
+      "net_return_pct": -96.89899445,
+      "source": [
+        "research/results/summary.json",
+        "research/results/equity/EmaTrendStrategy_fee_0.0025.csv",
+        "research/results/equity/EmaTrendStrategy_fee_0.0025_BuyHold_EW.csv"
+      ],
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "universe": "BTC/ETH/SOL"
+    },
+    {
+      "strategy": "MeanReversion",
+      "fee": 0.0015,
+      "net_return_pct": -9.18668346,
+      "source": [
+        "research/results/summary.json",
+        "research/results/equity/MeanReversion_fee_0.0015.csv",
+        "research/results/equity/MeanReversion_fee_0.0015_BuyHold_EW.csv"
+      ],
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "universe": "BTC/ETH/SOL"
+    },
+    {
+      "strategy": "MeanReversion",
+      "fee": 0.002,
+      "net_return_pct": -12.29289454,
+      "source": [
+        "research/results/summary.json",
+        "research/results/equity/MeanReversion_fee_0.002.csv",
+        "research/results/equity/MeanReversion_fee_0.002_BuyHold_EW.csv"
+      ],
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "universe": "BTC/ETH/SOL"
+    },
+    {
+      "strategy": "MeanReversion",
+      "fee": 0.0025,
+      "net_return_pct": -14.749987,
+      "source": [
+        "research/results/summary.json",
+        "research/results/equity/MeanReversion_fee_0.0025.csv",
+        "research/results/equity/MeanReversion_fee_0.0025_BuyHold_EW.csv"
+      ],
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "universe": "BTC/ETH/SOL"
+    },
+    {
+      "strategy": "R1_MeanRevUptrend",
+      "fee": 0.0015,
+      "net_return_pct": -36.768545,
+      "source": [
+        "research/results/summary.json",
+        "research/results/equity/R1_MeanRevUptrend_fee_0.0015.csv",
+        "research/results/equity/R1_MeanRevUptrend_fee_0.0015_BuyHold_EW.csv"
+      ],
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "universe": "BTC/ETH/SOL"
+    },
+    {
+      "strategy": "R1_MeanRevUptrend",
+      "fee": 0.002,
+      "net_return_pct": -43.65688142,
+      "source": [
+        "research/results/summary.json",
+        "research/results/equity/R1_MeanRevUptrend_fee_0.002.csv",
+        "research/results/equity/R1_MeanRevUptrend_fee_0.002_BuyHold_EW.csv"
+      ],
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "universe": "BTC/ETH/SOL"
+    },
+    {
+      "strategy": "R1_MeanRevUptrend",
+      "fee": 0.0025,
+      "net_return_pct": -49.79349485,
+      "source": [
+        "research/results/summary.json",
+        "research/results/equity/R1_MeanRevUptrend_fee_0.0025.csv",
+        "research/results/equity/R1_MeanRevUptrend_fee_0.0025_BuyHold_EW.csv"
+      ],
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "universe": "BTC/ETH/SOL"
+    },
+    {
+      "strategy": "R1_TSMomentum",
+      "fee": 0.0015,
+      "net_return_pct": 188.87983219,
+      "source": [
+        "research/results/summary.json",
+        "research/results/equity/R1_TSMomentum_fee_0.0015.csv",
+        "research/results/equity/R1_TSMomentum_fee_0.0015_BuyHold_EW.csv"
+      ],
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "universe": "BTC/ETH/SOL"
+    },
+    {
+      "strategy": "R1_TSMomentum",
+      "fee": 0.002,
+      "net_return_pct": 184.51111731,
+      "source": [
+        "research/results/summary.json",
+        "research/results/equity/R1_TSMomentum_fee_0.002.csv",
+        "research/results/equity/R1_TSMomentum_fee_0.002_BuyHold_EW.csv"
+      ],
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "universe": "BTC/ETH/SOL"
+    },
+    {
+      "strategy": "R1_TSMomentum",
+      "fee": 0.0025,
+      "net_return_pct": 180.15901782,
+      "source": [
+        "research/results/summary.json",
+        "research/results/equity/R1_TSMomentum_fee_0.0025.csv",
+        "research/results/equity/R1_TSMomentum_fee_0.0025_BuyHold_EW.csv"
+      ],
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "universe": "BTC/ETH/SOL"
+    },
+    {
+      "strategy": "R1_TrendRegime",
+      "fee": 0.0015,
+      "net_return_pct": 62.96606893,
+      "source": [
+        "research/results/summary.json",
+        "research/results/equity/R1_TrendRegime_fee_0.0015.csv",
+        "research/results/equity/R1_TrendRegime_fee_0.0015_BuyHold_EW.csv"
+      ],
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "universe": "BTC/ETH/SOL"
+    },
+    {
+      "strategy": "R1_TrendRegime",
+      "fee": 0.002,
+      "net_return_pct": 60.76245471,
+      "source": [
+        "research/results/summary.json",
+        "research/results/equity/R1_TrendRegime_fee_0.002.csv",
+        "research/results/equity/R1_TrendRegime_fee_0.002_BuyHold_EW.csv"
+      ],
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "universe": "BTC/ETH/SOL"
+    },
+    {
+      "strategy": "R1_TrendRegime",
+      "fee": 0.0025,
+      "net_return_pct": 58.56487141,
+      "source": [
+        "research/results/summary.json",
+        "research/results/equity/R1_TrendRegime_fee_0.0025.csv",
+        "research/results/equity/R1_TrendRegime_fee_0.0025_BuyHold_EW.csv"
+      ],
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "universe": "BTC/ETH/SOL"
+    },
+    {
+      "strategy": "TrendStrategy",
+      "fee": 0.0015,
+      "net_return_pct": -48.53076408,
+      "source": [
+        "research/results/summary.json",
+        "research/results/equity/TrendStrategy_fee_0.0015.csv",
+        "research/results/equity/TrendStrategy_fee_0.0015_BuyHold_EW.csv"
+      ],
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "universe": "BTC/ETH/SOL"
+    },
+    {
+      "strategy": "TrendStrategy",
+      "fee": 0.002,
+      "net_return_pct": -56.2932743,
+      "source": [
+        "research/results/summary.json",
+        "research/results/equity/TrendStrategy_fee_0.002.csv",
+        "research/results/equity/TrendStrategy_fee_0.002_BuyHold_EW.csv"
+      ],
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "universe": "BTC/ETH/SOL"
+    },
+    {
+      "strategy": "TrendStrategy",
+      "fee": 0.0025,
+      "net_return_pct": -62.77927222,
+      "source": [
+        "research/results/summary.json",
+        "research/results/equity/TrendStrategy_fee_0.0025.csv",
+        "research/results/equity/TrendStrategy_fee_0.0025_BuyHold_EW.csv"
+      ],
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "universe": "BTC/ETH/SOL"
+    }
+  ],
+  "concentration": [
+    {
+      "strategy": "R1_TSMomentum",
+      "universe": "BTC/ETH/SOL (R1)",
+      "fee": 0.0015,
+      "top3_share_pct": 90.87788262,
+      "without_best1_pct": 28.95862355,
+      "without_best3_pct": 4.25401412,
+      "without_best5_pct": -10.62234278,
+      "source": [
+        "research/experiments/audit_concentration.csv"
+      ]
+    },
+    {
+      "strategy": "R1_TSMomentum",
+      "universe": "R2 10 coin (3 slot)",
+      "fee": 0.0015,
+      "top3_share_pct": 212.2223579,
+      "without_best1_pct": 2.02030843,
+      "without_best3_pct": -32.24608481,
+      "without_best5_pct": -60.7659832,
+      "source": [
+        "research/experiments/audit_concentration.csv"
+      ]
+    },
+    {
+      "strategy": "R5_TSMomentum",
+      "universe": "33 coin (5 pozisyon, V1)",
+      "fee": 0.0015,
+      "top3_share_pct": 85.99811656,
+      "without_best1_pct": 27.09308127,
+      "without_best3_pct": 6.10894699,
+      "without_best5_pct": -14.16496083,
+      "source": [
+        "research/experiments/r5_results.json"
+      ]
+    },
+    {
+      "strategy": "R5_TSMomentum",
+      "universe": "33 coin (8 pozisyon, V2)",
+      "fee": 0.0015,
+      "top3_share_pct": 85.04838484,
+      "without_best1_pct": 15.42545856,
+      "without_best3_pct": 3.25172616,
+      "without_best5_pct": -7.44347385,
+      "source": [
+        "research/experiments/r5_results.json"
+      ]
+    },
+    {
+      "strategy": "R5_TSMomentum",
+      "universe": "OP/ARB/APT/INJ/SUI/SHIB/PEPE/WLD/SEI/STX (10 coin)",
+      "fee": 0.0015,
+      "top3_share_pct": 315.07852898,
+      "without_best1_pct": -12.87201662,
+      "without_best3_pct": -25.80053594,
+      "without_best5_pct": -34.20571259,
+      "source": [
+        "research/experiments/r5_holdout_once/backtest-result-2026-10-26_14-38-02.zip"
+      ]
+    }
+  ],
+  "ai_summary": {
+    "tried": [
+      "FreqAI LightGBM ve XGBoost getiri tahmini",
+      "R3 LightGBM ve lojistik regresyon ile işlem kârı sınıflandırması",
+      "R4 beklenen getiri, risk boyutlama, rejim ve ham olasılık kontrolü"
+    ],
+    "key_numbers": [
+      {
+        "experiment": "FreqAI LightGBM 2024",
+        "trades": 30,
+        "net_return_pct": -10.89,
+        "max_dd_pct": 13.67,
+        "source": [
+          "research/reports/sprint3_freqai.md"
+        ]
+      },
+      {
+        "experiment": "FreqAI XGBoost 2024",
+        "trades": 386,
+        "net_return_pct": -26.79,
+        "max_dd_pct": 27.71,
+        "source": [
+          "research/reports/sprint3_freqai.md"
+        ]
+      },
+      {
+        "experiment": "R3 eğitim ve zaman doğrulaması",
+        "training_events": 233,
+        "cv_events": 117,
+        "cv_auc": 0.50740741,
+        "threshold": 0.3,
+        "source": [
+          "research/experiments/r4_diagnosis.json"
+        ]
+      }
+    ],
+    "calibration_bug": "R3 eşiği ham olasılıkla seçilip sonradan kalibre edilmiş olasılığa uygulandığı için ölçekler uyuşmadı ve tüm girişler reddedildi.",
+    "verdict": "Ölçek hatasının düzeltildiği R4 kontrolü ve alternatif hedefler filtresiz momentuma güvenilir üstünlük sağlamadı; AI karar zincirinde değil.",
+    "source": [
+      "research/reports/ai_failure_diagnosis.md",
+      "research/reports/research_round3.md",
+      "docs/STATUS.md"
+    ]
+  },
+  "equity_series": [
+    {
+      "strategy": "R1_MeanRevUptrend",
+      "evidence_type": "Bağımsız test 2024–26",
+      "fee": 0.0015,
+      "dd_type": "cüzdan",
+      "csv": "exports/research_equity/00_R1_MeanRevUptrend.csv",
+      "source": [
+        "research/experiments/r1_oos_R1_MeanRevUptrend_3_0.0015_equity.csv"
+      ],
+      "sampling": "UTC günlük son değer; ilk gün başlangıç değeri 100 olarak korunur."
+    },
+    {
+      "strategy": "R1_TSMomentum",
+      "evidence_type": "Bağımsız test 2024–26",
+      "fee": 0.0015,
+      "dd_type": "cüzdan",
+      "csv": "exports/research_equity/01_R1_TSMomentum.csv",
+      "source": [
+        "research/experiments/r1_oos_R1_TSMomentum_2_0.0015_equity.csv"
+      ],
+      "sampling": "UTC günlük son değer; ilk gün başlangıç değeri 100 olarak korunur."
+    },
+    {
+      "strategy": "R1_TrendRegime",
+      "evidence_type": "Bağımsız test 2024–26",
+      "fee": 0.0015,
+      "dd_type": "cüzdan",
+      "csv": "exports/research_equity/02_R1_TrendRegime.csv",
+      "source": [
+        "research/experiments/r1_oos_R1_TrendRegime_3_0.0015_equity.csv"
+      ],
+      "sampling": "UTC günlük son değer; ilk gün başlangıç değeri 100 olarak korunur."
+    },
+    {
+      "strategy": "BuyHold_EW",
+      "evidence_type": "Bağımsız test 2024–26",
+      "fee": 0.0015,
+      "dd_type": "cüzdan",
+      "csv": "exports/research_equity/03_BuyHold_EW.csv",
+      "source": [
+        "research/experiments/r1_benchmark_equity_0.0015.csv"
+      ],
+      "sampling": "UTC günlük son değer; ilk gün başlangıç değeri 100 olarak korunur."
+    },
+    {
+      "strategy": "AIHybridStrategy",
+      "evidence_type": "AI 2024–26",
+      "fee": 0.0015,
+      "dd_type": "kapanan işlem",
+      "csv": "exports/research_equity/04_AIHybridStrategy.csv",
+      "source": [
+        "research/results/equity/AIHybridStrategy_fee_0.0015.csv"
+      ],
+      "sampling": "UTC günlük son değer; ilk gün başlangıç değeri 100 olarak korunur."
+    },
+    {
+      "strategy": "BreakoutStrategy",
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "fee": 0.0015,
+      "dd_type": "kapanan işlem",
+      "csv": "exports/research_equity/05_BreakoutStrategy.csv",
+      "source": [
+        "research/results/equity/BreakoutStrategy_fee_0.0015.csv"
+      ],
+      "sampling": "UTC günlük son değer; ilk gün başlangıç değeri 100 olarak korunur."
+    },
+    {
+      "strategy": "EmaTrendStrategy",
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "fee": 0.0015,
+      "dd_type": "kapanan işlem",
+      "csv": "exports/research_equity/06_EmaTrendStrategy.csv",
+      "source": [
+        "research/results/equity/EmaTrendStrategy_fee_0.0015.csv"
+      ],
+      "sampling": "UTC günlük son değer; ilk gün başlangıç değeri 100 olarak korunur."
+    },
+    {
+      "strategy": "MeanReversion",
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "fee": 0.0015,
+      "dd_type": "kapanan işlem",
+      "csv": "exports/research_equity/07_MeanReversion.csv",
+      "source": [
+        "research/results/equity/MeanReversion_fee_0.0015.csv"
+      ],
+      "sampling": "UTC günlük son değer; ilk gün başlangıç değeri 100 olarak korunur."
+    },
+    {
+      "strategy": "R1_MeanRevUptrend",
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "fee": 0.0015,
+      "dd_type": "kapanan işlem",
+      "csv": "exports/research_equity/08_R1_MeanRevUptrend.csv",
+      "source": [
+        "research/results/equity/R1_MeanRevUptrend_fee_0.0015.csv"
+      ],
+      "sampling": "UTC günlük son değer; ilk gün başlangıç değeri 100 olarak korunur."
+    },
+    {
+      "strategy": "R1_TSMomentum",
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "fee": 0.0015,
+      "dd_type": "kapanan işlem",
+      "csv": "exports/research_equity/09_R1_TSMomentum.csv",
+      "source": [
+        "research/results/equity/R1_TSMomentum_fee_0.0015.csv"
+      ],
+      "sampling": "UTC günlük son değer; ilk gün başlangıç değeri 100 olarak korunur."
+    },
+    {
+      "strategy": "R1_TrendRegime",
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "fee": 0.0015,
+      "dd_type": "kapanan işlem",
+      "csv": "exports/research_equity/10_R1_TrendRegime.csv",
+      "source": [
+        "research/results/equity/R1_TrendRegime_fee_0.0015.csv"
+      ],
+      "sampling": "UTC günlük son değer; ilk gün başlangıç değeri 100 olarak korunur."
+    },
+    {
+      "strategy": "TrendStrategy",
+      "evidence_type": "Backtest 2023–26 (Sprint 5)",
+      "fee": 0.0015,
+      "dd_type": "kapanan işlem",
+      "csv": "exports/research_equity/11_TrendStrategy.csv",
+      "source": [
+        "research/results/equity/TrendStrategy_fee_0.0015.csv"
+      ],
+      "sampling": "UTC günlük son değer; ilk gün başlangıç değeri 100 olarak korunur."
+    }
+  ],
+  "decision_criteria": [
+    "İlk değerlendirme 2027-01-26; kanıt yetersizse test sekizer hafta uzatılır.",
+    "R1 ve R5 kuralları 8–12 hafta dondurulur; yeni fikirler ayrı deneyde sınanır.",
+    "Her botta en az 15 kapanmış işlem ve kazanca katkı veren en az 3 coin gerekir.",
+    "En iyi işlem çıkarılınca sonuç sıfır veya üstü olmalı ya da tek işlem kârın %50’sinden azını taşımalı.",
+    "Gece çalışmalarının en az %95’i başarılı, sinyal uyumu en az %95 olmalı; farklar açıklanmalı.",
+    "Al-tuta göre daha düşük düşüş ve daha yüksek ya da yakın Calmar aranır; %0,25 maliyette korunmalı.",
+    "Gerçek para değerlendirmesi için pozitif mutlak getiri, tüm operasyon kontrolleri ve yazılı kullanıcı onayı gerekir.",
+    "Al-tuttan hem daha kötü düşüş hem daha kötü getiri aileyi eler; açıklanamayan simülasyon farkı kararı durdurur."
+  ],
+  "decision_criteria_source": "docs/DECISION_CRITERIA.md"
+}

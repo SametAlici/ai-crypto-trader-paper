@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark"><meta name="description" content="Dondurulmuş momentum stratejilerinin günlük sanal test kaydı">
+<title>Trade Lab — İleriye Dönük Sanal Test</title><link rel="stylesheet" href="style.css">
+<script src="metrics.js" defer></script><script src="app.js" defer></script></head>
+<body><main><header><div class="eyebrow">BLACK TO WHITE STUDIO / TRADE LAB</div>
+<h1>Kurallar sabit.<br><span>Sonuçlar açık.</span></h1>
+<p>5 sabit izlek · R1 / R5 / R6 / R7 / R8<br>Her izlek 1.000 USDT · Günlük mum · Her yönde %0,15 maliyet</p>
+<p class="muted">Son güncelleme: @@UPDATED@@</p>
+<div class="notice">Sanal işlem / simülasyon — yatırım tavsiyesi değildir</div></header>
+<nav class="view-toggle" aria-label="Kayıt türü"><button data-view="forward" aria-pressed="true">İleriye dönük test</button><button data-view="reference" aria-pressed="false">Geçmiş simülasyon (referans)</button><button data-view="research" aria-pressed="false">Araştırma özeti</button></nav>
+<div id="forward-content"><p id="reference-label" class="notice" hidden>@@REFERENCE@@</p><p id="state" role="status"></p>
+<section class="controls"><div id="periods" aria-label="Dönem">
+<button data-days="1">1G</button><button data-days="7">1H</button><button data-days="30">1A</button><button data-days="90">3A</button><button data-days="180">6A</button><button data-days="365">12A</button><button data-days="0" aria-pressed="true">Tümü</button></div>
+<div id="tracks" aria-label="İzlek"><button data-track="r1" aria-pressed="true">R1</button><button data-track="r5">R5</button><button data-track="bh1">Al-tut R1 evreni</button><button data-track="bh5">Al-tut R5 evreni</button></div></section>
+<section class="panel"><h2>İzlek karşılaştırması</h2><p>Hangi değişken test ediliyor? R1→R6→R5→R7: evren genişliği. R6/R5/R7 5 slotta sabit; R1 3 slot olduğundan R1→R6 slot etkisini de içerir. R7→R8: aynı evrende 5→10 slot.</p><div id="comparison" class="table-scroll"></div><p id="track-description" class="muted"></p></section>
+<p id="period-warning" class="muted" role="status"></p><div id="kpis" class="cards"></div>
+<section class="panel"><div class="section-head"><h2>Net değer <small>Başlangıç = 100</small></h2><span class="muted">Yeşil: seçili izlek · Mor: kendi al-tutu · Mavi: %0,25 stres</span></div><div id="equity" class="chart"></div></section>
+<div class="chart-grid"><section class="panel"><h2>Zirveden düşüş</h2><div id="drawdown" class="chart"></div></section><section class="panel"><h2>Günlük getiri</h2><div id="returns" class="chart"></div></section></div>
+<div class="chart-grid"><section class="panel"><h2>Coin katkısı <small>USDT · seçili dönem</small></h2><div id="coins"></div></section><section class="panel"><h2>İşlem zaman çizgisi</h2><p class="muted">▲ Giriş · ● Çıkış · ○ Açık değerleme</p><div id="timeline"></div></section></div>
+<section id="monthly-panel" class="panel" hidden><h2>Aylık getiri haritası</h2><div id="monthly" class="table-scroll"></div><p class="muted">İlk/son ay kısmi olabilir. Getiriler bileşik hesaplanır.</p></section>
+<section class="panel"><h2>Açık pozisyonlar <small>Son değerleme · tüm dönem</small></h2><div id="open" class="table-scroll">Henüz açık pozisyon yok.</div></section>
+<section class="panel"><h2>Kapanmış işlemler <small>Seçili dönemde kapananlar · sıralamak için başlığa dokun</small></h2><div id="closed" class="table-scroll">Henüz kapanmış işlem yok.</div></section>
+<section class="panel"><h2>Sistem sağlığı</h2><p id="health-status"></p><div id="health" class="table-scroll"></div><p class="muted">Son 30 çalışma; beklenen sayı ilk tam gün kapandıktan sonra her gün 00:20 UTC için hesaplanır. Aynı gün tekrarları bir kez sayılır. Listeleme öncesi günler eksik veri sayılmaz. Referans koşusu bu sayaca girmez.</p></section>
+<section class="panel prose"><h2>Nasıl okunur?</h2><p><b>Getiri:</b> seçilen dönemin başından sonuna net değer değişimi. Al-tut, her izleğin kendi coinlerine eşit başlangıç ağırlığı verir; yeniden dengelenmez. Listeleme öncesi pay nakitte bekler. Giriş ve son değerlemede birer kez %0,15 ücret uygulanır.</p>
+<p><b>Max düşüş:</b> açık pozisyonlar dahil günlük net değerin zirveden kaybı; gün içi kayıp değildir. <b>Calmar:</b> yıllık bileşik getiri / max düşüş; en az 30 gün gerekir. Sıfır düşüşte tanımsızdır.</p>
+<p><b>İşlem ölçüleri:</b> kazanma oranı kapalı işlemin toplam net sonucuna bakar. En iyi işlem ve ilk üç payı, seçili dönemde kapanan işlemlerin o dönemdeki katkısını net dönem kârına böler; net kâr pozitif değilse gösterilmez. “En iyi işlem olmadan”, bu katkıyı dönem netinden çıkarır; yeniden çalıştırılmış strateji değildir. Coin katkısı açık değerlemeyi içerir. Komisyonlar modellenen dönem sonu çıkış ücretini de içerir.</p>
+<p><b>Dönem sonu:</b> motorun force_exit işlemleri açık değerleme sayılır. Son nokta son mum açılışını, önceki noktalar günlük kapanışı kullanır. Son gün yeni giriş engellendiğinden son nokta sonraki çalışmada değişebilir.</p>
+<p><b>Stop modeli:</b> backtest −%30 stoploss’u günlük mumun en düşük fiyatıyla, borsada bekleyen bir stop emri varmış gibi sınar. Bu iyimserdir: fiyat boşlukları ve kayma nedeniyle gerçek gerçekleşme stopun altında olabilir. Gerçek emir yoktur. Canlı sürümde borsa tarafında gerçek bir stop emri gerekir.</p>
+<p class="notice">@@REFERENCE@@</p><p>İleriye dönük başlangıç: 27 Ekim 2026 UTC. Referans: 1 Ocak 2024 ≤ UTC &lt; 26 Ekim 2026 (son kapalı mum 25 Ekim). Geçmiş sonuçlar geleceği kanıtlamaz.</p>
+<a href="https://github.com/SametAlici/ai-crypto-trader-paper">Kaynak kodu, veriler ve yöntem ↗</a></section>
+</div><section id="research-content" hidden>
+<p class="notice">Tarihsel simülasyon; bu veriler strateji geliştirmede kullanıldı; ileriye dönük test değildir</p>
+<p id="research-date" class="muted"></p>
+<section class="panel"><h2>Stratejiler ve eleme nedenleri</h2><div id="research-strategies" class="table-scroll"></div></section>
+<section class="panel"><h2>Kanıt türüne göre değerlendirmeler</h2><div id="research-evaluations"></div></section>
+<section class="panel"><h2>Getiri ve risk</h2><p class="muted">X: max düşüş (%) · Y: net getiri (%) · Her nokta ayrı bir değerlendirme; kanıt türleri farklıdır. Noktaya dokunun.</p><div id="research-scatter" class="chart"></div><p id="scatter-detail" role="status"></p></section>
+<section class="panel"><h2>Komisyon stresi</h2><p class="muted">Aynı strateji, evren ve kanıt grubu içinde tek yön ücret → net getiri.</p><select id="research-fee-select" aria-label="Ücret deneyi"></select><div id="research-fee" class="chart"></div></section>
+<section class="panel"><h2>Kâr yoğunlaşması</h2><div id="research-concentration" class="table-scroll"></div></section>
+<section class="panel"><h2>AI özeti</h2><div id="research-ai"></div></section>
+<section class="panel"><h2>Karar ölçütleri</h2><ul id="research-criteria"></ul><h3>Sınırlar</h3><ul id="research-limitations"></ul></section>
+<section class="panel"><h2>Tarihsel net değer eğrileri</h2><select id="research-equity-select" aria-label="Tarihsel eğri"></select><p id="research-equity-label" class="muted"></p><div id="research-equity" class="chart"></div></section>
+</section><noscript>Grafik ve dönem filtreleri için JavaScript gerekir. Tüm veriler depodaki results klasöründedir.</noscript>
+<footer>Sanal işlem / simülasyon — yatırım tavsiyesi değildir</footer></main>
+<script id="report-data" type="application/json">@@DATA@@</script></body></html>

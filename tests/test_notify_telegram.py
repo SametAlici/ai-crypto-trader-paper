@@ -59,3 +59,13 @@ def test_errors_hide_url_and_credentials(monkeypatch, reports):
         telegram.notify(reports, env={BOT_ENV: 'example', CHAT_ENV: '42'})
     assert 'sensitive' not in str(error.value)
     assert error.value.__suppress_context__
+
+
+def test_freeze_failure_and_health_warning(reports, monkeypatch):
+    monkeypatch.setenv('FREEZE_RESULT', 'failure')
+    assert 'Strateji dosyaları değişmiş — test donduruldu' in telegram.build_message(
+        reports, failed=True)
+    message = telegram.build_message(reports)
+    assert 'Uyarı:' in message
+    assert 'B&H (R1)' in message
+    assert 'Komisyon:' in message
