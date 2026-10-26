@@ -1,21 +1,30 @@
 <!doctype html>
 <html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark"><meta name="description" content="Dondurulmuş momentum stratejilerinin günlük sanal test kaydı">
+<link rel="icon" type="image/svg+xml" href="favicon.svg"><meta name="theme-color" content="#0F0F10">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <title>Trade Lab — İleriye Dönük Sanal Test</title><link rel="stylesheet" href="style.css">
 <script src="metrics.js" defer></script><script src="app.js" defer></script></head>
-<body><main><header><div class="eyebrow">BLACK TO WHITE STUDIO / TRADE LAB</div>
-<h1>Kurallar sabit.<br><span>Sonuçlar açık.</span></h1>
-<p>5 sabit izlek · R1 / R5 / R6 / R7 / R8<br>Her izlek 1.000 USDT · Günlük mum · Her yönde %0,15 maliyet</p>
-<p class="muted">Son güncelleme: @@UPDATED@@</p>
-<div class="notice">Sanal işlem / simülasyon — yatırım tavsiyesi değildir</div></header>
-<nav class="view-toggle" aria-label="Kayıt türü"><button data-view="forward" aria-pressed="true">İleriye dönük test</button><button data-view="reference" aria-pressed="false">Geçmiş simülasyon (referans)</button><button data-view="research" aria-pressed="false">Araştırma özeti</button></nav>
-<div id="forward-content"><p id="reference-label" class="notice" hidden>@@REFERENCE@@</p><p id="state" role="status"></p>
+<body><div class="masthead"><a class="brand" href="https://blacktowhitestudio.com"><img src="logo.svg" width="32" height="32" alt="Black to White Studio"><span>Trade Lab</span></a><span id="breadcrumb" class="breadcrumb">Sanal Test / Özet</span><a class="home-link" href="https://blacktowhitestudio.com" aria-label="Ana siteye git: blacktowhitestudio.com"><img src="logo.svg" width="18" height="18" alt="" aria-hidden="true"><span class="home-label"><span class="home-kicker" lang="en">Black to White</span><span class="home-title">Ana site</span></span><svg class="home-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a></div><main><nav class="view-toggle" aria-label="Kayıt türü"><button data-view="overview" aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h7v7H3z M14 3h7v7h-7z M3 14h7v7H3z M14 14h7v7h-7z"/></svg>Özet</button><button data-view="forward" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l6-6 4 3 8-10 M15 4h6v6"/></svg>İleriye dönük test</button><button data-view="reference" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v14H4z M8 2v8 M16 2v8 M4 12h16"/></svg>Geçmiş simülasyon</button><button data-view="research" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h16v18H4z M8 8h8 M8 12h8 M8 16h5"/></svg>Araştırma özeti</button></nav>
+<header class="hero"><div><div class="eyebrow">SANAL TEST / STRATEJİ İZLEME</div><h1 id="page-title">Özet</h1><p>Her bot 1.000 sanal USDT ile başladı. Aşağıda kim ne kadar kazandı/kaybetti görünür.</p></div><p class="muted updated">Son güncelleme: @@UPDATED@@</p></header>
+
+<section id="overview-content" aria-label="Özet"><div id="overview-bots" class="bot-pills" aria-label="Özet bot seçimi"></div><h2 id="overview-bot-title">R1 · Çekirdek</h2><p id="overview-bot-description" class="muted"></p><div id="overview-stats" class="stat-strip" aria-label="Seçili bot dönem özeti"></div>
+<div class="section-head overview-heading"><h2>Bot karşılaştırması</h2><span class="muted">Başlangıç: her botta 1.000 sanal USDT</span></div>
+<div id="overview-periods" class="period-chips" aria-label="Özet dönemi"><button data-overview-days="1">Gün</button><button data-overview-days="7">Hafta</button><button data-overview-days="30">Ay</button><button data-overview-days="90">3 Ay</button><button data-overview-days="180">6 Ay</button><button data-overview-days="365">12 Ay</button><button data-overview-days="0" aria-pressed="true">Tümü</button></div>
+<div class="source-toggle" aria-label="Özet veri kaynağı"><button data-source="forward" aria-pressed="true">İleriye dönük test</button><button data-source="reference" aria-pressed="false">Geçmiş simülasyon (örnek)</button></div>
+<p id="overview-label" class="notice" role="status"></p>
+<section class="panel ranking"><h3 id="ranking-title"></h3><button id="all-columns" class="columns-toggle" aria-pressed="false" aria-controls="overview-comparison">Tüm sütunlar</button><div id="overview-comparison" class="table-scroll"></div></section>
+<div id="bot-cards" class="bot-grid"></div>
+<section class="glossary"><div class="eyebrow">02 — 03 / KÜÇÜK BİR SÖZLÜK</div><div class="glossary-grid"><article><h3>Al-tut nedir?</h3><p>Coinleri başta alıp dönem boyunca satmadan bekletmektir. Botun işlem yapmasının işe yarayıp yaramadığını karşılaştırmaya yardım eder.</p></article><article><h3>Pozisyon nedir?</h3><p>Botun aldığı ve henüz satmadığı coindir. Değeri fiyatla birlikte değişir; görünen sonuç satışa kadar değişebilir.</p></article><article><h3>Neden sanal?</h3><p>Kuralları gerçek para riske atmadan izlemek için. Ücretler hesaba katılır; gerçek işlemlerde fiyat ve sonuç farklı olabilir.</p></article></div></section>
+<p class="notice">Sanal işlem / simülasyon — yatırım tavsiyesi değildir. Gerçek para yok.</p>
+</section>
+<div id="forward-content" hidden><p id="reference-label" class="notice" hidden>@@REFERENCE@@</p><p id="state" role="status"></p><div id="detail-content"><div id="detail-stats" class="stat-strip" aria-label="Dönem özeti"></div>
 <section class="controls"><div id="periods" aria-label="Dönem">
-<button data-days="1">1G</button><button data-days="7">1H</button><button data-days="30">1A</button><button data-days="90">3A</button><button data-days="180">6A</button><button data-days="365">12A</button><button data-days="0" aria-pressed="true">Tümü</button></div>
+<button data-days="1">Gün</button><button data-days="7">Hafta</button><button data-days="30">Ay</button><button data-days="90">3 Ay</button><button data-days="180">6 Ay</button><button data-days="365">12 Ay</button><button data-days="0" aria-pressed="true">Tümü</button></div>
 <div id="tracks" aria-label="İzlek"><button data-track="r1" aria-pressed="true">R1</button><button data-track="r5">R5</button><button data-track="bh1">Al-tut R1 evreni</button><button data-track="bh5">Al-tut R5 evreni</button></div></section>
 <section class="panel"><h2>İzlek karşılaştırması</h2><p>Hangi değişken test ediliyor? R1→R6→R5→R7: evren genişliği. R6/R5/R7 5 slotta sabit; R1 3 slot olduğundan R1→R6 slot etkisini de içerir. R7→R8: aynı evrende 5→10 slot.</p><div id="comparison" class="table-scroll"></div><p id="track-description" class="muted"></p></section>
 <p id="period-warning" class="muted" role="status"></p><div id="kpis" class="cards"></div>
-<section class="panel"><div class="section-head"><h2>Net değer <small>Başlangıç = 100</small></h2><span class="muted">Yeşil: seçili izlek · Mor: kendi al-tutu · Mavi: %0,25 stres</span></div><div id="equity" class="chart"></div></section>
+<section class="panel"><div class="section-head"><h2>Net değer <small>Başlangıç = 100</small></h2><span class="muted">Mavi: seçili izlek · Gri kesik: kendi al-tutu · Koyu gri: %0,25 stres</span></div><div id="equity" class="chart"></div></section>
 <div class="chart-grid"><section class="panel"><h2>Zirveden düşüş</h2><div id="drawdown" class="chart"></div></section><section class="panel"><h2>Günlük getiri</h2><div id="returns" class="chart"></div></section></div>
 <div class="chart-grid"><section class="panel"><h2>Coin katkısı <small>USDT · seçili dönem</small></h2><div id="coins"></div></section><section class="panel"><h2>İşlem zaman çizgisi</h2><p class="muted">▲ Giriş · ● Çıkış · ○ Açık değerleme</p><div id="timeline"></div></section></div>
 <section id="monthly-panel" class="panel" hidden><h2>Aylık getiri haritası</h2><div id="monthly" class="table-scroll"></div><p class="muted">İlk/son ay kısmi olabilir. Getiriler bileşik hesaplanır.</p></section>
@@ -29,7 +38,7 @@
 <p><b>Stop modeli:</b> backtest −%30 stoploss’u günlük mumun en düşük fiyatıyla, borsada bekleyen bir stop emri varmış gibi sınar. Bu iyimserdir: fiyat boşlukları ve kayma nedeniyle gerçek gerçekleşme stopun altında olabilir. Gerçek emir yoktur. Canlı sürümde borsa tarafında gerçek bir stop emri gerekir.</p>
 <p class="notice">@@REFERENCE@@</p><p>İleriye dönük başlangıç: 27 Ekim 2026 UTC. Referans: 1 Ocak 2024 ≤ UTC &lt; 26 Ekim 2026 (son kapalı mum 25 Ekim). Geçmiş sonuçlar geleceği kanıtlamaz.</p>
 <a href="https://github.com/SametAlici/ai-crypto-trader-paper">Kaynak kodu, veriler ve yöntem ↗</a></section>
-</div><section id="research-content" hidden>
+</div></div><section id="research-content" hidden>
 <p class="notice">Tarihsel simülasyon; bu veriler strateji geliştirmede kullanıldı; ileriye dönük test değildir</p>
 <p id="research-date" class="muted"></p>
 <section class="panel"><h2>Stratejiler ve eleme nedenleri</h2><div id="research-strategies" class="table-scroll"></div></section>
@@ -41,5 +50,5 @@
 <section class="panel"><h2>Karar ölçütleri</h2><ul id="research-criteria"></ul><h3>Sınırlar</h3><ul id="research-limitations"></ul></section>
 <section class="panel"><h2>Tarihsel net değer eğrileri</h2><select id="research-equity-select" aria-label="Tarihsel eğri"></select><p id="research-equity-label" class="muted"></p><div id="research-equity" class="chart"></div></section>
 </section><noscript>Grafik ve dönem filtreleri için JavaScript gerekir. Tüm veriler depodaki results klasöründedir.</noscript>
-<footer>Sanal işlem / simülasyon — yatırım tavsiyesi değildir</footer></main>
+<footer><span class="eyebrow">03 — 03 / BLACK TO WHITE STUDIO</span><p>Sanal işlem / simülasyon — gerçek para yok, yatırım tavsiyesi değildir.</p></footer></main>
 <script id="report-data" type="application/json">@@DATA@@</script></body></html>

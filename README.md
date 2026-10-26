@@ -81,7 +81,13 @@ CSV/JSON dosyaları kullanılabilir. Mobil tablolar kendi içinde yatay kayar.
 .venv/bin/python scripts/secret_scan.py
 ```
 
-Çıktı `site/index.html`, `site/style.css`, yerel `site/app.js`, `site/metrics.js` ve
+Varsayılan Özet sekmesi beş botun dönem sonuçlarını sade dille gösterir. Gün, hafta ve ay
+seçimleri günlük net değer serisinin dönem başına göre hesaplanır; kısa geçmiş belirtilir.
+Geçmiş örnek yalnız R1/R5 için vardır ve ilk seçildiğinde yerel `reference.json` dosyasından
+yüklenir (GitHub Pages üzerinde aynı dizinden, harici servis olmadan).
+
+Çıktı `site/index.html`, `site/style.css`, yerel `site/app.js`, `site/metrics.js`,
+`site/reference.json` (varsa), `site_assets/` kaynaklı logo/favicon SVG’leri ve
 `trade.blacktowhitestudio.com` içeren `site/CNAME` dosyalarıdır. Üretilen HTML/CSS,
 her derlemede yeniden yazılır; düzenleme kaynakları `scripts/build_site.py` ve
 `scripts/site.css` dosyalarıdır. Yayımlamadan önce **üretilen site dahil** secret

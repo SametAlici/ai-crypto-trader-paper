@@ -1,5 +1,6 @@
 import json
 from html.parser import HTMLParser
+from pathlib import Path
 
 import pytest
 
@@ -44,7 +45,7 @@ def test_not_started_site_and_safe_output(reports, tmp_path):
     assert 'metrics.js' in html and 'app.js' in html
     assert 'data-days="365"' in html
     assert (output / 'CNAME').read_text() == 'trade.blacktowhitestudio.com\n'
-    assert (output / 'style.css').stat().st_size < 10000
+    assert (output / 'style.css').stat().st_size < 12000
     assert all(not inspect_file(p) for p in output.iterdir())
 
 
@@ -56,7 +57,10 @@ def test_synthetic_trades_and_benchmark(reports, tmp_path):
     assert embedded(html)['views']['forward']['r1']['summary']['profit_pct'] == 12.3
     assert '30.10.2026 22:00 UTC · 31.10.2026 01:00 Türkiye saati' in html
     assert 'id="closed"' in html and 'id="open"' in html
-    assert '<img' not in html
+    assert '<img src=x' not in html
+    import re
+    sources = re.findall(r'<img[^>]*\ssrc="([^"]+)"', html)
+    assert sources and set(sources) == {'logo.svg'}  # Only the trusted brand asset.
     assert '\\u003cimg' in html
     assert 'private_note' not in html
     assert not inspect_file(path)
@@ -111,8 +115,10 @@ def test_both_views_and_filter_series(reports, tmp_path):
         directory = reports / 'reference' / track
         shutil.copytree(reports / track, directory)
     data = embedded(build_site(reports, tmp_path / 'site').read_text())
-    assert set(data['views']) == {'forward', 'reference'}
-    assert len(data['views']['reference']['r1']['curve']) == 3
+    assert set(data['views']) == {'forward'}
+    assert data['reference_url'] == 'reference.json'
+    reference = json.loads((tmp_path / 'site/reference.json').read_text())
+    assert len(reference['r1']['curve']) == 3
     assert data['health']['counts']['expected'] >= 0
     html = (tmp_path / 'site/index.html').read_text()
     for label in ['Sistem sağlığı', 'Nasıl okunur?', 'Al-tut R1 evreni',
@@ -132,3 +138,41 @@ def test_script_breakout_escaped(reports, tmp_path):
     html = build_site(reports, tmp_path / 'site').read_text()
     assert '</script><script>alert' not in html
     assert embedded(html)['views']['forward']['r1']['summary']['closed_trades'][0]['pair'].startswith('</script>')
+
+
+def test_brand_and_default_overview(reports, tmp_path):
+    output = tmp_path / 'site'
+    html = build_site(reports, output).read_text()
+    assert html.index('data-view="overview"') < html.index('data-view="forward"')
+    assert 'data-view="overview" aria-pressed="true"' in html
+    assert 'Her bot 1.000 sanal USDT ile başladı. Aşağıda kim ne kadar kazandı/kaybetti görünür.' in html
+    assert 'id="overview-bots"' in html
+    assert 'id="overview-bot-title">R1 · Çekirdek' in html
+    assert 'id="all-columns"' in html
+    css = (output / 'style.css').read_text()
+    assert '@media(max-width:699px)' in css
+    for column in (2, 3, 6, 7):
+        assert f':nth-child({column})' in css
+    assert embedded(html)['reference_url'] is None
+    assert not (output / 'reference.json').exists()
+    for asset in ('logo.svg', 'favicon.svg'):
+        assert (output / asset).read_bytes() == (
+            Path(__file__).resolve().parents[1] / 'site_assets' / asset
+        ).read_bytes()
+
+
+def test_lazy_reference_is_allowlisted_and_scanned(reports, tmp_path):
+    import shutil
+
+    activate(reports)
+    for track in ('r1', 'r5'):
+        shutil.copytree(reports / track, reports / 'reference' / track)
+    output = tmp_path / 'site'
+    html = build_site(reports, output).read_text()
+    data = embedded(html)
+    assert 'reference' not in data['views']
+    reference = json.loads((output / data['reference_url']).read_text())
+    assert set(reference) == {'r1', 'r5'}
+    assert 'private_note' not in (output / 'reference.json').read_text()
+    assert reference['r1']['summary']['open_positions'][0]['pair'].startswith('<img')
+    assert not inspect_file(output / 'reference.json')

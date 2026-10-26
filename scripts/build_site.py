@@ -165,10 +165,15 @@ def build_site(results=ROOT / 'results', output=ROOT / 'site'):
     reports = load_reports(results)
     latest = max(s['updated_utc'] for s, _ in reports.values())
     views = {'forward': public_reports(reports)}
+    reference = None
     if (results / 'reference/r1/summary.json').exists():
-        views['reference'] = public_reports(load_reports(results / 'reference', REFERENCE_TRACKS))
-    payload = {'registry': TRACKS, 'research': load_research(), 'views': views, 'health': public_health(results, datetime.now(ZoneInfo('UTC')).isoformat())}
-    encoded = json.dumps(payload, ensure_ascii=False, allow_nan=False).replace(
+        reference = public_reports(load_reports(results / 'reference', REFERENCE_TRACKS))
+    payload = {
+        'registry': TRACKS, 'research': load_research(), 'views': views,
+        'reference_url': 'reference.json' if reference else None,
+        'health': public_health(results, datetime.now(ZoneInfo('UTC')).isoformat()),
+    }
+    encoded = json.dumps(payload, ensure_ascii=False, allow_nan=False, separators=(',', ':')).replace(
         '&', '\\u0026').replace('<', '\\u003c').replace('>', '\\u003e')
     # Script JSON is escaped separately from HTML. Never interpolate input into JavaScript.
     encoded = encoded.replace(chr(0x2028), '\\u2028').replace(chr(0x2029), '\\u2029')
@@ -177,6 +182,14 @@ def build_site(results=ROOT / 'results', output=ROOT / 'site'):
                         + timestamp(latest, 'Europe/Istanbul') + ' Türkiye saati'))
     html = html.replace('@@REFERENCE@@', REFERENCE_LABEL)
     output.mkdir(parents=True, exist_ok=True)
+    if reference is not None:
+        (output / 'reference.json').write_text(
+            json.dumps(reference, ensure_ascii=False, allow_nan=False, separators=(',', ':')),
+            encoding='utf-8')
+    else:
+        (output / 'reference.json').unlink(missing_ok=True)
+    for asset in ('logo.svg', 'favicon.svg'):
+        (output / asset).write_bytes((ROOT / 'site_assets' / asset).read_bytes())
     (output / 'index.html').write_text(html, encoding='utf-8')
     for source, target in [('site.css', 'style.css'), ('site.js', 'app.js'),
                            ('site_metrics.js', 'metrics.js')]:

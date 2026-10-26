@@ -42,6 +42,29 @@ function healthCounts(successfulDates, now, start) {
   const actual=new Set(successfulDates.filter(d=>d>=firstDate&&d<=lastDue)).size;
   return {expected,actual,missing:Math.max(0,expected-actual)};
 }
-root.TradeMetrics={period,months,healthCounts};
+function signed(value, digits=1) {
+  const rounded=Number(Number(value).toFixed(digits));
+  return (rounded>0?'+':rounded<0?'−':'')+Math.abs(rounded).toLocaleString('tr-TR',{
+    minimumFractionDigits:digits,maximumFractionDigits:digits});
+}
+function overview(report, requested, source='forward') {
+  if(!report)return {state:'missing',message:'Geçmiş simülasyon yok (yeni bot)'};
+  const s=report.summary;
+  if(s.universe_pending)return {state:'pending',message:'Coin listesi bu gece belirlenecek'};
+  if(s.status==='not_started')return {state:'not_started',message:"Test 27 Ekim 2026'da başladı; ilk sonuçlar ilk gün kapanınca görünür"};
+  const p=period(report,requested), bh=period(report,requested,'buy_hold_equity');
+  if(!p.days)return {state:'waiting',message:'İlk sonuçlar ilk gün kapanınca görünür'};
+  const start=new Date(p.curve[0].date),end=new Date(p.curve.at(-1).date);
+  const entries=[...(s.closed_trades||[]),...(s.open_positions||[])];
+  const trades=new Set(entries.filter(t=>new Date(t.entry_date)>=start&&new Date(t.entry_date)<end)
+    .map(t=>t.trade_id??`${t.pair}/${t.entry_date}`)).size;
+  const positions=[...new Set((s.open_positions||[]).map(t=>t.pair.split('/')[0]))];
+  return {state:'ready',...p,start:p.curve[0].equity,end:p.curve.at(-1).equity,
+    benchmark:bh.ret,trades,positions,source,
+    // Compare at displayed precision (0,1) so "0,0 USDT" never reads as a loss.
+    message:Math.abs(p.net)<0.05?'Bu dönemde değişmedi':p.net>0?'Bu dönemde kâr etti':'Bu dönemde zarar etti',
+    verdict:Math.abs(p.ret-bh.ret)<0.05?'Al-tutla aynı':p.ret>bh.ret?'Al-tuttan iyi':'Al-tuttan kötü'};
+}
+root.TradeMetrics={period,months,healthCounts,signed,overview};
 if(typeof module!=='undefined')module.exports=root.TradeMetrics;
 })(globalThis);

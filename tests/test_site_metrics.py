@@ -80,3 +80,72 @@ def test_health_counts_refresh_even_without_site_rebuild():
     before, later = json.loads(subprocess.check_output(['node', '-e', code], cwd=ROOT))
     assert before == {'expected': 0, 'actual': 0, 'missing': 0}
     assert later == {'expected': 3, 'actual': 1, 'missing': 2}
+
+
+def overview(report, days=0, source='forward'):
+    code = "const m=require('./scripts/site_metrics.js');console.log(JSON.stringify(m.overview(JSON.parse(process.argv[1]),Number(process.argv[2]),process.argv[3])));"
+    return json.loads(subprocess.check_output(
+        ['node', '-e', code, json.dumps(report), str(days), source], cwd=ROOT))
+
+
+@pytest.mark.parametrize('days,net,base,available,short', [
+    (1, -100, 1200, 2, False), (7, 100, 1000, 2, True),
+    (30, 100, 1000, 2, True), (0, 100, 1000, 2, False)])
+def test_overview_period_math_short_history(days, net, base, available, short):
+    result = overview(synthetic(), days)
+    assert result['state'] == 'ready'
+    assert result['start'] == base
+    assert result['end'] == 1100
+    assert result['net'] == net
+    assert result['ret'] == pytest.approx(net / base * 100)
+    assert result['available'] == available
+    assert result['insufficient'] is short
+
+
+def test_overview_week_and_month_use_period_start_not_initial_balance():
+    from datetime import UTC, datetime, timedelta
+    r = synthetic()
+    r['curve'] = [{'date': (datetime(2026, 1, 1, tzinfo=UTC)+timedelta(days=i)).isoformat(),
+                   'equity': 1000+i*10, 'buy_hold_equity': 1000+i*5} for i in range(41)]
+    for days in (1, 7, 30):
+        p = overview(r, days)
+        assert p['start'] == 1400-days*10
+        assert p['net'] == days*10
+        assert p['benchmark'] == pytest.approx((1200/(1200-days*5)-1)*100)
+        assert not p['insufficient']
+
+
+def test_overview_signed_formatting():
+    code = "const m=require('./scripts/site_metrics.js');console.log(JSON.stringify([34,-12,0,-0.001,0.001].map(v=>m.signed(v))));"
+    values = json.loads(subprocess.check_output(['node', '-e', code], cwd=ROOT))
+    assert values == ['+34,0', '−12,0', '0,0', '0,0', '0,0']
+
+
+def test_overview_pending_and_not_started_hide_results():
+    r = synthetic()
+    r['summary'].update(status='not_started', universe_pending=True)
+    p = overview(r)
+    assert p == {'state': 'pending', 'message': 'Coin listesi bu gece belirlenecek'}
+    r['summary']['universe_pending'] = False
+    p = overview(r)
+    assert p['state'] == 'not_started'
+    assert "Test 27 Ekim 2026'da başladı" in p['message']
+    assert 'net' not in p
+
+
+def test_overview_reference_availability_and_trade_position_counts():
+    reports = {'r1': synthetic(), 'r5': synthetic()}
+    for track in ('r1', 'r5', 'r6', 'r7', 'r8'):
+        p = overview(reports.get(track), source='reference')
+        assert p['state'] == ('ready' if track in reports else 'missing')
+        if track not in reports:
+            assert p['message'] == 'Geçmiş simülasyon yok (yeni bot)'
+    r = synthetic()
+    r['summary']['open_positions'] = [
+        {'trade_id': 1, 'pair': 'SOL/USDT', 'entry_date': r['curve'][1]['date']},
+        {'trade_id': 2, 'pair': 'BTC/USDT', 'entry_date': '2026-10-20T00:00:00Z'}]
+    p = overview(r, 1)
+    assert p['trades'] == 1  # Carry-in positions are not new trades.
+    assert p['positions'] == ['SOL', 'BTC']
+    assert p['verdict'] == 'Al-tuttan iyi'
+

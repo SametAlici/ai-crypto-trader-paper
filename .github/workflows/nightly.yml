@@ -14,6 +14,7 @@ on:
       - 'scripts/site.html'
       - 'scripts/site.js'
       - 'scripts/site_metrics.js'
+      - 'site_assets/**'
       - '.github/workflows/nightly.yml'
 permissions:
   contents: read
