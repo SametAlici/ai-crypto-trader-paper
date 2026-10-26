@@ -1,0 +1,16 @@
+.venv/
+.uv-cache/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+data/
+logs/
+*.log
+*.sqlite
+*.sqlite.*
+*.sqlite3
+*.db
+.env
+.env.*
+user_data/backtest_results/
+.DS_Store

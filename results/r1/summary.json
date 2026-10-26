@@ -1,0 +1,23 @@
+{
+  "track": "r1",
+  "start_date": "2026-10-27",
+  "updated_utc": "2026-10-26T15:51:48.220577+00:00",
+  "date": null,
+  "status": "not_started",
+  "balance": 1000.0,
+  "profit_pct": 0.0,
+  "trades": 0,
+  "entries": 0,
+  "open_positions": [],
+  "closed_trades": [],
+  "max_drawdown_pct": 0.0,
+  "engine_max_drawdown_pct": 0,
+  "buy_hold_profit_pct": null,
+  "buy_hold_pairs": [
+    "BTC/USDT",
+    "ETH/USDT",
+    "SOL/USDT"
+  ],
+  "fee_per_side": 0.0015,
+  "equity_method": "Daily close net liquidation; terminal force_exit uses engine last open."
+}
