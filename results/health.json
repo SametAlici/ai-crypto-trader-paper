@@ -981,6 +981,748 @@
       "before": {},
       "after": {},
       "reason": "run_failed"
+    },
+    {
+      "run_date": "2026-10-26T17:05:09.850736+00:00",
+      "success": true,
+      "data_freshness": true,
+      "pairs_ok": [
+        "BTC/USDT",
+        "ETH/USDT",
+        "SOL/USDT",
+        "BNB/USDT",
+        "XRP/USDT",
+        "ADA/USDT",
+        "AVAX/USDT",
+        "LINK/USDT",
+        "DOGE/USDT",
+        "DOT/USDT",
+        "LTC/USDT",
+        "TRX/USDT",
+        "ATOM/USDT",
+        "BCH/USDT",
+        "ETC/USDT",
+        "XLM/USDT",
+        "UNI/USDT",
+        "AAVE/USDT",
+        "NEAR/USDT",
+        "FIL/USDT",
+        "ICP/USDT",
+        "ALGO/USDT",
+        "VET/USDT",
+        "HBAR/USDT",
+        "SAND/USDT",
+        "MANA/USDT",
+        "AXS/USDT",
+        "XTZ/USDT",
+        "THETA/USDT",
+        "EGLD/USDT",
+        "GRT/USDT",
+        "CRV/USDT",
+        "RUNE/USDT",
+        "ZEC/USDT"
+      ],
+      "pairs_missing": [],
+      "duration_seconds": 22.008,
+      "before": {
+        "expected_latest": "2026-10-25",
+        "data_freshness": false,
+        "pairs_ok": [],
+        "pairs_missing": [
+          "BTC/USDT",
+          "ETH/USDT",
+          "SOL/USDT",
+          "BNB/USDT",
+          "XRP/USDT",
+          "ADA/USDT",
+          "AVAX/USDT",
+          "LINK/USDT",
+          "DOGE/USDT",
+          "DOT/USDT",
+          "LTC/USDT",
+          "TRX/USDT",
+          "ATOM/USDT",
+          "BCH/USDT",
+          "ETC/USDT",
+          "XLM/USDT",
+          "UNI/USDT",
+          "AAVE/USDT",
+          "NEAR/USDT",
+          "FIL/USDT",
+          "ICP/USDT",
+          "ALGO/USDT",
+          "VET/USDT",
+          "HBAR/USDT",
+          "SAND/USDT",
+          "MANA/USDT",
+          "AXS/USDT",
+          "XTZ/USDT",
+          "THETA/USDT",
+          "EGLD/USDT",
+          "GRT/USDT",
+          "CRV/USDT",
+          "RUNE/USDT",
+          "ZEC/USDT"
+        ],
+        "pairs": {
+          "BTC/USDT": {
+            "ok": false,
+            "latest_closed": null,
+            "missing_days": [],
+            "listing_date": "2017-08-17",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "ETH/USDT": {
+            "ok": false,
+            "latest_closed": null,
+            "missing_days": [],
+            "listing_date": "2017-08-17",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "SOL/USDT": {
+            "ok": false,
+            "latest_closed": null,
+            "missing_days": [],
+            "listing_date": "2020-08-11",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "BNB/USDT": {
+            "ok": false,
+            "latest_closed": null,
+            "missing_days": [],
+            "listing_date": "2017-11-06",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "XRP/USDT": {
+            "ok": false,
+            "latest_closed": null,
+            "missing_days": [],
+            "listing_date": "2018-05-04",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "ADA/USDT": {
+            "ok": false,
+            "latest_closed": null,
+            "missing_days": [],
+            "listing_date": "2018-04-17",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "AVAX/USDT": {
+            "ok": false,
+            "latest_closed": null,
+            "missing_days": [],
+            "listing_date": "2020-09-22",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "LINK/USDT": {
+            "ok": false,
+            "latest_closed": null,
+            "missing_days": [],
+            "listing_date": "2019-01-16",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "DOGE/USDT": {
+            "ok": false,
+            "latest_closed": null,
+            "missing_days": [],
+            "listing_date": "2019-07-05",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "DOT/USDT": {
+            "ok": false,
+            "latest_closed": null,
+            "missing_days": [],
+            "listing_date": "2020-08-18",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "LTC/USDT": {
+            "ok": false,
+            "latest_closed": null,
+            "missing_days": [],
+            "listing_date": "2017-12-13",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "TRX/USDT": {
+            "ok": false,
+            "latest_closed": null,
+            "missing_days": [],
+            "listing_date": "2018-06-11",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "ATOM/USDT": {
+            "ok": false,
+            "latest_closed": null,
+            "missing_days": [],
+            "listing_date": "2019-04-29",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "BCH/USDT": {
+            "ok": false,
+            "latest_closed": null,
+            "missing_days": [],
+            "listing_date": "2019-11-28",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "ETC/USDT": {
+            "ok": false,
+            "latest_closed": null,
+            "missing_days": [],
+            "listing_date": "2018-06-12",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "XLM/USDT": {
+            "ok": false,
+            "latest_closed": null,
+            "missing_days": [],
+            "listing_date": "2018-05-31",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "UNI/USDT": {
+            "ok": false,
+            "latest_closed": null,
+            "missing_days": [],
+            "listing_date": "2020-09-17",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "AAVE/USDT": {
+            "ok": false,
+            "latest_closed": null,
+            "missing_days": [],
+            "listing_date": "2020-10-15",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "NEAR/USDT": {
+            "ok": false,
+            "latest_closed": null,
+            "missing_days": [],
+            "listing_date": "2020-10-14",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "FIL/USDT": {
+            "ok": false,
+            "latest_closed": null,
+            "missing_days": [],
+            "listing_date": "2020-10-15",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "ICP/USDT": {
+            "ok": false,
+            "latest_closed": null,
+            "missing_days": [],
+            "listing_date": "2021-05-11",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "ALGO/USDT": {
+            "ok": false,
+            "latest_closed": null,
+            "missing_days": [],
+            "listing_date": "2019-06-22",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "VET/USDT": {
+            "ok": false,
+            "latest_closed": null,
+            "missing_days": [],
+            "listing_date": "2018-07-25",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "HBAR/USDT": {
+            "ok": false,
+            "latest_closed": null,
+            "missing_days": [],
+            "listing_date": "2019-09-29",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "SAND/USDT": {
+            "ok": false,
+            "latest_closed": null,
+            "missing_days": [],
+            "listing_date": "2020-08-14",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "MANA/USDT": {
+            "ok": false,
+            "latest_closed": null,
+            "missing_days": [],
+            "listing_date": "2020-08-06",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "AXS/USDT": {
+            "ok": false,
+            "latest_closed": null,
+            "missing_days": [],
+            "listing_date": "2020-11-04",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "XTZ/USDT": {
+            "ok": false,
+            "latest_closed": null,
+            "missing_days": [],
+            "listing_date": "2019-09-24",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "THETA/USDT": {
+            "ok": false,
+            "latest_closed": null,
+            "missing_days": [],
+            "listing_date": "2019-04-10",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "EGLD/USDT": {
+            "ok": false,
+            "latest_closed": null,
+            "missing_days": [],
+            "listing_date": "2020-09-03",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "GRT/USDT": {
+            "ok": false,
+            "latest_closed": null,
+            "missing_days": [],
+            "listing_date": "2020-12-17",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "CRV/USDT": {
+            "ok": false,
+            "latest_closed": null,
+            "missing_days": [],
+            "listing_date": "2020-08-15",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "RUNE/USDT": {
+            "ok": false,
+            "latest_closed": null,
+            "missing_days": [],
+            "listing_date": "2020-09-04",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "ZEC/USDT": {
+            "ok": false,
+            "latest_closed": null,
+            "missing_days": [],
+            "listing_date": "2019-03-21",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          }
+        }
+      },
+      "after": {
+        "expected_latest": "2026-10-25",
+        "data_freshness": true,
+        "pairs_ok": [
+          "BTC/USDT",
+          "ETH/USDT",
+          "SOL/USDT",
+          "BNB/USDT",
+          "XRP/USDT",
+          "ADA/USDT",
+          "AVAX/USDT",
+          "LINK/USDT",
+          "DOGE/USDT",
+          "DOT/USDT",
+          "LTC/USDT",
+          "TRX/USDT",
+          "ATOM/USDT",
+          "BCH/USDT",
+          "ETC/USDT",
+          "XLM/USDT",
+          "UNI/USDT",
+          "AAVE/USDT",
+          "NEAR/USDT",
+          "FIL/USDT",
+          "ICP/USDT",
+          "ALGO/USDT",
+          "VET/USDT",
+          "HBAR/USDT",
+          "SAND/USDT",
+          "MANA/USDT",
+          "AXS/USDT",
+          "XTZ/USDT",
+          "THETA/USDT",
+          "EGLD/USDT",
+          "GRT/USDT",
+          "CRV/USDT",
+          "RUNE/USDT",
+          "ZEC/USDT"
+        ],
+        "pairs_missing": [],
+        "pairs": {
+          "BTC/USDT": {
+            "ok": true,
+            "latest_closed": "2026-10-25",
+            "missing_days": [],
+            "listing_date": "2017-08-17",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "ETH/USDT": {
+            "ok": true,
+            "latest_closed": "2026-10-25",
+            "missing_days": [],
+            "listing_date": "2017-08-17",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "SOL/USDT": {
+            "ok": true,
+            "latest_closed": "2026-10-25",
+            "missing_days": [],
+            "listing_date": "2020-08-11",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "BNB/USDT": {
+            "ok": true,
+            "latest_closed": "2026-10-25",
+            "missing_days": [],
+            "listing_date": "2017-11-06",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "XRP/USDT": {
+            "ok": true,
+            "latest_closed": "2026-10-25",
+            "missing_days": [],
+            "listing_date": "2018-05-04",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "ADA/USDT": {
+            "ok": true,
+            "latest_closed": "2026-10-25",
+            "missing_days": [],
+            "listing_date": "2018-04-17",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "AVAX/USDT": {
+            "ok": true,
+            "latest_closed": "2026-10-25",
+            "missing_days": [],
+            "listing_date": "2020-09-22",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "LINK/USDT": {
+            "ok": true,
+            "latest_closed": "2026-10-25",
+            "missing_days": [],
+            "listing_date": "2019-01-16",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "DOGE/USDT": {
+            "ok": true,
+            "latest_closed": "2026-10-25",
+            "missing_days": [],
+            "listing_date": "2019-07-05",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "DOT/USDT": {
+            "ok": true,
+            "latest_closed": "2026-10-25",
+            "missing_days": [],
+            "listing_date": "2020-08-18",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "LTC/USDT": {
+            "ok": true,
+            "latest_closed": "2026-10-25",
+            "missing_days": [],
+            "listing_date": "2017-12-13",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "TRX/USDT": {
+            "ok": true,
+            "latest_closed": "2026-10-25",
+            "missing_days": [],
+            "listing_date": "2018-06-11",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "ATOM/USDT": {
+            "ok": true,
+            "latest_closed": "2026-10-25",
+            "missing_days": [],
+            "listing_date": "2019-04-29",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "BCH/USDT": {
+            "ok": true,
+            "latest_closed": "2026-10-25",
+            "missing_days": [],
+            "listing_date": "2019-11-28",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "ETC/USDT": {
+            "ok": true,
+            "latest_closed": "2026-10-25",
+            "missing_days": [],
+            "listing_date": "2018-06-12",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "XLM/USDT": {
+            "ok": true,
+            "latest_closed": "2026-10-25",
+            "missing_days": [],
+            "listing_date": "2018-05-31",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "UNI/USDT": {
+            "ok": true,
+            "latest_closed": "2026-10-25",
+            "missing_days": [],
+            "listing_date": "2020-09-17",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "AAVE/USDT": {
+            "ok": true,
+            "latest_closed": "2026-10-25",
+            "missing_days": [],
+            "listing_date": "2020-10-15",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "NEAR/USDT": {
+            "ok": true,
+            "latest_closed": "2026-10-25",
+            "missing_days": [],
+            "listing_date": "2020-10-14",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "FIL/USDT": {
+            "ok": true,
+            "latest_closed": "2026-10-25",
+            "missing_days": [],
+            "listing_date": "2020-10-15",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "ICP/USDT": {
+            "ok": true,
+            "latest_closed": "2026-10-25",
+            "missing_days": [],
+            "listing_date": "2021-05-11",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "ALGO/USDT": {
+            "ok": true,
+            "latest_closed": "2026-10-25",
+            "missing_days": [],
+            "listing_date": "2019-06-22",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "VET/USDT": {
+            "ok": true,
+            "latest_closed": "2026-10-25",
+            "missing_days": [],
+            "listing_date": "2018-07-25",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "HBAR/USDT": {
+            "ok": true,
+            "latest_closed": "2026-10-25",
+            "missing_days": [],
+            "listing_date": "2019-09-29",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "SAND/USDT": {
+            "ok": true,
+            "latest_closed": "2026-10-25",
+            "missing_days": [],
+            "listing_date": "2020-08-14",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "MANA/USDT": {
+            "ok": true,
+            "latest_closed": "2026-10-25",
+            "missing_days": [],
+            "listing_date": "2020-08-06",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "AXS/USDT": {
+            "ok": true,
+            "latest_closed": "2026-10-25",
+            "missing_days": [],
+            "listing_date": "2020-11-04",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "XTZ/USDT": {
+            "ok": true,
+            "latest_closed": "2026-10-25",
+            "missing_days": [],
+            "listing_date": "2019-09-24",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "THETA/USDT": {
+            "ok": true,
+            "latest_closed": "2026-10-25",
+            "missing_days": [],
+            "listing_date": "2019-04-10",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "EGLD/USDT": {
+            "ok": true,
+            "latest_closed": "2026-10-25",
+            "missing_days": [],
+            "listing_date": "2020-09-03",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "GRT/USDT": {
+            "ok": true,
+            "latest_closed": "2026-10-25",
+            "missing_days": [],
+            "listing_date": "2020-12-17",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "CRV/USDT": {
+            "ok": true,
+            "latest_closed": "2026-10-25",
+            "missing_days": [],
+            "listing_date": "2020-08-15",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "RUNE/USDT": {
+            "ok": true,
+            "latest_closed": "2026-10-25",
+            "missing_days": [],
+            "listing_date": "2020-09-04",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          },
+          "ZEC/USDT": {
+            "ok": true,
+            "latest_closed": "2026-10-25",
+            "missing_days": [],
+            "listing_date": "2019-03-21",
+            "listing_gap_days": 0,
+            "duplicate_days": false,
+            "invalid_ohlcv": false
+          }
+        }
+      },
+      "reason": null
     }
   ]
 }

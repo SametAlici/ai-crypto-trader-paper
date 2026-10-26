@@ -44,11 +44,12 @@
   "win_rate_pct": null,
   "avg_win_usdt": null,
   "avg_loss_usdt": null,
+  "avg_win_loss_ratio": null,
   "daily_returns": [],
   "trade_metrics_method": "Closed trades only for win rate and concentration; net includes terminal valuation. Shares undefined for net <= 0. Fees include modeled terminal liquidation.",
   "track": "r5",
   "start_date": "2026-10-27",
-  "updated_utc": "2026-10-26T16:30:45.969959+00:00",
+  "updated_utc": "2026-10-26T17:05:11.345541+00:00",
   "date": null,
   "status": "not_started",
   "balance": 1000.0,
@@ -96,6 +97,5 @@
     "RUNE/USDT"
   ],
   "fee_per_side": 0.0015,
-  "equity_method": "Daily close net liquidation; terminal force_exit uses engine last open.",
-  "avg_win_loss_ratio": null
+  "equity_method": "Daily close net liquidation; terminal force_exit uses engine last open."
 }
