@@ -1,6 +1,6 @@
 # İleriye dönük sanal işlem kaydı
 
-Son güncelleme (UTC): 2026-10-26T16:02:05.172287+00:00
+Son güncelleme (UTC): 2026-10-26T16:08:20.865973+00:00
 
 | İzlek | Durum | Bakiye (USDT) | Getiri | Aynı coinleri al-tut | Kapalı / açık | En büyük düşüş |
 |---|---|---:|---:|---:|---:|---:|
