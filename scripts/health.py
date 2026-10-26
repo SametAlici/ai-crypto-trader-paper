@@ -9,6 +9,7 @@ from scripts.reporting import START_DATE
 def data_health(candles, pairs, today, start=START_DATE, listings=None):
     import pandas as pd
     today = pd.Timestamp(today)
+    today = today.tz_localize('UTC') if today.tzinfo is None else today.tz_convert('UTC')
     yesterday = today - pd.Timedelta(days=1)
     start = pd.Timestamp(start, tz='UTC')
     listings = listings or {}
@@ -16,6 +17,8 @@ def data_health(candles, pairs, today, start=START_DATE, listings=None):
     for pair in pairs:
         frame = candles.get(pair)
         dates = pd.DatetimeIndex([], tz='UTC') if frame is None else pd.DatetimeIndex(frame.date)
+        # Feather data may arrive tz-naive depending on the loader; compare in UTC.
+        dates = dates.tz_localize('UTC') if dates.tz is None else dates.tz_convert('UTC')
         listing = pd.Timestamp(listings.get(pair, start.isoformat()))
         if listing.tzinfo is None:
             listing = listing.tz_localize('UTC')
