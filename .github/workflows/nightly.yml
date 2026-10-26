@@ -3,22 +3,41 @@ on:
   schedule:
     - cron: '20 0 * * *'
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'results/**'
+      - 'scripts/build_site.py'
+      - 'scripts/site.css'
+      - '.github/workflows/nightly.yml'
 permissions:
-  contents: write
+  contents: read
 concurrency:
   group: nightly-forward-paper-main
   cancel-in-progress: false
 jobs:
   forward:
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main' && github.event_name != 'push'
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    permissions:
+      contents: write
+      actions: write
     steps:
       - uses: actions/checkout@v4
         with:
           ref: main
       - name: Scan public source before installing or publishing
         run: python3 scripts/secret_scan.py
+      - name: Monthly workflow keepalive (also on manual runs)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          if [ "$(date -u +%d)" = '01' ] || [ "$EVENT_NAME" = 'workflow_dispatch' ]; then
+            gh api --method PUT "repos/$GH_REPO/actions/workflows/nightly.yml/enable"
+          fi
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -42,3 +61,87 @@ jobs:
             git commit -m 'Update forward paper record [skip ci]'
             git push origin HEAD:main
           fi
+  pages:
+    needs: forward
+    if: >-
+      always() && github.ref == 'refs/heads/main' &&
+      (needs.forward.result == 'success' ||
+       (github.event_name == 'push' && needs.forward.result == 'skipped'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      # Fetch main AFTER the forward job commits its validated results.
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Scan source before building
+        run: python3 scripts/secret_scan.py
+      - name: Build static dashboard
+        run: python3 scripts/build_site.py
+      - name: Scan generated site before publishing
+        run: python3 scripts/secret_scan.py
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
+      - name: Deploy Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+  report:
+    needs: [forward, pages]
+    if: always() && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Write success or failure summary
+        env:
+          FORWARD_RESULT: ${{ needs.forward.result }}
+          PAGES_RESULT: ${{ needs.pages.result }}
+          EVENT_NAME: ${{ github.event_name }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          if [ "$PAGES_RESULT" = 'success' ] && { [ "$FORWARD_RESULT" = 'success' ] || [ "$EVENT_NAME" = 'push' ]; }; then
+            echo '## Başarılı — Trade Lab' >> "$GITHUB_STEP_SUMMARY"
+            echo 'Doğrulanan sonuçlar secret taramasından geçti; site yayımlandı.' >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo '## Başarısız veya iptal edildi — Trade Lab' >> "$GITHUB_STEP_SUMMARY"
+            echo 'Tamamlanamayan adımları inceleyin. Site güncel olmayabilir.' >> "$GITHUB_STEP_SUMMARY"
+          fi
+          echo "İleri dönem: $FORWARD_RESULT · Pages: $PAGES_RESULT" >> "$GITHUB_STEP_SUMMARY"
+          echo "[Çalışma kaydı]($RUN_URL) · [Site](https://trade.blacktowhitestudio.com)" >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Add metrics to summary
+        if: needs.pages.result == 'success'
+        run: |
+          python3 - <<'PY'
+          import os
+          from scripts.notify_telegram import build_message
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as output:
+              output.write('\n' + build_message() + '\n')
+          PY
+      - name: Optional nightly Telegram notification
+        if: always() && github.event_name != 'push'
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          FORWARD_RESULT: ${{ needs.forward.result }}
+          PAGES_RESULT: ${{ needs.pages.result }}
+        run: |
+          if [ "$FORWARD_RESULT" = 'success' ] && [ "$PAGES_RESULT" = 'success' ]; then
+            python3 scripts/notify_telegram.py
+          else
+            python3 scripts/notify_telegram.py --failed
+          fi
+      - name: Note notification failure
+        if: failure()
+        run: echo 'Bildirim veya raporlama adımı başarısız; çalışma günlüğünü inceleyin.' >> "$GITHUB_STEP_SUMMARY"
