@@ -970,6 +970,17 @@
         }
       },
       "reason": null
+    },
+    {
+      "run_date": "2026-10-26T17:03:11.752879+00:00",
+      "success": false,
+      "data_freshness": false,
+      "pairs_ok": [],
+      "pairs_missing": [],
+      "duration_seconds": 0.141,
+      "before": {},
+      "after": {},
+      "reason": "run_failed"
     }
   ]
 }
