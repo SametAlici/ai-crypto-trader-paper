@@ -1,14 +1,14 @@
 # İleriye dönük sanal işlem kaydı
 
-Son güncelleme (UTC): 2026-10-26T17:30:07.956413+00:00
+Son güncelleme (UTC): 2026-10-27T05:09:48.172633+00:00
 
 | İzlek | Durum | Bakiye (USDT) | Getiri | Aynı coinleri al-tut | Kapalı / açık | En büyük düşüş |
 |---|---|---:|---:|---:|---:|---:|
 | R1 | Başlamadı | 1000.00 | %0.00 | — | 0 / 0 | %0.00 |
 | R5 | Başlamadı | 1000.00 | %0.00 | — | 0 / 0 | %0.00 |
 | R6 | Başlamadı | 1000.00 | %0.00 | — | 0 / 0 | %0.00 |
-| R7 | Evren snapshot bekleniyor | 1000.00 | %0.00 | — | 0 / 0 | %0.00 |
-| R8 | Evren snapshot bekleniyor | 1000.00 | %0.00 | — | 0 / 0 | %0.00 |
+| R7 | Başlamadı | 1000.00 | %0.00 | — | 0 / 0 | %0.00 |
+| R8 | Başlamadı | 1000.00 | %0.00 | — | 0 / 0 | %0.00 |
 
 Başlangıç: 2026-10-27 UTC. İlk tam gün kapandıktan sonra sonuç oluşur.
 

@@ -1,14 +1,4485 @@
 {
-  "status": "pending",
-  "protocol": "PROTOCOL.md",
-  "universe_ref": null,
-  "pairs": [],
-  "slots": 5,
-  "selection": "top 70 by summed daily quoteAssetVolume",
+  "status": "ready",
+  "snapshot_utc": "2026-10-27T05:07:20.233962+00:00",
   "source": "https://data-api.binance.vision/api/v3/",
   "window_start_inclusive": "2026-09-27",
   "window_end_exclusive": "2026-10-27",
-  "required_close_utc": "2026-10-27T00:00:00Z",
-  "reason": "The 2026-10-26 UTC daily candle has not closed at the real snapshot attempt",
-  "attempt_utc": "2026-10-26T16:41:52.819247+00:00"
+  "pairs": [
+    "BTC/USDT",
+    "ETH/USDT",
+    "SOL/USDT",
+    "ZEC/USDT",
+    "NEAR/USDT",
+    "XRP/USDT",
+    "BNB/USDT",
+    "SUI/USDT",
+    "DOGE/USDT",
+    "QNT/USDT",
+    "WLD/USDT",
+    "UNI/USDT",
+    "ENA/USDT",
+    "AVAX/USDT",
+    "PUMP/USDT",
+    "ADA/USDT",
+    "PEPE/USDT",
+    "LINK/USDT",
+    "TAO/USDT",
+    "TRX/USDT",
+    "HBAR/USDT",
+    "STRK/USDT",
+    "ONDO/USDT",
+    "AAVE/USDT",
+    "LTC/USDT",
+    "FET/USDT",
+    "ZRO/USDT",
+    "ARB/USDT",
+    "XLM/USDT",
+    "FIL/USDT",
+    "INJ/USDT",
+    "TRUMP/USDT",
+    "PAXG/USDT",
+    "TIA/USDT",
+    "SAND/USDT",
+    "DOT/USDT",
+    "BCH/USDT",
+    "APT/USDT",
+    "MOVR/USDT",
+    "PENGU/USDT",
+    "GTC/USDT",
+    "ICP/USDT",
+    "RLC/USDT",
+    "DASH/USDT",
+    "OP/USDT",
+    "MUBARAK/USDT",
+    "MAGIC/USDT",
+    "POL/USDT",
+    "SEI/USDT",
+    "W/USDT",
+    "VTHO/USDT",
+    "AI/USDT",
+    "RAY/USDT",
+    "BABY/USDT",
+    "PYTH/USDT",
+    "S/USDT",
+    "RENDER/USDT",
+    "OGN/USDT",
+    "ETHFI/USDT",
+    "ERA/USDT",
+    "ALGO/USDT",
+    "VIRTUAL/USDT",
+    "CRV/USDT",
+    "BMT/USDT",
+    "ORCA/USDT",
+    "ZK/USDT",
+    "NIL/USDT",
+    "ATOM/USDT",
+    "ACE/USDT",
+    "CAKE/USDT"
+  ],
+  "volume_ranking": [
+    {
+      "pair": "BTC/USDT",
+      "quote_volume_30d": 35598792751.2275
+    },
+    {
+      "pair": "ETH/USDT",
+      "quote_volume_30d": 18849106492.843254
+    },
+    {
+      "pair": "SOL/USDT",
+      "quote_volume_30d": 6474041421.5075
+    },
+    {
+      "pair": "ZEC/USDT",
+      "quote_volume_30d": 5959962394.29084
+    },
+    {
+      "pair": "NEAR/USDT",
+      "quote_volume_30d": 4838054587.5924
+    },
+    {
+      "pair": "XRP/USDT",
+      "quote_volume_30d": 4307513474.10221
+    },
+    {
+      "pair": "BNB/USDT",
+      "quote_volume_30d": 2360531644.68427
+    },
+    {
+      "pair": "SUI/USDT",
+      "quote_volume_30d": 2083180222.69273
+    },
+    {
+      "pair": "DOGE/USDT",
+      "quote_volume_30d": 1749151872.59593
+    },
+    {
+      "pair": "QNT/USDT",
+      "quote_volume_30d": 1611364045.75231
+    },
+    {
+      "pair": "WLD/USDT",
+      "quote_volume_30d": 1553727751.77389
+    },
+    {
+      "pair": "UNI/USDT",
+      "quote_volume_30d": 1486297707.8296
+    },
+    {
+      "pair": "ENA/USDT",
+      "quote_volume_30d": 1325670042.72034
+    },
+    {
+      "pair": "AVAX/USDT",
+      "quote_volume_30d": 1106906820.02205
+    },
+    {
+      "pair": "PUMP/USDT",
+      "quote_volume_30d": 1020365109.37232
+    },
+    {
+      "pair": "ADA/USDT",
+      "quote_volume_30d": 978568538.5629001
+    },
+    {
+      "pair": "PEPE/USDT",
+      "quote_volume_30d": 966961315.1942126
+    },
+    {
+      "pair": "LINK/USDT",
+      "quote_volume_30d": 874879739.06109
+    },
+    {
+      "pair": "TAO/USDT",
+      "quote_volume_30d": 857721051.99211
+    },
+    {
+      "pair": "TRX/USDT",
+      "quote_volume_30d": 769135757.34749
+    },
+    {
+      "pair": "HBAR/USDT",
+      "quote_volume_30d": 707200262.34513
+    },
+    {
+      "pair": "STRK/USDT",
+      "quote_volume_30d": 692645639.997716
+    },
+    {
+      "pair": "ONDO/USDT",
+      "quote_volume_30d": 681200612.6478
+    },
+    {
+      "pair": "AAVE/USDT",
+      "quote_volume_30d": 675766843.45381
+    },
+    {
+      "pair": "LTC/USDT",
+      "quote_volume_30d": 638159317.34178
+    },
+    {
+      "pair": "FET/USDT",
+      "quote_volume_30d": 557272098.15496
+    },
+    {
+      "pair": "ZRO/USDT",
+      "quote_volume_30d": 480565236.24669
+    },
+    {
+      "pair": "ARB/USDT",
+      "quote_volume_30d": 480221766.08788
+    },
+    {
+      "pair": "XLM/USDT",
+      "quote_volume_30d": 473445136.859
+    },
+    {
+      "pair": "FIL/USDT",
+      "quote_volume_30d": 447028498.329591
+    },
+    {
+      "pair": "INJ/USDT",
+      "quote_volume_30d": 445102722.33883
+    },
+    {
+      "pair": "TRUMP/USDT",
+      "quote_volume_30d": 398971694.064363
+    },
+    {
+      "pair": "PAXG/USDT",
+      "quote_volume_30d": 390913916.67882
+    },
+    {
+      "pair": "TIA/USDT",
+      "quote_volume_30d": 369100258.805728
+    },
+    {
+      "pair": "SAND/USDT",
+      "quote_volume_30d": 347398067.40505
+    },
+    {
+      "pair": "DOT/USDT",
+      "quote_volume_30d": 343137634.58246
+    },
+    {
+      "pair": "BCH/USDT",
+      "quote_volume_30d": 339548444.06880003
+    },
+    {
+      "pair": "APT/USDT",
+      "quote_volume_30d": 330879872.898658
+    },
+    {
+      "pair": "MOVR/USDT",
+      "quote_volume_30d": 326100964.515244
+    },
+    {
+      "pair": "PENGU/USDT",
+      "quote_volume_30d": 315679353.312949
+    },
+    {
+      "pair": "GTC/USDT",
+      "quote_volume_30d": 293795829.310251
+    },
+    {
+      "pair": "ICP/USDT",
+      "quote_volume_30d": 284075188.08854
+    },
+    {
+      "pair": "RLC/USDT",
+      "quote_volume_30d": 275308073.37364
+    },
+    {
+      "pair": "DASH/USDT",
+      "quote_volume_30d": 262364159.74318
+    },
+    {
+      "pair": "OP/USDT",
+      "quote_volume_30d": 243920116.068197
+    },
+    {
+      "pair": "MUBARAK/USDT",
+      "quote_volume_30d": 240974637.826716
+    },
+    {
+      "pair": "MAGIC/USDT",
+      "quote_volume_30d": 223165849.86436
+    },
+    {
+      "pair": "POL/USDT",
+      "quote_volume_30d": 220415118.198803
+    },
+    {
+      "pair": "SEI/USDT",
+      "quote_volume_30d": 215902605.221151
+    },
+    {
+      "pair": "W/USDT",
+      "quote_volume_30d": 215423229.113788
+    },
+    {
+      "pair": "VTHO/USDT",
+      "quote_volume_30d": 214231933.351158
+    },
+    {
+      "pair": "AI/USDT",
+      "quote_volume_30d": 206356401.90367
+    },
+    {
+      "pair": "RAY/USDT",
+      "quote_volume_30d": 205110640.78444
+    },
+    {
+      "pair": "BABY/USDT",
+      "quote_volume_30d": 192016045.45206
+    },
+    {
+      "pair": "PYTH/USDT",
+      "quote_volume_30d": 186818096.11394
+    },
+    {
+      "pair": "S/USDT",
+      "quote_volume_30d": 178986365.930082
+    },
+    {
+      "pair": "RENDER/USDT",
+      "quote_volume_30d": 177103886.29738
+    },
+    {
+      "pair": "OGN/USDT",
+      "quote_volume_30d": 176676373.7282
+    },
+    {
+      "pair": "ETHFI/USDT",
+      "quote_volume_30d": 174375711.78639
+    },
+    {
+      "pair": "ERA/USDT",
+      "quote_volume_30d": 172985528.13773
+    },
+    {
+      "pair": "ALGO/USDT",
+      "quote_volume_30d": 172577279.5503
+    },
+    {
+      "pair": "VIRTUAL/USDT",
+      "quote_volume_30d": 164109554.4864
+    },
+    {
+      "pair": "CRV/USDT",
+      "quote_volume_30d": 163097976.61106
+    },
+    {
+      "pair": "BMT/USDT",
+      "quote_volume_30d": 162759618.015338
+    },
+    {
+      "pair": "ORCA/USDT",
+      "quote_volume_30d": 162064285.46321
+    },
+    {
+      "pair": "ZK/USDT",
+      "quote_volume_30d": 157218890.244584
+    },
+    {
+      "pair": "NIL/USDT",
+      "quote_volume_30d": 150283981.34771
+    },
+    {
+      "pair": "ATOM/USDT",
+      "quote_volume_30d": 149019954.42514
+    },
+    {
+      "pair": "ACE/USDT",
+      "quote_volume_30d": 147066441.19054002
+    },
+    {
+      "pair": "CAKE/USDT",
+      "quote_volume_30d": 145594231.5869
+    },
+    {
+      "pair": "NMR/USDT",
+      "quote_volume_30d": 145442844.1128
+    },
+    {
+      "pair": "JUP/USDT",
+      "quote_volume_30d": 141978155.65946
+    },
+    {
+      "pair": "RUNE/USDT",
+      "quote_volume_30d": 141758949.3992
+    },
+    {
+      "pair": "WLFI/USDT",
+      "quote_volume_30d": 140158391.81116
+    },
+    {
+      "pair": "BAT/USDT",
+      "quote_volume_30d": 139935948.4372
+    },
+    {
+      "pair": "PHA/USDT",
+      "quote_volume_30d": 137231815.0533
+    },
+    {
+      "pair": "LDO/USDT",
+      "quote_volume_30d": 133171103.782918
+    },
+    {
+      "pair": "PLUME/USDT",
+      "quote_volume_30d": 127755822.49901
+    },
+    {
+      "pair": "EIGEN/USDT",
+      "quote_volume_30d": 124552978.962323
+    },
+    {
+      "pair": "ALT/USDT",
+      "quote_volume_30d": 122800848.25073
+    },
+    {
+      "pair": "CFX/USDT",
+      "quote_volume_30d": 119180596.76406
+    },
+    {
+      "pair": "SHIB/USDT",
+      "quote_volume_30d": 117392187.13110489
+    },
+    {
+      "pair": "PROM/USDT",
+      "quote_volume_30d": 116241717.57581
+    },
+    {
+      "pair": "SAGA/USDT",
+      "quote_volume_30d": 116196597.04111901
+    },
+    {
+      "pair": "JST/USDT",
+      "quote_volume_30d": 113696953.542478
+    },
+    {
+      "pair": "AVA/USDT",
+      "quote_volume_30d": 111652478.56764
+    },
+    {
+      "pair": "ONE/USDT",
+      "quote_volume_30d": 111340127.230488
+    },
+    {
+      "pair": "PENDLE/USDT",
+      "quote_volume_30d": 109251371.3056
+    },
+    {
+      "pair": "LUMIA/USDT",
+      "quote_volume_30d": 109136724.927401
+    },
+    {
+      "pair": "MINA/USDT",
+      "quote_volume_30d": 106504186.17226
+    },
+    {
+      "pair": "ARK/USDT",
+      "quote_volume_30d": 105235798.7343
+    },
+    {
+      "pair": "STX/USDT",
+      "quote_volume_30d": 104966753.48223001
+    },
+    {
+      "pair": "BFUSD/USDT",
+      "quote_volume_30d": 104538400.8134
+    },
+    {
+      "pair": "AR/USDT",
+      "quote_volume_30d": 103339276.98585
+    },
+    {
+      "pair": "ETC/USDT",
+      "quote_volume_30d": 101818734.4186
+    },
+    {
+      "pair": "SKY/USDT",
+      "quote_volume_30d": 98647987.18007
+    },
+    {
+      "pair": "BONK/USDT",
+      "quote_volume_30d": 97019042.01327272
+    },
+    {
+      "pair": "IOST/USDT",
+      "quote_volume_30d": 96640186.639521
+    },
+    {
+      "pair": "KAIA/USDT",
+      "quote_volume_30d": 94904864.49101
+    },
+    {
+      "pair": "ZEN/USDT",
+      "quote_volume_30d": 92508576.90085
+    },
+    {
+      "pair": "JTO/USDT",
+      "quote_volume_30d": 91701300.09334
+    },
+    {
+      "pair": "GLMR/USDT",
+      "quote_volume_30d": 91365887.8357273
+    },
+    {
+      "pair": "AXS/USDT",
+      "quote_volume_30d": 90862353.47287
+    },
+    {
+      "pair": "AMP/USDT",
+      "quote_volume_30d": 88540705.399128
+    },
+    {
+      "pair": "BEAMX/USDT",
+      "quote_volume_30d": 87866850.604158
+    },
+    {
+      "pair": "0G/USDT",
+      "quote_volume_30d": 81912850.157445
+    },
+    {
+      "pair": "GALA/USDT",
+      "quote_volume_30d": 76795235.421828
+    },
+    {
+      "pair": "RSR/USDT",
+      "quote_volume_30d": 74602389.41114171
+    },
+    {
+      "pair": "LSK/USDT",
+      "quote_volume_30d": 74123657.48485
+    },
+    {
+      "pair": "RAD/USDT",
+      "quote_volume_30d": 72560075.3727
+    },
+    {
+      "pair": "SUPER/USDT",
+      "quote_volume_30d": 69387775.1007
+    },
+    {
+      "pair": "API3/USDT",
+      "quote_volume_30d": 67666799.908012
+    },
+    {
+      "pair": "HUMA/USDT",
+      "quote_volume_30d": 67493763.40264
+    },
+    {
+      "pair": "DODO/USDT",
+      "quote_volume_30d": 65458192.370531
+    },
+    {
+      "pair": "TRB/USDT",
+      "quote_volume_30d": 64665494.09512
+    },
+    {
+      "pair": "WIF/USDT",
+      "quote_volume_30d": 64194980.385923
+    },
+    {
+      "pair": "PARTI/USDT",
+      "quote_volume_30d": 63824273.83579
+    },
+    {
+      "pair": "BOME/USDT",
+      "quote_volume_30d": 63805908.0782666
+    },
+    {
+      "pair": "IO/USDT",
+      "quote_volume_30d": 63490831.053608
+    },
+    {
+      "pair": "EPIC/USDT",
+      "quote_volume_30d": 61998657.40693
+    },
+    {
+      "pair": "ALICE/USDT",
+      "quote_volume_30d": 57111603.354479
+    },
+    {
+      "pair": "APE/USDT",
+      "quote_volume_30d": 57066622.278912
+    },
+    {
+      "pair": "AUDIO/USDT",
+      "quote_volume_30d": 57056395.627186
+    },
+    {
+      "pair": "INIT/USDT",
+      "quote_volume_30d": 55989460.412083
+    },
+    {
+      "pair": "COMP/USDT",
+      "quote_volume_30d": 55440593.864029996
+    },
+    {
+      "pair": "BERA/USDT",
+      "quote_volume_30d": 55258942.5361446
+    },
+    {
+      "pair": "SKL/USDT",
+      "quote_volume_30d": 54597979.24809
+    },
+    {
+      "pair": "COTI/USDT",
+      "quote_volume_30d": 54066609.14205
+    },
+    {
+      "pair": "SYN/USDT",
+      "quote_volume_30d": 53379612.839523
+    },
+    {
+      "pair": "SCR/USDT",
+      "quote_volume_30d": 52960898.984988004
+    },
+    {
+      "pair": "DEXE/USDT",
+      "quote_volume_30d": 52826994.21428
+    },
+    {
+      "pair": "BLUR/USDT",
+      "quote_volume_30d": 52653425.664169
+    },
+    {
+      "pair": "OPEN/USDT",
+      "quote_volume_30d": 52266337.55921
+    },
+    {
+      "pair": "ENJ/USDT",
+      "quote_volume_30d": 51823791.60568
+    },
+    {
+      "pair": "FLOKI/USDT",
+      "quote_volume_30d": 51660004.86992098
+    },
+    {
+      "pair": "CTK/USDT",
+      "quote_volume_30d": 50887783.89559
+    },
+    {
+      "pair": "MANA/USDT",
+      "quote_volume_30d": 50751895.9129
+    },
+    {
+      "pair": "MITO/USDT",
+      "quote_volume_30d": 49078392.456054
+    },
+    {
+      "pair": "ORDI/USDT",
+      "quote_volume_30d": 48167578.0301
+    },
+    {
+      "pair": "GRT/USDT",
+      "quote_volume_30d": 47861845.07444
+    },
+    {
+      "pair": "JASMY/USDT",
+      "quote_volume_30d": 47651289.364369
+    },
+    {
+      "pair": "CKB/USDT",
+      "quote_volume_30d": 47578790.695592
+    },
+    {
+      "pair": "VELODROME/USDT",
+      "quote_volume_30d": 46586847.155819
+    },
+    {
+      "pair": "LPT/USDT",
+      "quote_volume_30d": 46147977.79045
+    },
+    {
+      "pair": "RVN/USDT",
+      "quote_volume_30d": 45965799.8125295
+    },
+    {
+      "pair": "DUSK/USDT",
+      "quote_volume_30d": 45677675.7338
+    },
+    {
+      "pair": "OSMO/USDT",
+      "quote_volume_30d": 44905982.866779
+    },
+    {
+      "pair": "REZ/USDT",
+      "quote_volume_30d": 44566918.1475358
+    },
+    {
+      "pair": "IOTA/USDT",
+      "quote_volume_30d": 44418567.1967
+    },
+    {
+      "pair": "CTSI/USDT",
+      "quote_volume_30d": 43955465.2668
+    },
+    {
+      "pair": "TUT/USDT",
+      "quote_volume_30d": 43943118.79665
+    },
+    {
+      "pair": "CVX/USDT",
+      "quote_volume_30d": 43542710.195855
+    },
+    {
+      "pair": "VET/USDT",
+      "quote_volume_30d": 41896714.543892
+    },
+    {
+      "pair": "LA/USDT",
+      "quote_volume_30d": 40936256.82424
+    },
+    {
+      "pair": "CYBER/USDT",
+      "quote_volume_30d": 39940104.6163
+    },
+    {
+      "pair": "EDU/USDT",
+      "quote_volume_30d": 39578638.4282
+    },
+    {
+      "pair": "NEIRO/USDT",
+      "quote_volume_30d": 39563645.76327826
+    },
+    {
+      "pair": "AXL/USDT",
+      "quote_volume_30d": 39434426.507395
+    },
+    {
+      "pair": "BIO/USDT",
+      "quote_volume_30d": 39124371.491545
+    },
+    {
+      "pair": "QI/USDT",
+      "quote_volume_30d": 38215417.541025996
+    },
+    {
+      "pair": "A/USDT",
+      "quote_volume_30d": 37985585.04276
+    },
+    {
+      "pair": "ARKM/USDT",
+      "quote_volume_30d": 37833735.94115
+    },
+    {
+      "pair": "TREE/USDT",
+      "quote_volume_30d": 37556663.26343
+    },
+    {
+      "pair": "PIXEL/USDT",
+      "quote_volume_30d": 37359275.908782996
+    },
+    {
+      "pair": "KAITO/USDT",
+      "quote_volume_30d": 37267901.69228
+    },
+    {
+      "pair": "SPK/USDT",
+      "quote_volume_30d": 37100690.461712
+    },
+    {
+      "pair": "LUNC/USDT",
+      "quote_volume_30d": 37030646.7285713
+    },
+    {
+      "pair": "CHZ/USDT",
+      "quote_volume_30d": 36912505.93949
+    },
+    {
+      "pair": "CELO/USDT",
+      "quote_volume_30d": 36905302.613086
+    },
+    {
+      "pair": "DYM/USDT",
+      "quote_volume_30d": 36136879.306281
+    },
+    {
+      "pair": "KMNO/USDT",
+      "quote_volume_30d": 36134358.817549996
+    },
+    {
+      "pair": "METIS/USDT",
+      "quote_volume_30d": 35089823.19798
+    },
+    {
+      "pair": "MANTA/USDT",
+      "quote_volume_30d": 33171103.914967
+    },
+    {
+      "pair": "RED/USDT",
+      "quote_volume_30d": 32996248.71658
+    },
+    {
+      "pair": "ANIME/USDT",
+      "quote_volume_30d": 32522976.496138
+    },
+    {
+      "pair": "HEI/USDT",
+      "quote_volume_30d": 32284537.06476
+    },
+    {
+      "pair": "ENS/USDT",
+      "quote_volume_30d": 32125544.0095
+    },
+    {
+      "pair": "ZIL/USDT",
+      "quote_volume_30d": 31965069.8304913
+    },
+    {
+      "pair": "DYDX/USDT",
+      "quote_volume_30d": 31939534.1812683
+    },
+    {
+      "pair": "USUAL/USDT",
+      "quote_volume_30d": 31495149.11374
+    },
+    {
+      "pair": "FLOW/USDT",
+      "quote_volume_30d": 31482198.4321026
+    },
+    {
+      "pair": "T/USDT",
+      "quote_volume_30d": 31429561.125771
+    },
+    {
+      "pair": "RESOLV/USDT",
+      "quote_volume_30d": 31324803.843129
+    },
+    {
+      "pair": "BB/USDT",
+      "quote_volume_30d": 31014608.276971
+    },
+    {
+      "pair": "RARE/USDT",
+      "quote_volume_30d": 31014133.436318
+    },
+    {
+      "pair": "C98/USDT",
+      "quote_volume_30d": 30736803.080158
+    },
+    {
+      "pair": "FORM/USDT",
+      "quote_volume_30d": 30642530.49452
+    },
+    {
+      "pair": "TST/USDT",
+      "quote_volume_30d": 30558322.292534
+    },
+    {
+      "pair": "XAI/USDT",
+      "quote_volume_30d": 30363723.153264
+    },
+    {
+      "pair": "GNS/USDT",
+      "quote_volume_30d": 30171877.8032
+    },
+    {
+      "pair": "BROCCOLI714/USDT",
+      "quote_volume_30d": 29980723.66971
+    },
+    {
+      "pair": "NXPC/USDT",
+      "quote_volume_30d": 29639812.944819998
+    },
+    {
+      "pair": "ROSE/USDT",
+      "quote_volume_30d": 29520517.986663
+    },
+    {
+      "pair": "LINEA/USDT",
+      "quote_volume_30d": 28693909.075606
+    },
+    {
+      "pair": "AVNT/USDT",
+      "quote_volume_30d": 28552889.22989
+    },
+    {
+      "pair": "IMX/USDT",
+      "quote_volume_30d": 28499434.43947
+    },
+    {
+      "pair": "SOPH/USDT",
+      "quote_volume_30d": 27346573.15062
+    },
+    {
+      "pair": "SAHARA/USDT",
+      "quote_volume_30d": 27124298.955
+    },
+    {
+      "pair": "ARPA/USDT",
+      "quote_volume_30d": 25795052.477907002
+    },
+    {
+      "pair": "WCT/USDT",
+      "quote_volume_30d": 25604184.823259
+    },
+    {
+      "pair": "GMT/USDT",
+      "quote_volume_30d": 24598331.467998
+    },
+    {
+      "pair": "MEME/USDT",
+      "quote_volume_30d": 24404032.736739002
+    },
+    {
+      "pair": "BICO/USDT",
+      "quote_volume_30d": 24180261.7215855
+    },
+    {
+      "pair": "UMA/USDT",
+      "quote_volume_30d": 23822831.2098
+    },
+    {
+      "pair": "LAZIO/USDT",
+      "quote_volume_30d": 23803425.99651
+    },
+    {
+      "pair": "THETA/USDT",
+      "quote_volume_30d": 23684497.79225
+    },
+    {
+      "pair": "NEO/USDT",
+      "quote_volume_30d": 23442702.68939
+    },
+    {
+      "pair": "PEOPLE/USDT",
+      "quote_volume_30d": 22503699.833919
+    },
+    {
+      "pair": "SOLV/USDT",
+      "quote_volume_30d": 22473509.89926
+    },
+    {
+      "pair": "XTZ/USDT",
+      "quote_volume_30d": 22418603.66839
+    },
+    {
+      "pair": "ZKC/USDT",
+      "quote_volume_30d": 22329969.98026
+    },
+    {
+      "pair": "G/USDT",
+      "quote_volume_30d": 22221614.285350002
+    },
+    {
+      "pair": "GPS/USDT",
+      "quote_volume_30d": 21751730.87384
+    },
+    {
+      "pair": "ONT/USDT",
+      "quote_volume_30d": 21675781.64183
+    },
+    {
+      "pair": "RONIN/USDT",
+      "quote_volume_30d": 21665199.458186
+    },
+    {
+      "pair": "PROVE/USDT",
+      "quote_volume_30d": 21583314.73774
+    },
+    {
+      "pair": "PNUT/USDT",
+      "quote_volume_30d": 21091376.60463
+    },
+    {
+      "pair": "HYPER/USDT",
+      "quote_volume_30d": 20466822.91745
+    },
+    {
+      "pair": "YGG/USDT",
+      "quote_volume_30d": 20317342.527503
+    },
+    {
+      "pair": "MBL/USDT",
+      "quote_volume_30d": 20113671.646049
+    },
+    {
+      "pair": "MOVE/USDT",
+      "quote_volume_30d": 20083627.1703291
+    },
+    {
+      "pair": "KAVA/USDT",
+      "quote_volume_30d": 19853713.033965
+    },
+    {
+      "pair": "SNX/USDT",
+      "quote_volume_30d": 19450139.241270002
+    },
+    {
+      "pair": "LUNA/USDT",
+      "quote_volume_30d": 19241383.183469
+    },
+    {
+      "pair": "STRAX/USDT",
+      "quote_volume_30d": 19099889.824950002
+    },
+    {
+      "pair": "VANA/USDT",
+      "quote_volume_30d": 19082231.600449998
+    },
+    {
+      "pair": "HOME/USDT",
+      "quote_volume_30d": 18866141.93873
+    },
+    {
+      "pair": "FIDA/USDT",
+      "quote_volume_30d": 18525232.03662
+    },
+    {
+      "pair": "MASK/USDT",
+      "quote_volume_30d": 18516751.4607
+    },
+    {
+      "pair": "BNSOL/USDT",
+      "quote_volume_30d": 18514910.0305
+    },
+    {
+      "pair": "STEEM/USDT",
+      "quote_volume_30d": 18183804.53869
+    },
+    {
+      "pair": "GUN/USDT",
+      "quote_volume_30d": 17852149.28349
+    },
+    {
+      "pair": "SUSHI/USDT",
+      "quote_volume_30d": 17742180.88672
+    },
+    {
+      "pair": "TWT/USDT",
+      "quote_volume_30d": 17734217.1937
+    },
+    {
+      "pair": "ADX/USDT",
+      "quote_volume_30d": 17491699.0778
+    },
+    {
+      "pair": "JUV/USDT",
+      "quote_volume_30d": 17438020.13829
+    },
+    {
+      "pair": "KERNEL/USDT",
+      "quote_volume_30d": 17363887.16862
+    },
+    {
+      "pair": "SXT/USDT",
+      "quote_volume_30d": 17316418.458404
+    },
+    {
+      "pair": "TNSR/USDT",
+      "quote_volume_30d": 17256434.06831
+    },
+    {
+      "pair": "ID/USDT",
+      "quote_volume_30d": 17087145.7428
+    },
+    {
+      "pair": "WIN/USDT",
+      "quote_volume_30d": 16914010.26380966
+    },
+    {
+      "pair": "ONG/USDT",
+      "quote_volume_30d": 16692954.63497
+    },
+    {
+      "pair": "TOWNS/USDT",
+      "quote_volume_30d": 16189537.896611
+    },
+    {
+      "pair": "IOTX/USDT",
+      "quote_volume_30d": 16168782.583696
+    },
+    {
+      "pair": "XEC/USDT",
+      "quote_volume_30d": 16016405.37697262
+    },
+    {
+      "pair": "PORTAL/USDT",
+      "quote_volume_30d": 15780390.473596
+    },
+    {
+      "pair": "HAEDAL/USDT",
+      "quote_volume_30d": 15698632.388106
+    },
+    {
+      "pair": "GMX/USDT",
+      "quote_volume_30d": 15671037.32563
+    },
+    {
+      "pair": "SUN/USDT",
+      "quote_volume_30d": 15648127.02987
+    },
+    {
+      "pair": "DIA/USDT",
+      "quote_volume_30d": 15595622.26981
+    },
+    {
+      "pair": "SOMI/USDT",
+      "quote_volume_30d": 15417343.15386
+    },
+    {
+      "pair": "KSM/USDT",
+      "quote_volume_30d": 15221367.89951
+    },
+    {
+      "pair": "ATM/USDT",
+      "quote_volume_30d": 15211918.91722
+    },
+    {
+      "pair": "1INCH/USDT",
+      "quote_volume_30d": 15197752.08665
+    },
+    {
+      "pair": "CVC/USDT",
+      "quote_volume_30d": 14895097.0888
+    },
+    {
+      "pair": "ACT/USDT",
+      "quote_volume_30d": 14846240.333292
+    },
+    {
+      "pair": "SC/USDT",
+      "quote_volume_30d": 14845036.884755
+    },
+    {
+      "pair": "QUICK/USDT",
+      "quote_volume_30d": 14713211.95666
+    },
+    {
+      "pair": "POLYX/USDT",
+      "quote_volume_30d": 14658242.89971
+    },
+    {
+      "pair": "COW/USDT",
+      "quote_volume_30d": 14609707.15186
+    },
+    {
+      "pair": "ACH/USDT",
+      "quote_volume_30d": 14593224.179
+    },
+    {
+      "pair": "NEXO/USDT",
+      "quote_volume_30d": 14160685.1737
+    },
+    {
+      "pair": "BEL/USDT",
+      "quote_volume_30d": 14053194.40274
+    },
+    {
+      "pair": "EGLD/USDT",
+      "quote_volume_30d": 14031548.62401
+    },
+    {
+      "pair": "XVG/USDT",
+      "quote_volume_30d": 13961917.623435
+    },
+    {
+      "pair": "TURBO/USDT",
+      "quote_volume_30d": 13949474.760661
+    },
+    {
+      "pair": "FLUX/USDT",
+      "quote_volume_30d": 13908270.522375999
+    },
+    {
+      "pair": "ANKR/USDT",
+      "quote_volume_30d": 13848669.16547
+    },
+    {
+      "pair": "ACM/USDT",
+      "quote_volume_30d": 13698114.3248
+    },
+    {
+      "pair": "TLM/USDT",
+      "quote_volume_30d": 13521026.810976
+    },
+    {
+      "pair": "SPELL/USDT",
+      "quote_volume_30d": 13423063.1394036
+    },
+    {
+      "pair": "MAV/USDT",
+      "quote_volume_30d": 13369854.23878
+    },
+    {
+      "pair": "CHR/USDT",
+      "quote_volume_30d": 13350378.78922
+    },
+    {
+      "pair": "STO/USDT",
+      "quote_volume_30d": 13291817.73084
+    },
+    {
+      "pair": "BIGTIME/USDT",
+      "quote_volume_30d": 13204605.79436
+    },
+    {
+      "pair": "CGPT/USDT",
+      "quote_volume_30d": 13149107.837438
+    },
+    {
+      "pair": "DOGS/USDT",
+      "quote_volume_30d": 13132362.86062387
+    },
+    {
+      "pair": "C/USDT",
+      "quote_volume_30d": 13126737.05832
+    },
+    {
+      "pair": "AIXBT/USDT",
+      "quote_volume_30d": 12952103.499265
+    },
+    {
+      "pair": "ILV/USDT",
+      "quote_volume_30d": 12847293.6706
+    },
+    {
+      "pair": "THE/USDT",
+      "quote_volume_30d": 12817398.74222
+    },
+    {
+      "pair": "ME/USDT",
+      "quote_volume_30d": 12611410.1988181
+    },
+    {
+      "pair": "AEVO/USDT",
+      "quote_volume_30d": 12611017.2362486
+    },
+    {
+      "pair": "OG/USDT",
+      "quote_volume_30d": 12505263.1462
+    },
+    {
+      "pair": "SHELL/USDT",
+      "quote_volume_30d": 12490674.313638
+    },
+    {
+      "pair": "SIGN/USDT",
+      "quote_volume_30d": 12462517.16692
+    },
+    {
+      "pair": "NEWT/USDT",
+      "quote_volume_30d": 12213441.80708
+    },
+    {
+      "pair": "CETUS/USDT",
+      "quote_volume_30d": 11901272.515901
+    },
+    {
+      "pair": "YFI/USDT",
+      "quote_volume_30d": 11629997.69067
+    },
+    {
+      "pair": "SSV/USDT",
+      "quote_volume_30d": 11592127.845518
+    },
+    {
+      "pair": "LAYER/USDT",
+      "quote_volume_30d": 11527794.668976
+    },
+    {
+      "pair": "FTT/USDT",
+      "quote_volume_30d": 11506498.728858
+    },
+    {
+      "pair": "PSG/USDT",
+      "quote_volume_30d": 11313778.77284
+    },
+    {
+      "pair": "1000CHEEMS/USDT",
+      "quote_volume_30d": 11245836.740615
+    },
+    {
+      "pair": "BTTC/USDT",
+      "quote_volume_30d": 11086527.645023549
+    },
+    {
+      "pair": "CITY/USDT",
+      "quote_volume_30d": 11044908.89492
+    },
+    {
+      "pair": "HOLO/USDT",
+      "quote_volume_30d": 10847472.32401
+    },
+    {
+      "pair": "HMSTR/USDT",
+      "quote_volume_30d": 10789021.2313314
+    },
+    {
+      "pair": "BAR/USDT",
+      "quote_volume_30d": 10735460.21725
+    },
+    {
+      "pair": "NOT/USDT",
+      "quote_volume_30d": 10268537.175576
+    },
+    {
+      "pair": "AWE/USDT",
+      "quote_volume_30d": 10236564.20872
+    },
+    {
+      "pair": "BARD/USDT",
+      "quote_volume_30d": 10203263.915959999
+    },
+    {
+      "pair": "MTL/USDT",
+      "quote_volume_30d": 10020860.03555
+    },
+    {
+      "pair": "BAND/USDT",
+      "quote_volume_30d": 9673560.746820001
+    },
+    {
+      "pair": "WOO/USDT",
+      "quote_volume_30d": 9613019.84221
+    },
+    {
+      "pair": "GAS/USDT",
+      "quote_volume_30d": 9577144.5388
+    },
+    {
+      "pair": "AUCTION/USDT",
+      "quote_volume_30d": 9514970.18357
+    },
+    {
+      "pair": "ALPINE/USDT",
+      "quote_volume_30d": 9476596.40817
+    },
+    {
+      "pair": "PORTO/USDT",
+      "quote_volume_30d": 9475147.785769999
+    },
+    {
+      "pair": "ASTR/USDT",
+      "quote_volume_30d": 9305997.2551274
+    },
+    {
+      "pair": "1000SATS/USDT",
+      "quote_volume_30d": 9248418.08982528
+    },
+    {
+      "pair": "ASR/USDT",
+      "quote_volume_30d": 9188822.3554
+    },
+    {
+      "pair": "WAXP/USDT",
+      "quote_volume_30d": 8687657.39003
+    },
+    {
+      "pair": "1MBABYDOGE/USDT",
+      "quote_volume_30d": 8660942.2552986
+    },
+    {
+      "pair": "CATI/USDT",
+      "quote_volume_30d": 8607312.613065
+    },
+    {
+      "pair": "SLP/USDT",
+      "quote_volume_30d": 8374688.860491
+    },
+    {
+      "pair": "SANTOS/USDT",
+      "quote_volume_30d": 8223574.9396
+    },
+    {
+      "pair": "BANANAS31/USDT",
+      "quote_volume_30d": 8123195.799834
+    },
+    {
+      "pair": "QKC/USDT",
+      "quote_volume_30d": 8042629.212005
+    },
+    {
+      "pair": "DGB/USDT",
+      "quote_volume_30d": 7924159.889164
+    },
+    {
+      "pair": "CELR/USDT",
+      "quote_volume_30d": 7830571.8722392
+    },
+    {
+      "pair": "LISTA/USDT",
+      "quote_volume_30d": 7794318.04536
+    },
+    {
+      "pair": "PUNDIX/USDT",
+      "quote_volume_30d": 7789430.05069
+    },
+    {
+      "pair": "LQTY/USDT",
+      "quote_volume_30d": 7617207.66399
+    },
+    {
+      "pair": "QTUM/USDT",
+      "quote_volume_30d": 7556859.5093
+    },
+    {
+      "pair": "ZRX/USDT",
+      "quote_volume_30d": 7544449.7394
+    },
+    {
+      "pair": "COOKIE/USDT",
+      "quote_volume_30d": 7389295.046669
+    },
+    {
+      "pair": "TKO/USDT",
+      "quote_volume_30d": 7365778.58458
+    },
+    {
+      "pair": "KNC/USDT",
+      "quote_volume_30d": 7311625.11695
+    },
+    {
+      "pair": "SFP/USDT",
+      "quote_volume_30d": 7236614.9866
+    },
+    {
+      "pair": "DCR/USDT",
+      "quote_volume_30d": 7004393.26549
+    },
+    {
+      "pair": "JOE/USDT",
+      "quote_volume_30d": 6823211.302927
+    },
+    {
+      "pair": "RIF/USDT",
+      "quote_volume_30d": 6790910.58
+    },
+    {
+      "pair": "XVS/USDT",
+      "quote_volume_30d": 6588996.80549
+    },
+    {
+      "pair": "HIVE/USDT",
+      "quote_volume_30d": 6573712.7246
+    },
+    {
+      "pair": "1000CAT/USDT",
+      "quote_volume_30d": 6543373.8922688
+    },
+    {
+      "pair": "XNO/USDT",
+      "quote_volume_30d": 5582297.08988
+    },
+    {
+      "pair": "REQ/USDT",
+      "quote_volume_30d": 5496118.4712
+    },
+    {
+      "pair": "AGLD/USDT",
+      "quote_volume_30d": 5465551.90786
+    },
+    {
+      "pair": "POWR/USDT",
+      "quote_volume_30d": 5432976.6513
+    },
+    {
+      "pair": "TFUEL/USDT",
+      "quote_volume_30d": 5343909.596
+    },
+    {
+      "pair": "HOT/USDT",
+      "quote_volume_30d": 5242286.688407
+    },
+    {
+      "pair": "BANANA/USDT",
+      "quote_volume_30d": 5056198.465961
+    },
+    {
+      "pair": "DOLO/USDT",
+      "quote_volume_30d": 4828932.987331
+    },
+    {
+      "pair": "GLM/USDT",
+      "quote_volume_30d": 4632973.30236
+    },
+    {
+      "pair": "RPL/USDT",
+      "quote_volume_30d": 3870276.26743
+    },
+    {
+      "pair": "BNT/USDT",
+      "quote_volume_30d": 3853606.15689
+    },
+    {
+      "pair": "IQ/USDT",
+      "quote_volume_30d": 3798394.296919
+    },
+    {
+      "pair": "GNO/USDT",
+      "quote_volume_30d": 3623847.0383
+    }
+  ],
+  "candidates": [
+    {
+      "pair": "BTC/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ETH/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "BNB/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "NEO/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "LTC/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "QTUM/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ADA/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "XRP/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "IOTA/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "XLM/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ONT/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "TRX/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ETC/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "VET/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "LINK/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ONG/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "HOT/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ZIL/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ZRX/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "FET/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "BAT/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ZEC/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "IOST/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "CELR/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "DASH/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "THETA/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ENJ/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ATOM/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "TFUEL/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ONE/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ALGO/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "DOGE/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "DUSK/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ANKR/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "WIN/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "MTL/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "CVC/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "CHZ/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "BAND/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "XTZ/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "RVN/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "HBAR/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "STX/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "KAVA/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ARPA/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "IOTX/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "RLC/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "BCH/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "FTT/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "OGN/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "LSK/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "BNT/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "MBL/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "COTI/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "SOL/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "CTSI/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "HIVE/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "CHR/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "KNC/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "COMP/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "SC/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ZEN/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "SNX/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "VTHO/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "DGB/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "DCR/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "MANA/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "YFI/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "JST/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "CRV/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "SAND/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "NMR/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "DOT/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "LUNA/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "RSR/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "PAXG/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "TRB/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "SUSHI/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "KSM/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "EGLD/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "DIA/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "RUNE/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "UMA/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "BEL/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "UNI/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "SUN/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "AVAX/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "XVS/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "AAVE/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "NEAR/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "FIL/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "INJ/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "AUDIO/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "CTK/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "AXS/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "STRAX/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ROSE/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "AVA/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "SKL/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "GRT/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "JUV/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "PSG/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "1INCH/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "OG/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ATM/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ASR/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "CELO/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "RIF/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "CKB/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "TWT/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "SFP/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "DODO/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "CAKE/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ACM/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ALICE/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "SUPER/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "CFX/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "TKO/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "PUNDIX/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "TLM/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "BAR/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "SLP/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "SHIB/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ICP/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "AR/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "MASK/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "LPT/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "XVG/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "GTC/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "PHA/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "DEXE/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "C98/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "QNT/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "FLOW/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "MINA/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "RAY/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "QUICK/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "REQ/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "WAXP/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "GNO/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "XEC/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "DYDX/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "GALA/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ILV/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "YGG/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "FIDA/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "AGLD/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "RAD/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "RARE/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "LAZIO/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ADX/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "AUCTION/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "MOVR/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "CITY/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ENS/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "QI/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "PORTO/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "POWR/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "JASMY/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "AMP/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "SANTOS/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "BICO/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "FLUX/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "CVX/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "PEOPLE/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "SPELL/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "JOE/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ACH/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "IMX/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "GLMR/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "API3/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "BTTC/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "XNO/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "WOO/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ALPINE/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "T/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ASTR/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "GMT/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "APE/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "STEEM/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "NEXO/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "LDO/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "OP/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "LUNC/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "GMX/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "POLYX/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "APT/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "OSMO/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "MAGIC/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "RPL/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "GNS/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "SYN/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "SSV/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "LQTY/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "GAS/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "GLM/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "PROM/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "QKC/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ID/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ARB/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "EDU/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "SUI/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "PEPE/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "FLOKI/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "MAV/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "PENDLE/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ARKM/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "WLD/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "SEI/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "CYBER/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ARK/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "IQ/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "TIA/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "MEME/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ORDI/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "BEAMX/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "BLUR/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "JTO/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "1000SATS/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "BONK/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ACE/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "AI/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "XAI/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "MANTA/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ALT/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "JUP/USDT",
+      "daily_candles": 1000,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "PYTH/USDT",
+      "daily_candles": 998,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "RONIN/USDT",
+      "daily_candles": 995,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "DYM/USDT",
+      "daily_candles": 994,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "PIXEL/USDT",
+      "daily_candles": 981,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "STRK/USDT",
+      "daily_candles": 980,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "PORTAL/USDT",
+      "daily_candles": 971,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "AXL/USDT",
+      "daily_candles": 970,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "WIF/USDT",
+      "daily_candles": 966,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "METIS/USDT",
+      "daily_candles": 960,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "AEVO/USDT",
+      "daily_candles": 958,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "BOME/USDT",
+      "daily_candles": 955,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ETHFI/USDT",
+      "daily_candles": 953,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ENA/USDT",
+      "daily_candles": 938,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "W/USDT",
+      "daily_candles": 937,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "TNSR/USDT",
+      "daily_candles": 932,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "SAGA/USDT",
+      "daily_candles": 931,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "TAO/USDT",
+      "daily_candles": 929,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "REZ/USDT",
+      "daily_candles": 910,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "BB/USDT",
+      "daily_candles": 897,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "NOT/USDT",
+      "daily_candles": 894,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "IO/USDT",
+      "daily_candles": 868,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ZK/USDT",
+      "daily_candles": 862,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "LISTA/USDT",
+      "daily_candles": 859,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ZRO/USDT",
+      "daily_candles": 859,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "G/USDT",
+      "daily_candles": 830,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "BANANA/USDT",
+      "daily_candles": 829,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "RENDER/USDT",
+      "daily_candles": 823,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "DOGS/USDT",
+      "daily_candles": 792,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "POL/USDT",
+      "daily_candles": 774,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "NEIRO/USDT",
+      "daily_candles": 771,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "TURBO/USDT",
+      "daily_candles": 771,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "1MBABYDOGE/USDT",
+      "daily_candles": 771,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "CATI/USDT",
+      "daily_candles": 767,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "HMSTR/USDT",
+      "daily_candles": 761,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "EIGEN/USDT",
+      "daily_candles": 756,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "SCR/USDT",
+      "daily_candles": 746,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "BNSOL/USDT",
+      "daily_candles": 740,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "LUMIA/USDT",
+      "daily_candles": 739,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "KAIA/USDT",
+      "daily_candles": 726,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "COW/USDT",
+      "daily_candles": 720,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "CETUS/USDT",
+      "daily_candles": 720,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "PNUT/USDT",
+      "daily_candles": 715,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ACT/USDT",
+      "daily_candles": 715,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "USUAL/USDT",
+      "daily_candles": 707,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "THE/USDT",
+      "daily_candles": 699,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ORCA/USDT",
+      "daily_candles": 690,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "MOVE/USDT",
+      "daily_candles": 687,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ME/USDT",
+      "daily_candles": 686,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "VELODROME/USDT",
+      "daily_candles": 683,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "VANA/USDT",
+      "daily_candles": 680,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "1000CAT/USDT",
+      "daily_candles": 679,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "PENGU/USDT",
+      "daily_candles": 679,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "BIO/USDT",
+      "daily_candles": 662,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "AIXBT/USDT",
+      "daily_candles": 655,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "CGPT/USDT",
+      "daily_candles": 655,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "COOKIE/USDT",
+      "daily_candles": 655,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "S/USDT",
+      "daily_candles": 649,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "SOLV/USDT",
+      "daily_candles": 648,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "TRUMP/USDT",
+      "daily_candles": 646,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ANIME/USDT",
+      "daily_candles": 642,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "BERA/USDT",
+      "daily_candles": 628,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "1000CHEEMS/USDT",
+      "daily_candles": 625,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "TST/USDT",
+      "daily_candles": 625,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "LAYER/USDT",
+      "daily_candles": 623,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "HEI/USDT",
+      "daily_candles": 621,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "KAITO/USDT",
+      "daily_candles": 614,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "SHELL/USDT",
+      "daily_candles": 607,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "RED/USDT",
+      "daily_candles": 606,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "GPS/USDT",
+      "daily_candles": 602,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "EPIC/USDT",
+      "daily_candles": 593,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "BMT/USDT",
+      "daily_candles": 588,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "FORM/USDT",
+      "daily_candles": 587,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "NIL/USDT",
+      "daily_candles": 582,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "PARTI/USDT",
+      "daily_candles": 581,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "MUBARAK/USDT",
+      "daily_candles": 579,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "TUT/USDT",
+      "daily_candles": 579,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "BROCCOLI714/USDT",
+      "daily_candles": 579,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "BANANAS31/USDT",
+      "daily_candles": 579,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "GUN/USDT",
+      "daily_candles": 575,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "BABY/USDT",
+      "daily_candles": 565,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ONDO/USDT",
+      "daily_candles": 564,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "BIGTIME/USDT",
+      "daily_candles": 564,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "VIRTUAL/USDT",
+      "daily_candles": 564,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "KERNEL/USDT",
+      "daily_candles": 561,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "WCT/USDT",
+      "daily_candles": 560,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "HYPER/USDT",
+      "daily_candles": 553,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "INIT/USDT",
+      "daily_candles": 551,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "SIGN/USDT",
+      "daily_candles": 547,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "STO/USDT",
+      "daily_candles": 543,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "KMNO/USDT",
+      "daily_candles": 539,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "SXT/USDT",
+      "daily_candles": 537,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "NXPC/USDT",
+      "daily_candles": 530,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "AWE/USDT",
+      "daily_candles": 524,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "HAEDAL/USDT",
+      "daily_candles": 524,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "HUMA/USDT",
+      "daily_candles": 519,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "A/USDT",
+      "daily_candles": 517,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "SOPH/USDT",
+      "daily_candles": 517,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "RESOLV/USDT",
+      "daily_candles": 503,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "HOME/USDT",
+      "daily_candles": 502,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "SPK/USDT",
+      "daily_candles": 497,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "NEWT/USDT",
+      "daily_candles": 490,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "SAHARA/USDT",
+      "daily_candles": 488,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "LA/USDT",
+      "daily_candles": 475,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ERA/USDT",
+      "daily_candles": 467,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "C/USDT",
+      "daily_candles": 466,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "TREE/USDT",
+      "daily_candles": 455,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "TOWNS/USDT",
+      "daily_candles": 448,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "PROVE/USDT",
+      "daily_candles": 448,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "BFUSD/USDT",
+      "daily_candles": 440,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "PLUME/USDT",
+      "daily_candles": 435,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "DOLO/USDT",
+      "daily_candles": 426,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "MITO/USDT",
+      "daily_candles": 424,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "WLFI/USDT",
+      "daily_candles": 421,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "SOMI/USDT",
+      "daily_candles": 420,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "OPEN/USDT",
+      "daily_candles": 414,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "LINEA/USDT",
+      "daily_candles": 412,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "HOLO/USDT",
+      "daily_candles": 411,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "PUMP/USDT",
+      "daily_candles": 411,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "AVNT/USDT",
+      "daily_candles": 407,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ZKC/USDT",
+      "daily_candles": 407,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "SKY/USDT",
+      "daily_candles": 405,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "BARD/USDT",
+      "daily_candles": 404,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "0G/USDT",
+      "daily_candles": 400,
+      "history_eligible": true,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "HEMI/USDT",
+      "daily_candles": 399,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "XPL/USDT",
+      "daily_candles": 397,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "MIRA/USDT",
+      "daily_candles": 396,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "FF/USDT",
+      "daily_candles": 393,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "EDEN/USDT",
+      "daily_candles": 392,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "NOM/USDT",
+      "daily_candles": 391,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "2Z/USDT",
+      "daily_candles": 390,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "MORPHO/USDT",
+      "daily_candles": 389,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ASTER/USDT",
+      "daily_candles": 386,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "WAL/USDT",
+      "daily_candles": 382,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "EUL/USDT",
+      "daily_candles": 379,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ENSO/USDT",
+      "daily_candles": 378,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "YB/USDT",
+      "daily_candles": 377,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ZBT/USDT",
+      "daily_candles": 375,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "TURTLE/USDT",
+      "daily_candles": 370,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "GIGGLE/USDT",
+      "daily_candles": 367,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "F/USDT",
+      "daily_candles": 367,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "KITE/USDT",
+      "daily_candles": 358,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "MMT/USDT",
+      "daily_candles": 357,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "SAPIEN/USDT",
+      "daily_candles": 355,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ALLO/USDT",
+      "daily_candles": 350,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "BANK/USDT",
+      "daily_candles": 348,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "MET/USDT",
+      "daily_candles": 348,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "AT/USDT",
+      "daily_candles": 334,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "KGST/USDT",
+      "daily_candles": 307,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "BREV/USDT",
+      "daily_candles": 294,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "币安人生/USDT",
+      "daily_candles": 293,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ZKP/USDT",
+      "daily_candles": 293,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "U/USDT",
+      "daily_candles": 287,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "FOGO/USDT",
+      "daily_candles": 285,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "SENT/USDT",
+      "daily_candles": 278,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ZAMA/USDT",
+      "daily_candles": 267,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ESP/USDT",
+      "daily_candles": 257,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "MANTRA/USDT",
+      "daily_candles": 237,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ROBO/USDT",
+      "daily_candles": 237,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "OPN/USDT",
+      "daily_candles": 236,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "NIGHT/USDT",
+      "daily_candles": 230,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "CFG/USDT",
+      "daily_candles": 225,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "KAT/USDT",
+      "daily_candles": 223,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "XAUT/USDT",
+      "daily_candles": 215,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "CHIP/USDT",
+      "daily_candles": 189,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "MEGA/USDT",
+      "daily_candles": 180,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "AIGENSYN/USDT",
+      "daily_candles": 166,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "GENIUS/USDT",
+      "daily_candles": 158,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "OPG/USDT",
+      "daily_candles": 158,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "MUB/USDT",
+      "daily_candles": 138,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "CRCLB/USDT",
+      "daily_candles": 138,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "NVDAB/USDT",
+      "daily_candles": 138,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "SNDKB/USDT",
+      "daily_candles": 138,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "TSLAB/USDT",
+      "daily_candles": 138,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "SPCXB/USDT",
+      "daily_candles": 137,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "RE/USDT",
+      "daily_candles": 131,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "AMDB/USDT",
+      "daily_candles": 126,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "EWYB/USDT",
+      "daily_candles": 126,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "INTCB/USDT",
+      "daily_candles": 126,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "MSTRB/USDT",
+      "daily_candles": 126,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "LITEB/USDT",
+      "daily_candles": 119,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "METAB/USDT",
+      "daily_candles": 119,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "MSFTB/USDT",
+      "daily_candles": 119,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "PLTRB/USDT",
+      "daily_candles": 119,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "QQQB/USDT",
+      "daily_candles": 119,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "GRAM/USDT",
+      "daily_candles": 117,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "CBRSB/USDT",
+      "daily_candles": 112,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "COINB/USDT",
+      "daily_candles": 112,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "DRAMB/USDT",
+      "daily_candles": 112,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "GLWB/USDT",
+      "daily_candles": 112,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "GOOGLB/USDT",
+      "daily_candles": 112,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "NBISB/USDT",
+      "daily_candles": 112,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "QCOMB/USDT",
+      "daily_candles": 112,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "SOXLB/USDT",
+      "daily_candles": 112,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "SPYB/USDT",
+      "daily_candles": 112,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "WDCB/USDT",
+      "daily_candles": 112,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "SKHYB/USDT",
+      "daily_candles": 106,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "AAOIB/USDT",
+      "daily_candles": 104,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ARMB/USDT",
+      "daily_candles": 104,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "AVGOB/USDT",
+      "daily_candles": 104,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "BABAB/USDT",
+      "daily_candles": 104,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "HOODB/USDT",
+      "daily_candles": 104,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "IBMB/USDT",
+      "daily_candles": 104,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "MRVLB/USDT",
+      "daily_candles": 104,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "NOKB/USDT",
+      "daily_candles": 104,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "TSMB/USDT",
+      "daily_candles": 104,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "RKLBB/USDT",
+      "daily_candles": 104,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "AERO/USDT",
+      "daily_candles": 102,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "AXTIB/USDT",
+      "daily_candles": 97,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "CRWVB/USDT",
+      "daily_candles": 97,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "INTWB/USDT",
+      "daily_candles": 97,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "KORUB/USDT",
+      "daily_candles": 97,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "MUUB/USDT",
+      "daily_candles": 97,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "MVLLB/USDT",
+      "daily_candles": 97,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ORCLB/USDT",
+      "daily_candles": 97,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "QNTB/USDT",
+      "daily_candles": 97,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "SNXXB/USDT",
+      "daily_candles": 97,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "TQQQB/USDT",
+      "daily_candles": 97,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "AAPLB/USDT",
+      "daily_candles": 90,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "AMATB/USDT",
+      "daily_candles": 90,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "AMZNB/USDT",
+      "daily_candles": 90,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "BEB/USDT",
+      "daily_candles": 90,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "DELLB/USDT",
+      "daily_candles": 90,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "FLNCB/USDT",
+      "daily_candles": 90,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "GSB/USDT",
+      "daily_candles": 90,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "PYPLB/USDT",
+      "daily_candles": 90,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "SMHB/USDT",
+      "daily_candles": 90,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "SOXSB/USDT",
+      "daily_candles": 90,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ASMLB/USDT",
+      "daily_candles": 83,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ASTSB/USDT",
+      "daily_candles": 83,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "BMNRB/USDT",
+      "daily_candles": 83,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "COHRB/USDT",
+      "daily_candles": 83,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "CRDOB/USDT",
+      "daily_candles": 83,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "IRENB/USDT",
+      "daily_candles": 83,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "NFLXB/USDT",
+      "daily_candles": 83,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "SMCIB/USDT",
+      "daily_candles": 83,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "USARB/USDT",
+      "daily_candles": 83,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ALABB/USDT",
+      "daily_candles": 83,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "GMEB/USDT",
+      "daily_candles": 76,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "DJTB/USDT",
+      "daily_candles": 62,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "CRWDB/USDT",
+      "daily_candles": 55,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "MRNAB/USDT",
+      "daily_candles": 55,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "SQQQB/USDT",
+      "daily_candles": 55,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "STXB/USDT",
+      "daily_candles": 55,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "MARSCOIN/USDT",
+      "daily_candles": 53,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "CRMB/USDT",
+      "daily_candles": 48,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "HIMSB/USDT",
+      "daily_candles": 48,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "牛来/USDT",
+      "daily_candles": 48,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "BNCB/USDT",
+      "daily_candles": 43,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "GPROB/USDT",
+      "daily_candles": 41,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "RDDTB/USDT",
+      "daily_candles": 41,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "AGPUB/USDT",
+      "daily_candles": 34,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "AMCB/USDT",
+      "daily_candles": 34,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "CYPHB/USDT",
+      "daily_candles": 34,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "HYPE/USDT",
+      "daily_candles": 33,
+      "history_eligible": false,
+      "window_closed_candles": 30
+    },
+    {
+      "pair": "ADBEB/USDT",
+      "daily_candles": 27,
+      "history_eligible": false,
+      "window_closed_candles": 27
+    },
+    {
+      "pair": "FWDIB/USDT",
+      "daily_candles": 27,
+      "history_eligible": false,
+      "window_closed_candles": 27
+    },
+    {
+      "pair": "HPEB/USDT",
+      "daily_candles": 27,
+      "history_eligible": false,
+      "window_closed_candles": 27
+    },
+    {
+      "pair": "PDDB/USDT",
+      "daily_candles": 27,
+      "history_eligible": false,
+      "window_closed_candles": 27
+    },
+    {
+      "pair": "SHAZB/USDT",
+      "daily_candles": 27,
+      "history_eligible": false,
+      "window_closed_candles": 27
+    },
+    {
+      "pair": "WENB/USDT",
+      "daily_candles": 27,
+      "history_eligible": false,
+      "window_closed_candles": 27
+    },
+    {
+      "pair": "ZMB/USDT",
+      "daily_candles": 27,
+      "history_eligible": false,
+      "window_closed_candles": 27
+    },
+    {
+      "pair": "USDEB/USDT",
+      "daily_candles": 20,
+      "history_eligible": false,
+      "window_closed_candles": 20
+    },
+    {
+      "pair": "SECZB/USDT",
+      "daily_candles": 20,
+      "history_eligible": false,
+      "window_closed_candles": 20
+    },
+    {
+      "pair": "LLYB/USDT",
+      "daily_candles": 20,
+      "history_eligible": false,
+      "window_closed_candles": 20
+    },
+    {
+      "pair": "JPMB/USDT",
+      "daily_candles": 20,
+      "history_eligible": false,
+      "window_closed_candles": 20
+    },
+    {
+      "pair": "RWUSD/USDT",
+      "daily_candles": 14,
+      "history_eligible": false,
+      "window_closed_candles": 14
+    },
+    {
+      "pair": "BBB/USDT",
+      "daily_candles": 13,
+      "history_eligible": false,
+      "window_closed_candles": 13
+    },
+    {
+      "pair": "MDBB/USDT",
+      "daily_candles": 13,
+      "history_eligible": false,
+      "window_closed_candles": 13
+    },
+    {
+      "pair": "PENGB/USDT",
+      "daily_candles": 13,
+      "history_eligible": false,
+      "window_closed_candles": 13
+    },
+    {
+      "pair": "UVXYB/USDT",
+      "daily_candles": 13,
+      "history_eligible": false,
+      "window_closed_candles": 13
+    },
+    {
+      "pair": "BOTB/USDT",
+      "daily_candles": 6,
+      "history_eligible": false,
+      "window_closed_candles": 6
+    },
+    {
+      "pair": "KSTRB/USDT",
+      "daily_candles": 6,
+      "history_eligible": false,
+      "window_closed_candles": 6
+    },
+    {
+      "pair": "TMFB/USDT",
+      "daily_candles": 6,
+      "history_eligible": false,
+      "window_closed_candles": 6
+    },
+    {
+      "pair": "VSTB/USDT",
+      "daily_candles": 6,
+      "history_eligible": false,
+      "window_closed_candles": 6
+    },
+    {
+      "pair": "BRKBB/USDT",
+      "daily_candles": 6,
+      "history_eligible": false,
+      "window_closed_candles": 6
+    }
+  ]
 }
