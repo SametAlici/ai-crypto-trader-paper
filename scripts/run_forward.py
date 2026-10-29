@@ -71,6 +71,17 @@ def load_closed(pairs, today, history_start="2025-01-01", listings=None):
     return result
 
 
+def backtest_start(start=START_DATE):
+    """Backtest timerange begins one day before START_DATE.
+
+    Freqtrade shifts signals by one candle *after* trimming to the timerange, so the
+    first candle in range can never enter. Starting a day early lets the signal from
+    the day before START_DATE fill at START_DATE's open, exactly like a live bot that
+    starts that morning. No position can open before START_DATE.
+    """
+    return (pd.Timestamp(start) - pd.Timedelta(days=1)).strftime('%Y%m%d')
+
+
 def backtest(config_path, strategy, start, output, end='', fee=0.0015):
     run_freqtrade(['backtesting', '-c', str(config_path), '--userdir', str(ROOT / 'user_data'),
                    '--datadir', str(DATA), '--strategy', strategy, '--timerange', start + '-' + end,
@@ -135,7 +146,7 @@ def execute():
                 output = temp / track
                 output.mkdir()
                 stats = backtest(runtime[track], TRACKS[track]['strategy'],
-                                 START_DATE.replace('-', ''), output)
+                                 backtest_start(), output)
             summary, equity = build_summary(track, stats, {p: candles[p] for p in track_pairs},
                                             START_DATE, updated)
             stress_fee = TRACKS[track].get('stress_fee')
@@ -145,7 +156,7 @@ def execute():
                     stress_out = temp / (track + '-stress')
                     stress_out.mkdir()
                     stress_stats = backtest(runtime[track], TRACKS[track]['strategy'],
-                        START_DATE.replace('-', ''), stress_out, fee=stress_fee)
+                        backtest_start(), stress_out, fee=stress_fee)
                 stress, stress_equity = build_summary(track, stress_stats,
                     {p: candles[p] for p in track_pairs}, START_DATE, updated, fee=stress_fee)
                 summary['fee_stress'] = {'fee_per_side': stress_fee,
