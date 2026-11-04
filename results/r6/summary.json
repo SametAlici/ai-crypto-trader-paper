@@ -1,11 +1,11 @@
 {
-  "gross_profit_usdt": -46.48254599940005,
-  "total_fees_usdt": 2.9469875106,
-  "net_profit_usdt": -49.429533510000056,
+  "gross_profit_usdt": -49.19910599940001,
+  "total_fees_usdt": 3.2945837106,
+  "net_profit_usdt": -52.49368971000001,
   "top3_profit_share_pct": null,
   "best_trade_profit_share_pct": null,
-  "net_without_best_trade_usdt": -51.727291210000054,
-  "net_without_best_trade_pct": -5.172729121000005,
+  "net_without_best_trade_usdt": -54.79144741000001,
+  "net_without_best_trade_pct": -5.479144741000002,
   "per_coin_contribution": {
     "BTC/USDT": -7.45465508,
     "ETH/USDT": 0.0,
@@ -15,13 +15,13 @@
     "TRX/USDT": -14.64929455,
     "ZEC/USDT": 2.2977577,
     "DOGE/USDT": 0.0,
-    "LINK/USDT": -9.29294008,
+    "LINK/USDT": -12.35709628,
     "ADA/USDT": 0.0
   },
-  "win_rate_pct": 16.666666666666664,
+  "win_rate_pct": 14.285714285714285,
   "avg_win_usdt": 2.2977577,
-  "avg_loss_usdt": -10.345458242,
-  "avg_win_loss_ratio": 0.22210303751183033,
+  "avg_loss_usdt": -9.131907901666667,
+  "avg_win_loss_ratio": 0.25161858011956467,
   "daily_returns": [
     {
       "date": "2026-10-27",
@@ -250,9 +250,9 @@
     },
     {
       "date": "2026-11-02",
-      "return_pct": 0.0,
+      "return_pct": -0.3223491900936515,
       "buy_hold_return_pct": -2.026845936385724,
-      "fees_cumulative": 2.9469875106,
+      "fees_cumulative": 3.1228230306,
       "per_coin_cumulative": {
         "BTC/USDT": -7.45465508,
         "ETH/USDT": 0.0,
@@ -262,7 +262,7 @@
         "TRX/USDT": -14.64929455,
         "ZEC/USDT": 2.2977577,
         "DOGE/USDT": 0.0,
-        "LINK/USDT": -9.29294008,
+        "LINK/USDT": -12.357096279999999,
         "ADA/USDT": 0.0
       },
       "per_trade_cumulative": {
@@ -271,7 +271,8 @@
         "2": -10.80782472,
         "3": -9.52257678,
         "4": 2.2977577,
-        "5": -14.64929455
+        "5": -14.64929455,
+        "6": -3.0641561999999993
       },
       "buy_hold_per_coin_cumulative": {
         "BTC/USDT": -4.447458440379459,
@@ -285,18 +286,57 @@
         "LINK/USDT": -2.729563378936517,
         "ADA/USDT": -9.029972216324778
       }
+    },
+    {
+      "date": "2026-11-03",
+      "return_pct": 0.0,
+      "buy_hold_return_pct": 1.3696676543700992,
+      "fees_cumulative": 3.2945837106,
+      "per_coin_cumulative": {
+        "BTC/USDT": -7.45465508,
+        "ETH/USDT": 0.0,
+        "BNB/USDT": -10.80782472,
+        "XRP/USDT": 0.0,
+        "SOL/USDT": -9.52257678,
+        "TRX/USDT": -14.64929455,
+        "ZEC/USDT": 2.2977577,
+        "DOGE/USDT": 0.0,
+        "LINK/USDT": -12.35709628,
+        "ADA/USDT": 0.0
+      },
+      "per_trade_cumulative": {
+        "0": -9.29294008,
+        "1": -7.45465508,
+        "2": -10.80782472,
+        "3": -9.52257678,
+        "4": 2.2977577,
+        "5": -14.64929455,
+        "6": -3.0641562
+      },
+      "buy_hold_per_coin_cumulative": {
+        "BTC/USDT": -3.654015093170293,
+        "ETH/USDT": -2.434625577711824,
+        "BNB/USDT": -6.3027559432184415,
+        "XRP/USDT": -2.767119658912054,
+        "SOL/USDT": -8.309959273493172,
+        "TRX/USDT": -2.6301319120287547,
+        "ZEC/USDT": -1.4555307162822606,
+        "DOGE/USDT": -3.569048433522559,
+        "LINK/USDT": -3.60366866848596,
+        "ADA/USDT": -8.402925365217762
+      }
     }
   ],
   "trade_metrics_method": "Closed trades only for win rate and concentration; net includes terminal valuation. Shares undefined for net <= 0. Fees include modeled terminal liquidation.",
   "track": "r6",
   "start_date": "2026-10-27",
-  "updated_utc": "2026-11-03T06:50:22.062254+00:00",
-  "date": "2026-11-02",
+  "updated_utc": "2026-11-04T06:25:05.532924+00:00",
+  "date": "2026-11-03",
   "status": "active",
-  "balance": 950.57046649,
-  "profit_pct": -4.942953351000002,
-  "trades": 6,
-  "entries": 6,
+  "balance": 947.50631029,
+  "profit_pct": -5.249368971000001,
+  "trades": 7,
+  "entries": 7,
   "open_positions": [],
   "closed_trades": [
     {
@@ -400,11 +440,28 @@
       "valuation_date": null,
       "valuation_price": null,
       "exit_reason": "momentum_end"
+    },
+    {
+      "trade_id": 6,
+      "pair": "LINK/USDT",
+      "entry_date": "2026-11-02 00:00:00+00:00",
+      "entry_price": 11.392,
+      "amount": 10.29,
+      "profit_usdt": -3.0641562,
+      "fees_usdt": 0.3475962,
+      "profit_pct": -2.6100245698867433,
+      "holding_days": 1.0,
+      "status": "kapalı",
+      "exit_date": "2026-11-03 00:00:00+00:00",
+      "exit_price": 11.128,
+      "valuation_date": null,
+      "valuation_price": null,
+      "exit_reason": "momentum_end"
     }
   ],
-  "max_drawdown_pct": 6.630536196136982,
-  "engine_max_drawdown_pct": 4.942953351000005,
-  "buy_hold_profit_pct": -5.605864012447947,
+  "max_drawdown_pct": 6.931511906503518,
+  "engine_max_drawdown_pct": 5.249368971000001,
+  "buy_hold_profit_pct": -4.312978064204309,
   "buy_hold_pairs": [
     "BTC/USDT",
     "ETH/USDT",
