@@ -325,13 +325,52 @@
         "LINK/USDT": -3.60366866848596,
         "ADA/USDT": -8.402925365217762
       }
+    },
+    {
+      "date": "2026-11-04",
+      "return_pct": 0.0,
+      "buy_hold_return_pct": 3.498665692135794,
+      "fees_cumulative": 3.2945837106,
+      "per_coin_cumulative": {
+        "BTC/USDT": -7.45465508,
+        "ETH/USDT": 0.0,
+        "BNB/USDT": -10.80782472,
+        "XRP/USDT": 0.0,
+        "SOL/USDT": -9.52257678,
+        "TRX/USDT": -14.64929455,
+        "ZEC/USDT": 2.2977577,
+        "DOGE/USDT": 0.0,
+        "LINK/USDT": -12.35709628,
+        "ADA/USDT": 0.0
+      },
+      "per_trade_cumulative": {
+        "0": -9.29294008,
+        "1": -7.45465508,
+        "2": -10.80782472,
+        "3": -9.52257678,
+        "4": 2.2977577,
+        "5": -14.64929455,
+        "6": -3.0641562
+      },
+      "buy_hold_per_coin_cumulative": {
+        "BTC/USDT": 0.14011093054970836,
+        "ETH/USDT": 3.992044240966841,
+        "BNB/USDT": -3.370271366141242,
+        "XRP/USDT": -0.5965728666186498,
+        "SOL/USDT": -5.564097879335151,
+        "TRX/USDT": -3.1446758217258175,
+        "ZEC/USDT": 4.8287971500028615,
+        "DOGE/USDT": -1.1714167431979616,
+        "LINK/USDT": 0.0675735476217687,
+        "ADA/USDT": -4.833581751224159
+      }
     }
   ],
   "trade_metrics_method": "Closed trades only for win rate and concentration; net includes terminal valuation. Shares undefined for net <= 0. Fees include modeled terminal liquidation.",
   "track": "r6",
   "start_date": "2026-10-27",
-  "updated_utc": "2026-11-04T06:25:05.532924+00:00",
-  "date": "2026-11-03",
+  "updated_utc": "2026-11-05T06:49:11.496454+00:00",
+  "date": "2026-11-04",
   "status": "active",
   "balance": 947.50631029,
   "profit_pct": -5.249368971000001,
@@ -461,7 +500,7 @@
   ],
   "max_drawdown_pct": 6.931511906503518,
   "engine_max_drawdown_pct": 5.249368971000001,
-  "buy_hold_profit_pct": -4.312978064204309,
+  "buy_hold_profit_pct": -0.9652090559101656,
   "buy_hold_pairs": [
     "BTC/USDT",
     "ETH/USDT",
