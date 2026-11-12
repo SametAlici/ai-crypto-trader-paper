@@ -327,13 +327,35 @@
         "ETH/USDT": -39.79127205888022,
         "SOL/USDT": -58.9118139051907
       }
+    },
+    {
+      "date": "2026-11-11",
+      "return_pct": 0.0,
+      "buy_hold_return_pct": 0.12912359355135017,
+      "fees_cumulative": 3.7253784342000005,
+      "per_coin_cumulative": {
+        "BTC/USDT": -30.91483897,
+        "ETH/USDT": -23.57852085,
+        "SOL/USDT": -15.87419862
+      },
+      "per_trade_cumulative": {
+        "0": -12.40430461,
+        "1": -15.87419862,
+        "2": -18.51053436,
+        "3": -23.57852085
+      },
+      "buy_hold_per_coin_cumulative": {
+        "BTC/USDT": -26.438089351254465,
+        "ETH/USDT": -39.34092480116446,
+        "SOL/USDT": -59.14228188791381
+      }
     }
   ],
   "trade_metrics_method": "Closed trades only for win rate and concentration; net includes terminal valuation. Shares undefined for net <= 0. Fees include modeled terminal liquidation.",
   "track": "r1",
   "start_date": "2026-10-27",
-  "updated_utc": "2026-11-11T06:24:04.390743+00:00",
-  "date": "2026-11-10",
+  "updated_utc": "2026-11-12T07:13:13.402242+00:00",
+  "date": "2026-11-11",
   "status": "active",
   "balance": 929.63244156,
   "profit_pct": -7.036755844000009,
@@ -412,7 +434,7 @@
   ],
   "max_drawdown_pct": 7.7575017078272746,
   "engine_max_drawdown_pct": 7.0367558440000035,
-  "buy_hold_profit_pct": -12.604977198060174,
+  "buy_hold_profit_pct": -12.492129604033275,
   "buy_hold_pairs": [
     "BTC/USDT",
     "ETH/USDT",
