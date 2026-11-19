@@ -910,13 +910,55 @@
         "LINK/USDT": -18.46345859082672,
         "ADA/USDT": -25.04378410613397
       }
+    },
+    {
+      "date": "2026-11-18",
+      "return_pct": 0.0,
+      "buy_hold_return_pct": -2.3791108365012192,
+      "fees_cumulative": 4.560249163500001,
+      "per_coin_cumulative": {
+        "BTC/USDT": -18.29122419,
+        "ETH/USDT": -13.78317475,
+        "BNB/USDT": -10.80782472,
+        "XRP/USDT": 0.0,
+        "SOL/USDT": -9.52257678,
+        "TRX/USDT": -14.64929455,
+        "ZEC/USDT": 1.18415811,
+        "DOGE/USDT": 0.0,
+        "LINK/USDT": -12.35709628,
+        "ADA/USDT": 0.0
+      },
+      "per_trade_cumulative": {
+        "0": -9.29294008,
+        "1": -7.45465508,
+        "2": -10.80782472,
+        "3": -9.52257678,
+        "4": 2.2977577,
+        "5": -14.64929455,
+        "6": -3.0641562,
+        "7": -10.83656911,
+        "8": -13.78317475,
+        "9": -1.11359959
+      },
+      "buy_hold_per_coin_cumulative": {
+        "BTC/USDT": -21.54852227867512,
+        "ETH/USDT": -23.775938767635264,
+        "BNB/USDT": -21.79459551905466,
+        "XRP/USDT": -26.300416459567,
+        "SOL/USDT": -27.264304652591154,
+        "TRX/USDT": -6.262206568714035,
+        "ZEC/USDT": -26.14176745163279,
+        "DOGE/USDT": -24.63487125279159,
+        "LINK/USDT": -20.60501655022289,
+        "ADA/USDT": -26.973159032617012
+      }
     }
   ],
   "trade_metrics_method": "Closed trades only for win rate and concentration; net includes terminal valuation. Shares undefined for net <= 0. Fees include modeled terminal liquidation.",
   "track": "r6",
   "start_date": "2026-10-27",
-  "updated_utc": "2026-11-18T07:30:50.518617+00:00",
-  "date": "2026-11-17",
+  "updated_utc": "2026-11-19T07:28:46.975657+00:00",
+  "date": "2026-11-18",
   "status": "active",
   "balance": 921.77296684,
   "profit_pct": -7.822703316000002,
@@ -1097,7 +1139,7 @@
   ],
   "max_drawdown_pct": 9.459160897061757,
   "engine_max_drawdown_pct": 7.822703316000002,
-  "buy_hold_profit_pct": -20.64206666167464,
+  "buy_hold_profit_pct": -22.53007985335015,
   "buy_hold_pairs": [
     "BTC/USDT",
     "ETH/USDT",
